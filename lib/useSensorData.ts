@@ -69,8 +69,6 @@ export function useLiveSensorData() {
         const raw = snapshot.val()
         if (raw) {
           const lastUpdated = raw.last_updated ?? 0
-          const isStale = Date.now() - lastUpdated > 15000 // 15 seconds
-
           setData({
             temperature: Number(raw.temperature ?? 31.5),
             humidity: Number(raw.humidity ?? 62),
@@ -84,6 +82,9 @@ export function useLiveSensorData() {
             servoAngle: Number(raw.servo_angle ?? 90),
             lastUpdated: lastUpdated,
           })
+          
+          // Immediate check on new data
+          const isStale = Date.now() - lastUpdated > 15000
           setConnected(!isStale)
         }
       },
@@ -93,20 +94,21 @@ export function useLiveSensorData() {
       }
     )
 
-    // Check for staleness every 5 seconds even if no new data arrives
+    // Check for staleness every 5 seconds
     const interval = setInterval(() => {
-      setData((prev) => {
-        const isStale = Date.now() - prev.lastUpdated > 15000
-        if (isStale) setConnected(false)
-        return prev
-      })
+      const isStale = Date.now() - data.lastUpdated > 15000
+      if (isStale && connected) {
+        setConnected(false)
+      } else if (!isStale && !connected && data.lastUpdated !== 0) {
+        setConnected(true)
+      }
     }, 5000)
 
     return () => {
       unsubscribe()
       clearInterval(interval)
     }
-  }, [])
+  }, [data.lastUpdated, connected])
 
   return { data, connected }
 }

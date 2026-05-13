@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "broilerguard",
-    "project_version":    "de3239e-dirty",
+    "project_version":    "e4c9984-dirty",
     "project_path":       "C:/Users/Abdullahi Uba Aliyu/BroilerGuard/broilerguard_firebase (2)/broilerguard/esp32-firmware",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.5.1",
     "build_dir":          "C:/Users/Abdullahi Uba Aliyu/BroilerGuard/broilerguard_firebase (2)/broilerguard/esp32-firmware/build",

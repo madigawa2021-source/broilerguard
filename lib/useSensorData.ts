@@ -18,6 +18,7 @@ export interface SensorData {
   heater: boolean
   vibration: boolean
   servoAngle: number
+  lastUpdated: number
 }
 
 export interface ChartPoint {
@@ -55,6 +56,7 @@ export function useLiveSensorData() {
     heater: false,
     vibration: false,
     servoAngle: 90,
+    lastUpdated: Date.now(),
   })
   const [connected, setConnected] = useState(false)
 
@@ -66,6 +68,9 @@ export function useLiveSensorData() {
       (snapshot) => {
         const raw = snapshot.val()
         if (raw) {
+          const lastUpdated = raw.last_updated ?? 0
+          const isStale = Date.now() - lastUpdated > 15000 // 15 seconds
+
           setData({
             temperature: Number(raw.temperature ?? 31.5),
             humidity: Number(raw.humidity ?? 62),
@@ -77,8 +82,9 @@ export function useLiveSensorData() {
             heater: Boolean(raw.heater),
             vibration: Boolean(raw.vibration),
             servoAngle: Number(raw.servo_angle ?? 90),
+            lastUpdated: lastUpdated,
           })
-          setConnected(true)
+          setConnected(!isStale)
         }
       },
       (error) => {
@@ -87,7 +93,19 @@ export function useLiveSensorData() {
       }
     )
 
-    return () => unsubscribe()
+    // Check for staleness every 5 seconds even if no new data arrives
+    const interval = setInterval(() => {
+      setData((prev) => {
+        const isStale = Date.now() - prev.lastUpdated > 15000
+        if (isStale) setConnected(false)
+        return prev
+      })
+    }, 5000)
+
+    return () => {
+      unsubscribe()
+      clearInterval(interval)
+    }
   }, [])
 
   return { data, connected }

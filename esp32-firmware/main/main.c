@@ -101,7 +101,7 @@ static const char *TAG = "BroilerGuard";
 #define HUMIDITY_MIN        40.0f
 #define LDR_DARK_THRESHOLD  1500  // Increased threshold for internal pull-down1
 // ─── TIMING ───────────────────────────────────────────────────────────────────
-#define SENSOR_INTERVAL_MS      60000
+#define SENSOR_INTERVAL_MS      5000
 #define HISTORY_INTERVAL_MS     3600000
 #define BUZZER_SHORT_MS         200
 #define BUZZER_LONG_MS          1000
@@ -623,7 +623,8 @@ static void sensor_task(void *pvParameters)
                          "{\"temperature\":%.1f,\"humidity\":%.0f,"
                          "\"power_status\":\"%s\",\"fan\":%s,"
                          "\"water_mister\":%s,\"light\":%s,\"heater\":%s,"
-                         "\"vibration\":%s,\"servo_angle\":%d}",
+                         "\"vibration\":%s,\"servo_angle\":%d,"
+                         "\"last_updated\":{\".sv\":\"timestamp\"}}",
                          temp, hum,
                          g_power_ok  ? "grid"  : "outage",
                          g_fan_on    ? "true"  : "false",

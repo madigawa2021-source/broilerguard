@@ -1,0 +1,387 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM18 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\broilerguard.elf C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+[0;32mI (138) esp_image: segment 3: paddr=00050020 vaddr=42000020 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40379d32
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time May 13 2026 06:59:56[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=318c0h (202944) map[0m
+[0;32mI (122) esp_image: segment 1: paddr=000418e8 vaddr=3fc9aa00 size=04afch ( 19196) load[0m
+[0;32mI (127) esp_image: segment 2: paddr=000463ec vaddr=40374000 sizeI (260) esp_image: segment 4: paddr=000f4094 vaddr=4037dc2c size=0ccd8h ( 52440) load[0m
+[0;32mI (271) esp_image: segment 5: paddr=00100d74 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (281) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (281) boot: Disabling RNG early entropy source...[0m
+[0;32mI (291) cpu_start: Multicore app[0m
+[0;32mI (300) cpu_start: Pro cpu start user code[0m
+[0;32mI (300) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (300) app_init: Application information:[0m
+[0;32mI (301) app_init: Project name:     broilerguard[0m
+[0;32mI (304) app_init: App version:      de3239e-dirty[0m
+[0;32mI (309) app_init: Compile time:     May 13 2026 06:57:24[0m
+[0;32mI (314) app_init: ELF file SHA256:  fbca17fd1...[0m
+[0;32mI (318) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (323) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (326) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (330) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (334) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (341) heap_init: At 3FCA3A60 len 00045CB0 (279 KiB): RAM[0m
+[0;32mI (346) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+cted size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+[0;32mI (381) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (386) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (393) main_task: Started on CPU0[0m
+[0;32mI (403) main_task: Calling app_main()[0m
+[0;32mI (403) BroilerGuard: ==============================[0m
+[0;32mI (423) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (423) BroilerGuard: ==============================[0m
+[0;32mI (443) pp: pp rom version: e7ae62f[0m
+[0;32mI (443) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (453) wifi:wifi driver task: 3fca9a50, prio:23, stack:6656, core=0[0m
+[0;32mI (463) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (463) wifi:wifi certification version: v7.0[0m
+[0;32mI (463) wifi:config NVS flash: enabled[0m
+[0;32mI (463) wifi:config nano formatting: disabled[0m
+[0;32mI (463) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (473) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (473) wifi:Init management short buffer num: 32[0m
+[0;32mI (473) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (483) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (483) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (493) wifi:Init static rx buffer num: 10[0m
+[0;32mI (493) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (503) wifi_init: rx ba win: 6[0m
+[0;32mI (503) wifi_init: accept mbox: 6[0m
+[0;32mI (503) wifi_init: tcpip mbox: 32[0m
+[0;32mI (503) wifi_init: udp mbox: 6[0m
+[0;32mI (513) wifi_init: tcp mbox: 6[0m
+[0;32mI (513) wifi_init: tcp tx win: 5760[0m
+[0;32mI (513) wifi_init: tcp rx win: 5760[0m
+[0;32mI (523) wifi_init: tcp mss: 1440[0m
+[0;32mI (523) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (523) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (533) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (573) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (573) wifi:enable tsf[0m
+[0;32mI (573) BroilerGuard: Connecting to WiFi: Redmi 9C ...[0m
+[0;32mI (583) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (603) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (603) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (613) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (643) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = b2:c1:83:b7:63:3a[0m
+[0;32mI (643) wifi:security: WPA2-PSK, phy: bgn, rssi: -15[0m
+[0;32mI (643) wifi:pm start, type: 1[0m
+
+[0;32mI (653) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (653) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (673) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (673) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1713) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1713) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1713) main_task: Returned from app_main()[0m
+[0;32mI (1713) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (1723) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (1723) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (2433) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Warming up sensors...[0m
+[0;33mW (5453) DHT: Timeout waiting for response low[0m
+[0;33mW (5453) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (7473) DHT: Timeout waiting for response low[0m
+[0;33mW (7473) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (9493) DHT: Timeout waiting for response low[0m
+[0;33mW (9493) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (11513) DHT: Timeout waiting for response low[0m
+[0;33mW (11513) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (13533) DHT: Timeout waiting for response low[0m
+[0;33mW (13533) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (15553) DHT: Timeout waiting for response low[0m
+[0;33mW (15553) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (17573) DHT: Timeout waiting for response low[0m
+[0;33mW (17573) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (19593) DHT: Timeout waiting for response low[0m
+[0;33mW (19593) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (21613) DHT: Timeout waiting for response low[0m
+[0;33mW (21613) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (23633) DHT: Timeout waiting for response low[0m
+[0;33mW (23633) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (25653) DHT: Timeout waiting for response low[0m
+[0;33mW (25653) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (27673) DHT: Timeout waiting for response low[0m
+[0;33mW (27673) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (29693) DHT: Timeout waiting for response low[0m
+[0;33mW (29693) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (31713) DHT: Timeout waiting for response low[0m
+[0;33mW (31713) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (33733) DHT: Timeout waiting for response low[0m
+[0;33mW (33733) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (35753) DHT: Timeout waiting for response low[0m
+[0;33mW (35753) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (37773) DHT: Timeout waiting for response low[0m
+[0;33mW (37773) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (39793) DHT: Timeout waiting for response low[0m
+[0;33mW (39793) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (41813) DHT: Timeout waiting for response low[0m
+[0;33mW (41813) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (43833) DHT: Timeout waiting for response low[0m
+[0;33mW (43833) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (45853) DHT: Timeout waiting for response low[0m
+[0;33mW (45853) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (47873) DHT: Timeout waiting for response low[0m
+[0;33mW (47873) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (49893) DHT: Timeout waiting for response low[0m
+[0;33mW (49893) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (51913) DHT: Timeout waiting for response low[0m
+[0;33mW (51913) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (53933) DHT: Timeout waiting for response low[0m
+[0;33mW (53933) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (55953) DHT: Timeout waiting for response low[0m
+[0;33mW (55953) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (57973) DHT: Timeout waiting for response low[0m
+[0;33mW (57973) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (59993) DHT: Timeout waiting for response low[0m
+[0;33mW (59993) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (62013) DHT: Timeout waiting for response low[0m
+[0;33mW (62013) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (64033) DHT: Timeout waiting for response low[0m
+[0;33mW (64033) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (66053) DHT: Timeout waiting for response low[0m
+[0;33mW (66053) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (68073) DHT: Timeout waiting for response low[0m
+[0;33mW (68073) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (70093) DHT: Timeout waiting for response low[0m
+[0;33mW (70093) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (72113) DHT: Timeout waiting for response low[0m
+[0;33mW (72113) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (74133) DHT: Timeout waiting for response low[0m
+[0;33mW (74133) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (76153) DHT: Timeout waiting for response low[0m
+[0;33mW (76153) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (78173) DHT: Timeout waiting for response low[0m
+[0;33mW (78173) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (80193) DHT: Timeout waiting for response low[0m
+[0;33mW (80193) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (82213) DHT: Timeout waiting for response low[0m
+[0;33mW (82213) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (84233) DHT: Timeout waiting for response low[0m
+[0;33mW (84233) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (86253) DHT: Timeout waiting for response low[0m
+[0;33mW (86253) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (88273) DHT: Timeout waiting for response low[0m
+[0;33mW (88273) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (90293) DHT: Timeout waiting for response low[0m
+[0;33mW (90293) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (92313) DHT: Timeout waiting for response low[0m
+[0;33mW (92313) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (94333) DHT: Timeout waiting for response low[0m
+[0;33mW (94333) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (96353) DHT: Timeout waiting for response low[0m
+[0;33mW (96353) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (98373) DHT: Timeout waiting for response low[0m
+[0;33mW (98373) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (100393) DHT: Timeout waiting for response low[0m
+[0;33mW (100393) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (102413) DHT: Timeout waiting for response low[0m
+[0;33mW (102413) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (104433) DHT: Timeout waiting for response low[0m
+[0;33mW (104433) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (106453) DHT: Timeout waiting for data start[0m
+[0;33mW (106453) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (108473) DHT: Timeout waiting for response low[0m
+[0;33mW (108473) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (110493) DHT: Timeout waiting for response low[0m
+[0;33mW (110493) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (112513) DHT: Timeout waiting for response low[0m
+[0;33mW (112513) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (114533) DHT: Timeout waiting for response low[0m
+[0;33mW (114533) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (116553) DHT: Timeout waiting for response low[0m
+[0;33mW (116553) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;32mI (118573) BroilerGuard: Temp=39.0C  Hum=95%  Power=ON  Vib=YES | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (118583) BroilerGuard: AGENT: Temp HIGH (39.0C) → Fan ON, Heater OFF[0m
+[0;32mI (120103) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (121413) wifi:<ba-add>idx:0 (ifx:0, b2:c1:83:b7:63:3a), tid:0, ssn:16, winSize:64[0m
+[0;32mI (121613) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (123383) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (124693) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (125683) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (127353) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;33mW (129553) BroilerGuard: INTRUSION ALERT triggered![0m
+[0;32mI (132183) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (133293) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;33mW (193313) DHT: Timeout waiting for response low[0m
+[0;33mW (193313) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (195333) DHT: Timeout waiting for response low[0m
+[0;33mW (195333) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (197353) DHT: Timeout waiting for response low[0m
+[0;33mW (197353) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (199373) DHT: Timeout waiting for response low[0m
+[0;33mW (199373) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (201393) DHT: Timeout waiting for response low[0m
+[0;33mW (201393) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (203413) DHT: Timeout waiting for response low[0m
+[0;33mW (203413) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (205433) DHT: Timeout waiting for response low[0m
+[0;33mW (205433) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (207453) DHT: Timeout waiting for response low[0m
+[0;33mW (207453) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (209473) DHT: Timeout waiting for response low[0m
+[0;33mW (209473) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (211493) DHT: Timeout waiting for response low[0m
+[0;33mW (211493) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (213513) DHT: Timeout waiting for response low[0m
+[0;33mW (213513) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (215533) DHT: Timeout waiting for response low[0m
+[0;33mW (215533) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (217553) DHT: Timeout waiting for response low[0m
+[0;33mW (217553) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (219573) DHT: Timeout waiting for response low[0m
+[0;33mW (219573) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (221593) DHT: Timeout waiting for response low[0m
+[0;33mW (221593) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (223613) DHT: Timeout waiting for response low[0m
+[0;33mW (223613) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (225633) DHT: Timeout waiting for response low[0m
+[0;33mW (225633) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (227653) DHT: Timeout waiting for response low[0m
+[0;33mW (227653) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (229673) DHT: Timeout waiting for response low[0m
+[0;33mW (229673) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (231693) DHT: Timeout waiting for response low[0m
+[0;33mW (231693) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (233713) DHT: Timeout waiting for response low[0m
+[0;33mW (233713) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (235733) DHT: Timeout waiting for response low[0m
+[0;33mW (235733) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (237753) DHT: Timeout waiting for response low[0m
+[0;33mW (237753) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (239773) DHT: Timeout waiting for response low[0m
+[0;33mW (239773) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (241793) DHT: Timeout waiting for response low[0m
+[0;33mW (241793) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (243813) DHT: Timeout waiting for response low[0m
+[0;33mW (243813) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (245833) DHT: Timeout waiting for response low[0m
+[0;33mW (245833) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (247853) DHT: Timeout waiting for response low[0m
+[0;33mW (247853) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (249873) DHT: Timeout waiting for response low[0m
+[0;33mW (249873) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (251893) DHT: Timeout waiting for response low[0m
+[0;33mW (251893) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (253913) DHT: Timeout waiting for response high[0m
+[0;33mW (253913) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (255933) DHT: Timeout waiting for response high[0m
+[0;33mW (255933) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (257953) DHT: Timeout waiting for response high[0m
+[0;33mW (257953) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;33mW (259973) DHT: Timeout waiting for response high[0m
+[0;33mW (259973) BroilerGuard: DHT11 read failed — retrying in 2s[0m
+[0;32mI (261993) BroilerGuard: Temp=40.0C  Hum=23%  Power=ON  Vib=YES | Fan=ON Mist=off Light=off Heat=off[0m
+[0;32mI (261993) BroilerGuard: AGENT: Hum LOW (23%) → Mister ON[0m
+[0;32mI (262853) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (267643) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (269403) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (270513) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (271453) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (272763) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (332783) BroilerGuard: Temp=40.0C  Hum=21%  Power=ON  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (333713) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (335233) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (336783) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (337893) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (338853) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (340353) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (400373) BroilerGuard: Temp=40.0C  Hum=23%  Power=ON  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (403343) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (405063) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (406623) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (407733) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (408883) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (409983) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (470003) BroilerGuard: Temp=40.0C  Hum=28%  Power=OUTAGE  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (472793) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (475723) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (479123) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (489483) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (490393) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (491903) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (494693) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (496003) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (548423) wifi:[ADDBA]RX DELBA, reason:1, delete tid:0, initiator:0(recipient)[0m
+[0;32mI (556023) BroilerGuard: Temp=40.0C  Hum=23%  Power=OUTAGE  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (557033) wifi:[ADDBA]RX DELBA, reason:1, delete tid:0, initiator:0(recipient)[0m
+[0;32mI (565223) wifi:[ADDBA]RX DELBA, reason:1, delete tid:0, initiator:0(recipient)[0m
+[1;31mE (566043) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (566043) esp-tls: Failed to open new connection[0m
+[1;31mE (566043) transport_base: Failed to open a new connection[0m
+[1;31mE (566043) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (566053) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (573623) wifi:[ADDBA]RX DELBA, reason:1, delete tid:0, initiator:0(recipient)[0m
+[1;31mE (577063) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (577063) esp-tls: Failed to open new connection[0m
+[1;31mE (577063) transport_base: Failed to open a new connection[0m
+[1;31mE (577063) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (577073) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (583983) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (585083) wifi:[ADDBA]RX DELBA, reason:1, delete tid:0, initiator:0(recipient)[0m
+[0;32mI (591033) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (612943) wifi:[ADDBA]RX DELBA, reason:1, delete tid:0, initiator:0(recipient)[0m
+[0;32mI (651053) BroilerGuard: Temp=40.0C  Hum=21%  Power=OUTAGE  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (651773) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (652883) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (654443) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (656613) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (658943) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (660573) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (720593) BroilerGuard: Temp=40.0C  Hum=20%  Power=OUTAGE  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (730883) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (730883) transport_base: Failed to open a new connection[0m
+[1;31mE (730883) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (730893) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (736633) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (746913) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (746913) transport_base: Failed to open a new connection[0m
+[1;31mE (746913) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (746923) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (757503) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (757503) transport_base: Failed to open a new connection[0m
+[1;31mE (757503) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (757513) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (817533) BroilerGuard: Temp=40.0C  Hum=25%  Power=OUTAGE  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (818083) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (819593) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (822173) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (823893) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (824843) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (826553) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (886583) BroilerGuard: Temp=40.0C  Hum=18%  Power=OUTAGE  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (887303) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (888613) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (890173) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (891273) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (892423) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (893933) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (953963) BroilerGuard: Temp=40.0C  Hum=17%  Power=OUTAGE  Vib=YES | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (954683) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (955793) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (957353) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (959063) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (960013) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (961113) BroilerGuard: Firebase [/sensors] → HTTP 200[0m

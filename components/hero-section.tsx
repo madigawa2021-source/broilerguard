@@ -16,7 +16,7 @@ export function HeroSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8">
             <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">Trusted by 500+ Nigerian Farmers</span>
+            <span className="text-sm text-primary font-medium">🏆 Startup Abuja Innovation Challenge 2026 — Working Prototype</span>
           </div>
 
           {/* Main heading */}
@@ -48,10 +48,10 @@ export function HeroSection() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
             {[
-              { value: "95%", label: "Mortality Reduction" },
-              { value: "30%", label: "Feed Savings" },
-              { value: "24/7", label: "Monitoring" },
-              { value: "₦2M+", label: "Avg. Savings/Cycle" },
+              { value: "4", label: "IoT Sensors" },
+              { value: "4", label: "Automated Relays" },
+              { value: "24/7", label: "Live Monitoring" },
+              { value: "60s", label: "Update Interval" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</div>

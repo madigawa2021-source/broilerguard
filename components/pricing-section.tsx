@@ -68,13 +68,13 @@ export function PricingSection() {
         {/* Section header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
-            <span className="text-sm text-primary font-medium">Simple Naira Pricing</span>
+            <span className="text-sm text-primary font-medium">Pre-Launch Pricing</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
             Choose the Plan That Fits Your Farm
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            All plans include a 14-day free trial. No credit card required. Cancel anytime.
+            BroilerGuard is currently in prototype phase. These plans represent our planned pricing. Interested farmers can register for early access below.
           </p>
         </div>
 
@@ -136,13 +136,17 @@ export function PricingSection() {
           ))}
         </div>
 
-        {/* Trust indicators */}
+        {/* Honest prototype notice */}
         <div className="mt-16 text-center">
-          <p className="text-muted-foreground mb-6">Trusted by leading Nigerian poultry farms</p>
-          <div className="flex flex-wrap justify-center gap-8 opacity-60">
-            {["Chi Farms", "Zartech", "Obasanjo Farms", "Amo Farms", "Tuns Farms"].map((farm) => (
-              <span key={farm} className="text-foreground font-semibold text-lg">{farm}</span>
-            ))}
+          <div className="inline-flex flex-col items-center gap-3 max-w-xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2">
+              <span className="text-sm text-accent font-medium">🛠️ Prototype — Built in Abuja</span>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              BroilerGuard is an early-stage prototype developed for the Startup Abuja Innovation Challenge 2026.
+              We are actively testing with hardware in the field. If you&apos;re a poultry farmer interested in piloting
+              the system, reach out to us.
+            </p>
           </div>
         </div>
       </div>

@@ -1,14 +1,18 @@
 /*
- * BroilerGuard ESP32 Firmware — ESP-IDF
+ * BroilerGuard ESP32-S3 Firmware — ESP-IDF
  * AI-Powered Broiler Chicken Pen Monitor
  *
  * Hardware:
- *   - DHT11        → Temperature + Humidity        (GPIO4)
- *   - Float switch → Water level low/ok            (GPIO14)
- *   - LDR          → Light/power outage detection  (GPIO34 ADC)
- *   - Fan relay    → Auto cooling                  (GPIO26)
- *   - Lamp relay   → Auto heating                  (GPIO27)
- *   - Buzzer       → Local alarm                   (GPIO12)
+ *   - DHT11          → Temperature + Humidity         (GPIO4)
+ *   - Vibration      → Intrusion detection            (GPIO13)
+ *   - LDR            → Light/power outage detection   (GPIO34 ADC)
+ *   - Fan relay      → Auto cooling                   (GPIO26)
+ *   - Water mister   → Auto humidity control          (GPIO25)
+ *   - Light relay    → Pen lighting                   (GPIO27)
+ *   - Heater relay   → Auto heating                   (GPIO33)
+ *   - Buzzer         → Local alarm                    (GPIO12)
+ *   - Servo motor    → Camera angle rotation (LEDC)   (GPIO32)
+ *   - OV5640 camera  → AI vision (onboard ESP32-S3)
  *
  * Firebase paths:
  *   PUT  /sensors.json   → live values   (every 60s)
@@ -16,8 +20,9 @@
  *   POST /alerts.json    → alert events  (on threshold breach)
  *
  * Behavior:
- *   IDLE  → read all sensors every 60s, control relay automatically
- *   ALERT → buzzer + immediate Firebase push + relay action
+ *   IDLE      → read all sensors every 60s, control relays automatically
+ *   ALERT     → buzzer + immediate Firebase push + relay action
+ *   INTRUSION → vibration detected → buzzer + Firebase alert
  */
 
 #include <stdio.h>
@@ -32,12 +37,16 @@
 #include "esp_log.h"
 #include "nvs_flash.h"
 #include "driver/gpio.h"
+#include "driver/ledc.h"
 #include "esp_adc/adc_oneshot.h"
 #include "esp_http_client.h"
 //#include "esp_tls.h"
 #include "esp_timer.h"
 #include "dht.h"
 #include "esp_crt_bundle.h"
+
+// Optional: Camera headers (Requires esp32-camera component)
+// #include "esp_camera.h"
 
 static const char *TAG = "BroilerGuard";
 
@@ -48,12 +57,40 @@ static const char *TAG = "BroilerGuard";
 #define FIREBASE_AUTH       "iauTh0i8FbK9evb2azrzvMPzdFgt3WiYHo13faiJ"
 
 // ─── PIN DEFINITIONS ─────────────────────────────────────────────────────────
-#define DHT11_GPIO          GPIO_NUM_4
-#define FLOAT_SW_GPIO       GPIO_NUM_14   // HIGH=water ok, LOW=water low
-#define LDR_ADC_CHANNEL     ADC_CHANNEL_6 // GPIO34
-#define FAN_RELAY_GPIO      GPIO_NUM_26   // HIGH=ON
-#define LAMP_RELAY_GPIO     GPIO_NUM_27   // HIGH=ON
-#define BUZZER_GPIO         GPIO_NUM_12   // HIGH=ON
+#define DHT11_GPIO          GPIO_NUM_2
+#define VIBRATION_GPIO      GPIO_NUM_39
+#define LDR_ADC_CHANNEL     ADC_CHANNEL_2 // GPIO 3
+#define FAN_RELAY_GPIO      GPIO_NUM_48
+#define MISTER_RELAY_GPIO   GPIO_NUM_47
+#define LIGHT_RELAY_GPIO    GPIO_NUM_21
+#define HEATER_RELAY_GPIO   GPIO_NUM_45
+#define BUZZER_GPIO         GPIO_NUM_38
+#define SERVO_GPIO          GPIO_NUM_40
+
+// ─── CAMERA PINS (ESP32-S3-CAM) ──────────────────────────────────────────────
+#define CAM_PIN_PWDN    -1
+#define CAM_PIN_RESET   -1
+#define CAM_PIN_XCLK    15
+#define CAM_PIN_SIOD    4
+#define CAM_PIN_SIOC    5
+#define CAM_PIN_D7      16
+#define CAM_PIN_D6      17
+#define CAM_PIN_D5      18
+#define CAM_PIN_D4      12
+#define CAM_PIN_D3      10
+#define CAM_PIN_D2      8
+#define CAM_PIN_D1      9
+#define CAM_PIN_D0      11
+#define CAM_PIN_VSYNC   6
+#define CAM_PIN_HREF    7
+#define CAM_PIN_PCLK    13
+
+// ─── SERVO (LEDC) ─────────────────────────────────────────────────────────────
+#define SERVO_LEDC_CH       LEDC_CHANNEL_0
+#define SERVO_LEDC_TIMER    LEDC_TIMER_0
+#define SERVO_FREQ_HZ       50
+#define SERVO_RESOLUTION    LEDC_TIMER_14_BIT  // 16384 ticks = 20ms
+// Pulse widths at 50Hz 14-bit: 0°=819, 90°=1229, 180°=1638
 
 // ─── THRESHOLDS ───────────────────────────────────────────────────────────────
 #define TEMP_MAX            33.0f
@@ -62,8 +99,7 @@ static const char *TAG = "BroilerGuard";
 #define TEMP_CRITICAL_LOW   25.0f
 #define HUMIDITY_MAX        80.0f
 #define HUMIDITY_MIN        40.0f
-#define LDR_DARK_THRESHOLD  500
-
+#define LDR_DARK_THRESHOLD  1500  // Increased threshold for internal pull-down1
 // ─── TIMING ───────────────────────────────────────────────────────────────────
 #define SENSOR_INTERVAL_MS      60000
 #define HISTORY_INTERVAL_MS     3600000
@@ -80,10 +116,15 @@ static char http_response_buf[HTTP_BUF_SIZE];
 static int  http_response_len = 0;
 
 // ─── GLOBAL STATE ─────────────────────────────────────────────────────────────
-static bool g_water_ok  = true;
-static bool g_power_ok  = true;
-static bool g_fan_on    = false;
-static bool g_lamp_on   = false;
+static bool g_power_ok      = true;
+static bool g_fan_on        = false;
+static bool g_mister_on     = false;
+static bool g_light_on      = false;
+static bool g_heater_on     = false;
+static bool g_vibration     = false;
+static int  g_servo_angle   = 90;
+
+static TaskHandle_t security_task_handle = NULL;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // WIFI
@@ -217,61 +258,22 @@ static void buzzer_alert(int beeps)
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// AGENTIC TEMPERATURE CONTROL
-// ─────────────────────────────────────────────────────────────────────────────
-
-static void temperature_agent(float temp)
-{
-    if (temp > TEMP_MAX) {
-        // Too hot — turn fan ON, lamp OFF
-        if (!g_fan_on) {
-            gpio_set_level(FAN_RELAY_GPIO,  1);
-            gpio_set_level(LAMP_RELAY_GPIO, 0);
-            g_fan_on  = true;
-            g_lamp_on = false;
-            ESP_LOGI(TAG, "AGENT: Temp HIGH (%.1fC) → Fan ON, Lamp OFF", temp);
-            buzzer_alert(2);
-        }
-    } else if (temp < TEMP_MIN) {
-        // Too cold — turn lamp ON, fan OFF
-        if (!g_lamp_on) {
-            gpio_set_level(LAMP_RELAY_GPIO, 1);
-            gpio_set_level(FAN_RELAY_GPIO,  0);
-            g_lamp_on = true;
-            g_fan_on  = false;
-            ESP_LOGI(TAG, "AGENT: Temp LOW (%.1fC) → Lamp ON, Fan OFF", temp);
-            buzzer_alert(2);
-        }
-    } else {
-        // Optimal — everything off
-        if (g_fan_on || g_lamp_on) {
-            gpio_set_level(FAN_RELAY_GPIO,  0);
-            gpio_set_level(LAMP_RELAY_GPIO, 0);
-            g_fan_on  = false;
-            g_lamp_on = false;
-            ESP_LOGI(TAG, "AGENT: Temp OK (%.1fC) → Fan OFF, Lamp OFF", temp);
-        }
-    }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// ALERTS
+// ALERTS & PUSH NOTIFICATIONS
 // ─────────────────────────────────────────────────────────────────────────────
 
 static void push_alert(const char *type, const char *category,
                         const char *title, const char *message)
 {
     char json[512];
-    int64_t ts = esp_timer_get_time() / 1000;
     snprintf(json, sizeof(json),
              "{\"type\":\"%s\",\"category\":\"%s\","
              "\"title\":\"%s\",\"message\":\"%s\","
-             "\"timestamp\":%lld,\"penId\":\"A\"}",
-             type, category, title, message, ts);
+             "\"timestamp\":{\".sv\":\"timestamp\"},\"penId\":\"A\"}",
+             type, category, title, message);
     firebase_request("/alerts", json, HTTP_METHOD_POST);
 }
 
-static void check_and_alert(float temp, float hum, bool water_ok, bool power_ok)
+static void check_and_alert(float temp, float hum, bool power_ok)
 {
     // Critical temperature
     if (temp >= TEMP_CRITICAL_HIGH) {
@@ -291,31 +293,23 @@ static void check_and_alert(float temp, float hum, bool water_ok, bool power_ok)
     } else if (temp < TEMP_MIN) {
         push_alert("warning", "temperature",
                    "Low Temperature Warning",
-                   "Temperature below optimal. Lamp activated automatically.");
+                   "Temperature below optimal. Heater activated automatically.");
     }
 
     // Humidity
     if (hum > HUMIDITY_MAX) {
         push_alert("warning", "humidity",
                    "High Humidity Warning",
-                   "Humidity above 80%. Improve ventilation.");
+                   "Humidity above 80%. Water mister disabled.");
         buzzer_alert(1);
     } else if (hum < HUMIDITY_MIN) {
         push_alert("warning", "humidity",
                    "Low Humidity Warning",
-                   "Humidity below 40%. Risk of respiratory issues.");
+                   "Humidity below 40%. Water mister activated.");
         buzzer_alert(1);
     }
 
-    // Water — alert only on transition to low
-    if (!water_ok && g_water_ok) {
-        push_alert("critical", "water",
-                   "Water Level Critical",
-                   "Drinker water low. Refill immediately.");
-        buzzer_alert(3);
-    }
-
-    // Power — alert only on transition to outage
+    // Power outage — alert only on transition
     if (!power_ok && g_power_ok) {
         push_alert("critical", "power",
                    "Power Outage Detected",
@@ -326,124 +320,339 @@ static void check_and_alert(float temp, float hum, bool water_ok, bool power_ok)
     }
 }
 
+// ─── VIBRATION INTERRUPT HANDLER ─────────────────────────────────────────────
+static void IRAM_ATTR vibration_isr_handler(void* arg)
+{
+    // Notify the security task
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    vTaskNotifyGiveFromISR(security_task_handle, &xHigherPriorityTaskWoken);
+    if (xHigherPriorityTaskWoken) {
+        portYIELD_FROM_ISR();
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CAMERA INITIALIZATION (Skeleton)
+// ─────────────────────────────────────────────────────────────────────────────
+
+static void camera_init(void)
+{
+    ESP_LOGI(TAG, "Camera initialization starting...");
+    /* 
+    // Uncomment once esp32-camera component is added to the project
+    camera_config_t config;
+    config.ledc_channel = LEDC_CHANNEL_1;
+    config.ledc_timer = LEDC_TIMER_1;
+    config.pin_d0 = CAM_PIN_D0;
+    config.pin_d1 = CAM_PIN_D1;
+    config.pin_d2 = CAM_PIN_D2;
+    config.pin_d3 = CAM_PIN_D3;
+    config.pin_d4 = CAM_PIN_D4;
+    config.pin_d5 = CAM_PIN_D5;
+    config.pin_d6 = CAM_PIN_D6;
+    config.pin_d7 = CAM_PIN_D7;
+    config.pin_xclk = CAM_PIN_XCLK;
+    config.pin_pclk = CAM_PIN_PCLK;
+    config.pin_vsync = CAM_PIN_VSYNC;
+    config.pin_href = CAM_PIN_HREF;
+    config.pin_sccb_sda = CAM_PIN_SIOD;
+    config.pin_sccb_scl = CAM_PIN_SIOC;
+    config.pin_pwdn = CAM_PIN_PWDN;
+    config.pin_reset = CAM_PIN_RESET;
+    config.xclk_freq_hz = 20000000;
+    config.frame_size = FRAMESIZE_QVGA;
+    config.pixel_format = PIXFORMAT_JPEG;
+    config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
+    config.fb_location = CAMERA_FB_IN_PSRAM;
+    config.jpeg_quality = 12;
+    config.fb_count = 1;
+
+    esp_err_t err = esp_camera_init(&config);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Camera init failed with error 0x%x", err);
+        return;
+    }
+    ESP_LOGI(TAG, "Camera Ready!");
+    */
+    ESP_LOGW(TAG, "Camera driver code is present but disabled. Add 'esp32-camera' component to enable.");
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SECURITY & ALERTS TASK (Interrupt Driven)
+// ─────────────────────────────────────────────────────────────────────────────
+
+static void security_task(void *pvParameters)
+{
+    while (1) {
+        // Wait for vibration interrupt
+        uint32_t ulNotificationValue = ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+        if (ulNotificationValue > 0) {
+            ESP_LOGW(TAG, "SECURITY ALERT: Vibration detected via ISR!");
+            g_vibration = true;
+            
+            // Immediate local alarm
+            buzzer_beep(BUZZER_LONG_MS);
+            
+            // Immediate Firebase push
+            push_alert("critical", "security", 
+                       "Intrusion Detected!", 
+                       "Vibration sensor triggered. Immediate action required.");
+            
+            // Cooldown to prevent spamming
+            vTaskDelay(pdMS_TO_TICKS(2000));
+            g_vibration = false;
+        }
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LIGHTING CONTROL (LDR)
+// ─────────────────────────────────────────────────────────────────────────────
+
+static void update_lighting(int ldr_raw)
+{
+    // Logic: Dark -> Light ON, Bright -> Light OFF
+    if (ldr_raw < LDR_DARK_THRESHOLD) {
+        if (!g_light_on) {
+            gpio_set_level(LIGHT_RELAY_GPIO, 1);
+            g_light_on = true;
+            ESP_LOGI(TAG, "LDR: Dark detected (%d) -> Light ON", ldr_raw);
+        }
+    } else {
+        if (g_light_on) {
+            gpio_set_level(LIGHT_RELAY_GPIO, 0);
+            g_light_on = false;
+            ESP_LOGI(TAG, "LDR: Light detected (%d) -> Light OFF", ldr_raw);
+        }
+    }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SERVO CONTROL
+// ─────────────────────────────────────────────────────────────────────────────
+
+static void servo_init(void)
+{
+    ledc_timer_config_t timer_cfg = {
+        .speed_mode      = LEDC_LOW_SPEED_MODE,
+        .timer_num       = SERVO_LEDC_TIMER,
+        .duty_resolution = SERVO_RESOLUTION,
+        .freq_hz         = SERVO_FREQ_HZ,
+        .clk_cfg         = LEDC_AUTO_CLK,
+    };
+    ledc_timer_config(&timer_cfg);
+
+    ledc_channel_config_t ch_cfg = {
+        .gpio_num   = SERVO_GPIO,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .channel    = SERVO_LEDC_CH,
+        .timer_sel  = SERVO_LEDC_TIMER,
+        .duty       = 1229,  // 90 degrees center
+        .hpoint     = 0,
+    };
+    ledc_channel_config(&ch_cfg);
+    ESP_LOGI(TAG, "Servo initialized at 90 degrees");
+}
+
+static void servo_set_angle(int angle)
+{
+    if (angle < 0)   angle = 0;
+    if (angle > 180) angle = 180;
+    uint32_t duty = 819 + (uint32_t)(angle * (1638 - 819) / 180);
+    ledc_set_duty(LEDC_LOW_SPEED_MODE, SERVO_LEDC_CH, duty);
+    ledc_update_duty(LEDC_LOW_SPEED_MODE, SERVO_LEDC_CH);
+    g_servo_angle = angle;
+    ESP_LOGI(TAG, "Servo → %d degrees (duty=%lu)", angle, duty);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// AGENTIC CLIMATE CONTROL (4-relay: fan, mister, light, heater)
+// ─────────────────────────────────────────────────────────────────────────────
+
+static void climate_agent(float temp, float hum)
+{
+    // — Temperature control ————————————————————————————————————————————————
+    if (temp > TEMP_MAX) {
+        if (!g_fan_on) {
+            gpio_set_level(FAN_RELAY_GPIO,    1);
+            gpio_set_level(HEATER_RELAY_GPIO, 0);
+            g_fan_on    = true;
+            g_heater_on = false;
+            ESP_LOGI(TAG, "AGENT: Temp HIGH (%.1fC) → Fan ON, Heater OFF", temp);
+            buzzer_alert(2);
+        }
+    } else if (temp < TEMP_MIN) {
+        if (!g_heater_on) {
+            gpio_set_level(HEATER_RELAY_GPIO, 1);
+            gpio_set_level(FAN_RELAY_GPIO,    0);
+            g_heater_on = true;
+            g_fan_on    = false;
+            ESP_LOGI(TAG, "AGENT: Temp LOW (%.1fC) → Heater ON, Fan OFF", temp);
+            buzzer_alert(2);
+        }
+    } else {
+        if (g_fan_on || g_heater_on) {
+            gpio_set_level(FAN_RELAY_GPIO,    0);
+            gpio_set_level(HEATER_RELAY_GPIO, 0);
+            g_fan_on    = false;
+            g_heater_on = false;
+            ESP_LOGI(TAG, "AGENT: Temp OK (%.1fC) → Fan OFF, Heater OFF", temp);
+        }
+    }
+
+    // — Humidity control ————————————————————————————————————————————————————
+    if (hum < HUMIDITY_MIN && !g_mister_on) {
+        gpio_set_level(MISTER_RELAY_GPIO, 1);
+        g_mister_on = true;
+        ESP_LOGI(TAG, "AGENT: Hum LOW (%.0f%%) → Mister ON", hum);
+    } else if (hum >= HUMIDITY_MIN && g_mister_on) {
+        gpio_set_level(MISTER_RELAY_GPIO, 0);
+        g_mister_on = false;
+        ESP_LOGI(TAG, "AGENT: Hum OK (%.0f%%) → Mister OFF", hum);
+    }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ALERTS
+// ─────────────────────────────────────────────────────────────────────────────
+
+
 // ─────────────────────────────────────────────────────────────────────────────
 // SENSOR TASK
 // ─────────────────────────────────────────────────────────────────────────────
 
 static void sensor_task(void *pvParameters)
 {
-    // Float switch — input with pull-up
-    gpio_config_t float_conf = {
-        .pin_bit_mask = (1ULL << FLOAT_SW_GPIO),
-        .mode         = GPIO_MODE_INPUT,
-        .pull_up_en   = GPIO_PULLUP_ENABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type    = GPIO_INTR_DISABLE,
-    };
-    gpio_config(&float_conf);
+    ESP_LOGI(TAG, "sensor_task: starting hardware init on safe pins...");
 
-    // Fan relay — output
-    gpio_config_t fan_conf = {
-        .pin_bit_mask = (1ULL << FAN_RELAY_GPIO),
-        .mode         = GPIO_MODE_OUTPUT,
-    };
-    gpio_config(&fan_conf);
+    // ── Relays ────────────────────────────────────────────────────────────────
+    gpio_reset_pin(FAN_RELAY_GPIO);
+    gpio_set_direction(FAN_RELAY_GPIO, GPIO_MODE_OUTPUT);
     gpio_set_level(FAN_RELAY_GPIO, 0);
 
-    // Lamp relay — output
-    gpio_config_t lamp_conf = {
-        .pin_bit_mask = (1ULL << LAMP_RELAY_GPIO),
-        .mode         = GPIO_MODE_OUTPUT,
-    };
-    gpio_config(&lamp_conf);
-    gpio_set_level(LAMP_RELAY_GPIO, 0);
+    gpio_reset_pin(MISTER_RELAY_GPIO);
+    gpio_set_direction(MISTER_RELAY_GPIO, GPIO_MODE_OUTPUT);
+    gpio_set_level(MISTER_RELAY_GPIO, 0);
 
-    // Buzzer — output
-    gpio_config_t buzz_conf = {
-        .pin_bit_mask = (1ULL << BUZZER_GPIO),
-        .mode         = GPIO_MODE_OUTPUT,
-    };
-    gpio_config(&buzz_conf);
+    gpio_reset_pin(LIGHT_RELAY_GPIO);
+    gpio_set_direction(LIGHT_RELAY_GPIO, GPIO_MODE_OUTPUT);
+    gpio_set_level(LIGHT_RELAY_GPIO, 0);
+
+    gpio_reset_pin(HEATER_RELAY_GPIO);
+    gpio_set_direction(HEATER_RELAY_GPIO, GPIO_MODE_OUTPUT);
+    gpio_set_level(HEATER_RELAY_GPIO, 0);
+
+    // ── Sensors ───────────────────────────────────────────────────────────────
+    gpio_reset_pin(VIBRATION_GPIO);
+    gpio_set_direction(VIBRATION_GPIO, GPIO_MODE_INPUT);
+    gpio_set_pull_mode(VIBRATION_GPIO, GPIO_PULLDOWN_ONLY);
+
+    gpio_reset_pin(BUZZER_GPIO);
+    gpio_set_direction(BUZZER_GPIO, GPIO_MODE_OUTPUT);
     gpio_set_level(BUZZER_GPIO, 0);
 
-    // ADC for LDR
+    // ── ADC for LDR (Power Detect) ────────────────────────────────────────────
     adc_oneshot_unit_handle_t adc1_handle;
-adc_oneshot_unit_init_cfg_t adc_init_cfg = {
-    .unit_id = ADC_UNIT_1,
-};
-adc_oneshot_new_unit(&adc_init_cfg, &adc1_handle);
-adc_oneshot_chan_cfg_t chan_cfg = {
-    .atten    = ADC_ATTEN_DB_12,
-    .bitwidth = ADC_BITWIDTH_12,
-};
-adc_oneshot_config_channel(adc1_handle, LDR_ADC_CHANNEL, &chan_cfg);
+    adc_oneshot_unit_init_cfg_t adc_init_cfg = { .unit_id = ADC_UNIT_1 };
+    adc_oneshot_new_unit(&adc_init_cfg, &adc1_handle);
+    adc_oneshot_chan_cfg_t chan_cfg = {
+        .atten    = ADC_ATTEN_DB_12,
+        .bitwidth = ADC_BITWIDTH_12,
+    };
+    adc_oneshot_config_channel(adc1_handle, LDR_ADC_CHANNEL, &chan_cfg);
 
-    // Startup beep — 3 short beeps = system ready
-    buzzer_alert(3);
-    ESP_LOGI(TAG, "All hardware initialized. Monitoring started.");
+    // ── Internal Pull-down for LDR (since user lacks external resistor) ──────
+    gpio_reset_pin(GPIO_NUM_3);
+    gpio_set_direction(GPIO_NUM_3, GPIO_MODE_INPUT);
+    gpio_set_pull_mode(GPIO_NUM_3, GPIO_PULLDOWN_ONLY);
 
+    // ── Vibration Interrupt ──────────────────────────────────────────────────
+    gpio_reset_pin(VIBRATION_GPIO);
+    gpio_set_direction(VIBRATION_GPIO, GPIO_MODE_INPUT);
+    gpio_set_pull_mode(VIBRATION_GPIO, GPIO_PULLDOWN_ONLY);
+    gpio_set_intr_type(VIBRATION_GPIO, GPIO_INTR_POSEDGE);
+    gpio_install_isr_service(0);
+    gpio_isr_handler_add(VIBRATION_GPIO, vibration_isr_handler, NULL);
+
+    // ── Servo (LEDC PWM) ──────────────────────────────────────────────────────
+    servo_init();
+    servo_set_angle(90);
+
+    // ── Camera (Skeleton) ─────────────────────────────────────────────────────
+    camera_init();
+
+    buzzer_alert(2); // 2 beeps = ready
+    ESP_LOGI(TAG, "BroilerGuard ESP32-S3: Hardware ready. Monitoring...");
+    vTaskDelay(pdMS_TO_TICKS(3000)); // 3s warm up
+
+    int64_t last_periodic_ms = 0;
     int64_t last_history_ms = 0;
 
     while (1) {
-        // ── Read sensors ──────────────────────────────────────────────────────
-        float temp = 0.0f, hum = 0.0f;
-        esp_err_t dht_err = dht_read_float_data(DHT_TYPE_DHT11, DHT11_GPIO,
-                                                  &hum, &temp);
-        if (dht_err != ESP_OK) {
-            ESP_LOGW(TAG, "DHT11 read failed — retrying in 2s");
-            vTaskDelay(pdMS_TO_TICKS(2000));
-            continue;
-        }
-
-        bool water_ok = (gpio_get_level(FLOAT_SW_GPIO) == 1);
+        // ── 1. FAST POLLING: LDR (Light Control) ──────────────────────────────
         int ldr_raw = 0;
         adc_oneshot_read(adc1_handle, LDR_ADC_CHANNEL, &ldr_raw);
-        bool power_ok = (ldr_raw > LDR_DARK_THRESHOLD);
+        update_lighting(ldr_raw);
+        
+        // Update power status global based on LDR
+        g_power_ok = (ldr_raw > LDR_DARK_THRESHOLD); // Assuming LDR sees pen lights
 
-        ESP_LOGI(TAG, "Temp=%.1fC  Hum=%.0f%%  Water=%s  Power=%s  Fan=%s  Lamp=%s",
-                 temp, hum,
-                 water_ok ? "OK"     : "LOW",
-                 power_ok ? "ON"     : "OUTAGE",
-                 g_fan_on  ? "ON"    : "off",
-                 g_lamp_on ? "ON"    : "off");
-
-        // ── Agentic control ───────────────────────────────────────────────────
-        temperature_agent(temp);
-
-        // ── Threshold alerts ──────────────────────────────────────────────────
-        check_and_alert(temp, hum, water_ok, power_ok);
-
-        // ── Update global state ───────────────────────────────────────────────
-        g_water_ok = water_ok;
-        g_power_ok = power_ok;
-
-        // ── Push to Firebase ──────────────────────────────────────────────────
-        char sensors_json[256];
-        snprintf(sensors_json, sizeof(sensors_json),
-                 "{\"temperature\":%.1f,\"humidity\":%.0f,"
-                 "\"water_level\":%s,\"power_status\":\"%s\","
-                 "\"fan\":%s,\"lamp\":%s}",
-                 temp, hum,
-                 water_ok ? "100" : "10",
-                 power_ok ? "grid" : "outage",
-                 g_fan_on  ? "true" : "false",
-                 g_lamp_on ? "true" : "false");
-
-        firebase_request("/sensors", sensors_json, HTTP_METHOD_PUT);
-
-        // ── Hourly history ────────────────────────────────────────────────────
+        // ── 2. PERIODIC POLLING (Every 1 Minute) ──────────────────────────────
         int64_t now_ms = esp_timer_get_time() / 1000;
-        if (now_ms - last_history_ms >= HISTORY_INTERVAL_MS) {
-            last_history_ms = now_ms;
-            char history_json[128];
-            snprintf(history_json, sizeof(history_json),
-                     "{\"temperature\":%.1f,\"humidity\":%.0f,\"timestamp\":%lld}",
-                     temp, hum, now_ms);
-            firebase_request("/history", history_json, HTTP_METHOD_POST);
-            ESP_LOGI(TAG, "History point pushed.");
+        if (now_ms - last_periodic_ms >= SENSOR_INTERVAL_MS) {
+            last_periodic_ms = now_ms;
+
+            float temp = 0.0f, hum = 0.0f;
+            esp_err_t dht_err = dht_read_float_data(DHT_TYPE_DHT11, DHT11_GPIO, &hum, &temp);
+            
+            if (dht_err == ESP_OK) {
+                ESP_LOGI(TAG, "Temp=%.1fC  Hum=%.0f%% | Fan=%s Mist=%s Light=%s Heat=%s",
+                         temp, hum,
+                         g_fan_on    ? "ON" : "off",
+                         g_mister_on ? "ON" : "off",
+                         g_light_on  ? "ON" : "off",
+                         g_heater_on ? "ON" : "off");
+
+                climate_agent(temp, hum);
+                check_and_alert(temp, hum, g_power_ok);
+
+                // Push status to Firebase
+                char sensors_json[512];
+                snprintf(sensors_json, sizeof(sensors_json),
+                         "{\"temperature\":%.1f,\"humidity\":%.0f,"
+                         "\"power_status\":\"%s\",\"fan\":%s,"
+                         "\"water_mister\":%s,\"light\":%s,\"heater\":%s,"
+                         "\"vibration\":%s,\"servo_angle\":%d}",
+                         temp, hum,
+                         g_power_ok  ? "grid"  : "outage",
+                         g_fan_on    ? "true"  : "false",
+                         g_mister_on ? "true"  : "false",
+                         g_light_on  ? "true"  : "false",
+                         g_heater_on ? "true"  : "false",
+                         g_vibration ? "true"  : "false",
+                         g_servo_angle);
+                firebase_request("/sensors", sensors_json, HTTP_METHOD_PUT);
+            } else {
+                ESP_LOGW(TAG, "DHT11 read failed.");
+            }
         }
 
-        vTaskDelay(pdMS_TO_TICKS(SENSOR_INTERVAL_MS));
+        // ── 3. HISTORY LOGGING (Every 1 Hour) ─────────────────────────────────
+        if (now_ms - last_history_ms >= HISTORY_INTERVAL_MS) {
+            last_history_ms = now_ms;
+            // (Read sensors again or use cached values)
+            float temp, hum;
+            if (dht_read_float_data(DHT_TYPE_DHT11, DHT11_GPIO, &hum, &temp) == ESP_OK) {
+                char history_json[256];
+                snprintf(history_json, sizeof(history_json),
+                         "{\"temperature\":%.1f,\"humidity\":%.0f,\"timestamp\":{\".sv\":\"timestamp\"}}",
+                         temp, hum);
+                firebase_request("/history", history_json, HTTP_METHOD_POST);
+            }
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(1000)); // Poll LDR every 1 second
     }
 }
 
@@ -466,5 +675,9 @@ void app_main(void)
 
     wifi_init();
 
-    xTaskCreatePinnedToCore(sensor_task, "sensor_task", 8192, NULL, 5, NULL, 1);
+    // Start Security Task (High Priority for instant alerts)
+    xTaskCreatePinnedToCore(security_task, "security_task", 4096, NULL, 10, &security_task_handle, 1);
+
+    // Start Sensor Task
+    xTaskCreatePinnedToCore(sensor_task, "sensor_task", 16384, NULL, 5, NULL, 1);
 }

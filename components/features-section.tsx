@@ -15,48 +15,48 @@ export function FeaturesSection() {
     {
       icon: Camera,
       title: "AI Vision Monitoring",
-      description: "Smart cameras analyze bird behavior, movement patterns, and detect early signs of illness or distress.",
+      description: "OV5640 camera captures live pen footage. Our trained MobileNetV2 model classifies flock state as cold, heat, or normal in real-time.",
       highlight: true
     },
     {
       icon: Thermometer,
-      title: "Environmental Control",
-      description: "Monitor and automatically adjust temperature, humidity, and ammonia levels for optimal conditions."
-    },
-    {
-      icon: Bell,
-      title: "Instant Alerts",
-      description: "Get real-time notifications via SMS, WhatsApp, or app when any parameter goes out of range."
-    },
-    {
-      icon: LineChart,
-      title: "Growth Analytics",
-      description: "Track weight gain, feed conversion ratios, and predict market-ready dates with precision."
+      title: "Temperature & Humidity Control",
+      description: "DHT11 sensor reads temp & humidity every 60 seconds. System auto-activates fan or heater to keep the pen in the optimal 28–33°C range."
     },
     {
       icon: Wind,
-      title: "Ventilation Control",
-      description: "Automated fan control ensures proper airflow and reduces respiratory issues in your flock."
+      title: "4-Relay Automation",
+      description: "Fan, water mister, light bulb, and heater are all automatically controlled based on live sensor readings — no manual intervention needed."
     },
     {
-      icon: Scale,
-      title: "Feed Optimization",
-      description: "AI-driven feeding schedules reduce waste by 30% while maintaining optimal growth rates."
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile Dashboard",
-      description: "Monitor your farm from anywhere with our intuitive mobile app, available offline too."
-    },
-    {
-      icon: Users,
-      title: "Multi-Farm Support",
-      description: "Manage multiple farm locations from a single dashboard with role-based access for staff."
+      icon: Bell,
+      title: "Instant Cloud Alerts",
+      description: "Critical events are pushed to Firebase in real-time and appear on the dashboard immediately — temperature spikes, power outages, and intrusion."
     },
     {
       icon: Shield,
-      title: "Biosecurity Tracking",
-      description: "Log and monitor all farm entries, ensuring compliance with biosecurity best practices."
+      title: "Intrusion Detection",
+      description: "Vibration sensor monitors the pen for unauthorized entry or disturbance. Triggers instant buzzer alarm and Firebase alert on detection."
+    },
+    {
+      icon: Smartphone,
+      title: "Live Cloud Dashboard",
+      description: "Monitor your pen from anywhere via the Next.js web dashboard. Displays live sensor values, relay states, chart history, and alert log."
+    },
+    {
+      icon: LineChart,
+      title: "Historical Data Charts",
+      description: "Hourly temperature and humidity readings are logged to Firebase and visualized as time-series charts for trend analysis."
+    },
+    {
+      icon: Users,
+      title: "Servo Camera Control",
+      description: "Servo motor rotates the camera for a wider field of view across the pen, ensuring full coverage without multiple cameras."
+    },
+    {
+      icon: Scale,
+      title: "Power Outage Detection",
+      description: "LDR light sensor detects power failures instantly. Triggers immediate alert and logs the outage event to the cloud dashboard."
     }
   ]
 

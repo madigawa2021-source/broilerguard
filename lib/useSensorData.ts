@@ -11,7 +11,13 @@ export interface SensorData {
   temperature: number
   humidity: number
   waterLevel: number
-  powerStatus: "grid" | "solar" | "generator" | "battery"
+  powerStatus: "grid" | "solar" | "generator" | "battery" | "outage"
+  fan: boolean
+  waterMister: boolean
+  light: boolean
+  heater: boolean
+  vibration: boolean
+  servoAngle: number
 }
 
 export interface ChartPoint {
@@ -43,6 +49,12 @@ export function useLiveSensorData() {
     humidity: 62,
     waterLevel: 75,
     powerStatus: "grid",
+    fan: false,
+    waterMister: false,
+    light: false,
+    heater: false,
+    vibration: false,
+    servoAngle: 90,
   })
   const [connected, setConnected] = useState(false)
 
@@ -59,6 +71,12 @@ export function useLiveSensorData() {
             humidity: Number(raw.humidity ?? 62),
             waterLevel: Number(raw.water_level ?? 75),
             powerStatus: (raw.power_status ?? "grid") as SensorData["powerStatus"],
+            fan: Boolean(raw.fan),
+            waterMister: Boolean(raw.water_mister),
+            light: Boolean(raw.light),
+            heater: Boolean(raw.heater),
+            vibration: Boolean(raw.vibration),
+            servoAngle: Number(raw.servo_angle ?? 90),
           })
           setConnected(true)
         }

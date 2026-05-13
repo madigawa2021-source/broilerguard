@@ -79,7 +79,7 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <DashboardHeader
-        farmName="Adeyemi Poultry Farm"
+        farmName="BroilerGuard — Pen Monitor"
         selectedPen={selectedPen}
         onPenChange={setSelectedPen}
         pens={pens}

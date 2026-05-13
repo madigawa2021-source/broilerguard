@@ -32,10 +32,11 @@ esp_err_t dht_read_float_data(dht_sensor_type_t sensor_type, gpio_num_t gpio_num
 
     // Send start signal
     gpio_set_direction(gpio_num, GPIO_MODE_OUTPUT);
+    gpio_set_pull_mode(gpio_num, GPIO_PULLUP_ONLY); // Ensure line is high when idle
     gpio_set_level(gpio_num, 0);
-    vTaskDelay(pdMS_TO_TICKS(20));   // Hold low 20ms
+    vTaskDelay(pdMS_TO_TICKS(25));   // Hold low 25ms
     gpio_set_level(gpio_num, 1);
-    ets_delay_us(30);
+    ets_delay_us(20);                // Reduced to 20us to listen sooner
     gpio_set_direction(gpio_num, GPIO_MODE_INPUT);
 
     // Wait for sensor response

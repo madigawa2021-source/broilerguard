@@ -113,19 +113,25 @@ interface StatusCardsProps {
     humidity: number
     waterLevel: number
     powerStatus: "grid" | "solar" | "generator" | "battery" | "outage"
+    fan: boolean
+    waterMister: boolean
+    light: boolean
+    heater: boolean
+    vibration: boolean
+    servoAngle: number
   }
 }
 
 export function StatusCards({ data }: StatusCardsProps) {
   const getTemperatureStatus = (temp: number) => {
     if (temp >= 30 && temp <= 33) return "normal"
-    if (temp >= 28 && temp < 30 || temp > 33 && temp <= 35) return "warning"
+    if ((temp >= 28 && temp < 30) || (temp > 33 && temp <= 35)) return "warning"
     return "critical"
   }
 
   const getHumidityStatus = (humidity: number) => {
     if (humidity >= 50 && humidity <= 70) return "normal"
-    if (humidity >= 40 && humidity < 50 || humidity > 70 && humidity <= 80) return "warning"
+    if ((humidity >= 40 && humidity < 50) || (humidity > 70 && humidity <= 80)) return "warning"
     return "critical"
   }
 
@@ -135,50 +141,91 @@ export function StatusCards({ data }: StatusCardsProps) {
     return "critical"
   }
 
-  const powerStatusLabels = {
-  grid:    { label: "Grid Power",     status: "normal"   as const },
-  solar:   { label: "Solar Power",    status: "normal"   as const },
-  generator: { label: "Generator",   status: "warning"  as const },
-  battery: { label: "Battery Backup", status: "critical" as const },
-  outage:  { label: "Power Outage",   status: "critical" as const },
-}
+  const powerStatusLabels: Record<string, { label: string; status: "normal" | "warning" | "critical" }> = {
+    grid:      { label: "Grid Power",     status: "normal"   },
+    solar:     { label: "Solar Power",    status: "normal"   },
+    generator: { label: "Generator",      status: "warning"  },
+    battery:   { label: "Battery Backup", status: "critical" },
+    outage:    { label: "Power Outage",   status: "critical" },
+  }
+
+  const ps = powerStatusLabels[data.powerStatus] ?? powerStatusLabels["grid"]
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-      <StatusCard
-        title="Temperature"
-        value={data.temperature.toFixed(1)}
-        unit="°C"
-        icon={<Thermometer className="h-5 w-5" />}
-        status={getTemperatureStatus(data.temperature)}
-        trend={{ direction: "up", value: "+0.5°C" }}
-        subtitle="Optimal: 30-33°C"
-      />
-      <StatusCard
-        title="Humidity"
-        value={data.humidity.toFixed(0)}
-        unit="%"
-        icon={<Droplets className="h-5 w-5" />}
-        status={getHumidityStatus(data.humidity)}
-        trend={{ direction: "down", value: "-2%" }}
-        subtitle="Optimal: 50-70%"
-      />
-      <StatusCard
-        title="Water Level"
-        value={data.waterLevel.toFixed(0)}
-        unit="%"
-        icon={<GlassWater className="h-5 w-5" />}
-        status={getWaterStatus(data.waterLevel)}
-        subtitle="Tank capacity"
-      />
-      <StatusCard
-        title="Power Status"
-        value={powerStatusLabels[data.powerStatus].label}
-        unit=""
-        icon={<Zap className="h-5 w-5" />}
-        status={powerStatusLabels[data.powerStatus].status}
-        subtitle="Active source"
-      />
+    <div className="space-y-4">
+      {/* Sensor Readings Row */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <StatusCard
+          title="Temperature"
+          value={data.temperature.toFixed(1)}
+          unit="°C"
+          icon={<Thermometer className="h-5 w-5" />}
+          status={getTemperatureStatus(data.temperature)}
+          trend={{ direction: "up", value: "+0.5°C" }}
+          subtitle="Optimal: 28–33°C"
+        />
+        <StatusCard
+          title="Humidity"
+          value={data.humidity.toFixed(0)}
+          unit="%"
+          icon={<Droplets className="h-5 w-5" />}
+          status={getHumidityStatus(data.humidity)}
+          trend={{ direction: "down", value: "-2%" }}
+          subtitle="Optimal: 50–70%"
+        />
+        <StatusCard
+          title="Water Level"
+          value={data.waterLevel.toFixed(0)}
+          unit="%"
+          icon={<GlassWater className="h-5 w-5" />}
+          status={getWaterStatus(data.waterLevel)}
+          subtitle="Tank capacity"
+        />
+        <StatusCard
+          title="Power Status"
+          value={ps.label}
+          unit=""
+          icon={<Zap className="h-5 w-5" />}
+          status={ps.status}
+          subtitle="Active source"
+        />
+      </div>
+
+      {/* Relay & Alert Status Row */}
+      <div className="grid gap-3 grid-cols-2 md:grid-cols-5">
+        {[
+          { label: "Fan",          active: data.fan,          color: "blue"   },
+          { label: "Water Mister", active: data.waterMister,  color: "cyan"   },
+          { label: "Light",        active: data.light,        color: "yellow" },
+          { label: "Heater",       active: data.heater,       color: "orange" },
+          { label: "Intrusion",    active: data.vibration,    color: "red", alert: true },
+        ].map(({ label, active, alert }) => (
+          <div
+            key={label}
+            className={`flex items-center justify-between rounded-lg border px-4 py-3 transition-all ${
+              active
+                ? alert
+                  ? "border-destructive/50 bg-destructive/10"
+                  : "border-primary/40 bg-primary/10"
+                : "border-border bg-card"
+            }`}
+          >
+            <span className="text-sm font-medium text-foreground">{label}</span>
+            <span
+              className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                active
+                  ? alert
+                    ? "bg-destructive text-white"
+                    : "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground"
+              }`}
+            >
+              {active ? (alert ? "⚠ ALERT" : "ON") : "OFF"}
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
+

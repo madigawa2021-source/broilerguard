@@ -37,6 +37,19 @@ export interface AlertItem {
   penId?: string
 }
 
+export interface CameraAnalysisData {
+  analysis: {
+    totalCount: number
+    activePercentage: number
+    feedingPercentage: number
+    restingPercentage: number
+    healthScore: number
+    alerts: { type: "warning" | "critical" | "info"; message: string }[]
+  } | null
+  image: string | null
+  lastUpdated: number
+}
+
 // ─── Live sensor hook (reads /sensors node) ───────────────────────────────────
 // ESP32 should write to Firebase like this:
 //   /sensors/temperature  → 31.5
@@ -179,4 +192,34 @@ export function useAlerts() {
   }, [])
 
   return alerts
+}
+
+// ─── Camera Analysis hook (reads /camera_analysis node) ──────────────────────
+// ESP32 writes { analysis: {...}, image: "base64...", lastUpdated: 123... }
+
+export function useCameraAnalysis() {
+  const [cameraData, setCameraData] = useState<CameraAnalysisData>({
+    analysis: null,
+    image: null,
+    lastUpdated: 0,
+  })
+
+  useEffect(() => {
+    const cameraRef = ref(database, "camera_analysis")
+
+    const unsubscribe = onValue(cameraRef, (snapshot) => {
+      const raw = snapshot.val()
+      if (raw) {
+        setCameraData({
+          analysis: raw.analysis || null,
+          image: raw.image || null,
+          lastUpdated: raw.lastUpdated || 0,
+        })
+      }
+    })
+
+    return () => unsubscribe()
+  }, [])
+
+  return cameraData
 }

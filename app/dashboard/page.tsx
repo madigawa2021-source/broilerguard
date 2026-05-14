@@ -6,7 +6,7 @@ import { StatusCards } from "@/components/dashboard/status-cards"
 import { TemperatureChart } from "@/components/dashboard/temperature-chart"
 import { AICameraAnalysis } from "@/components/dashboard/ai-camera-analysis"
 import { AlertHistory } from "@/components/dashboard/alert-history"
-import { useLiveSensorData, useChartHistory, useAlerts } from "@/lib/useSensorData"
+import { useLiveSensorData, useChartHistory, useAlerts, useCameraAnalysis } from "@/lib/useSensorData"
 import { Wifi, WifiOff } from "lucide-react"
 
 // Fallback chart data while Firebase loads
@@ -22,26 +22,7 @@ function generateFallbackChart() {
   })
 }
 
-function generateCameraAnalysis() {
-  return {
-    totalCount: 5000,
-    activePercentage: 55,
-    feedingPercentage: 32,
-    restingPercentage: 13,
-    healthScore: 92,
-    alerts: [
-      {
-        type: "warning" as const,
-        message: "Slight clustering detected in northeast corner - monitor for overcrowding",
-      },
-      {
-        type: "info" as const,
-        message: "Feed consumption 5% above average - healthy appetite observed",
-      },
-    ],
-    lastUpdated: "Last updated",
-  }
-}
+// generateCameraAnalysis removed
 
 const pens = [
   { id: "all", name: "All Pens" },
@@ -52,13 +33,13 @@ const pens = [
 
 export default function DashboardPage() {
   const [selectedPen, setSelectedPen] = useState("all")
-  const [cameraAnalysis, setCameraAnalysis] = useState(generateCameraAnalysis())
   const [isRefreshing, setIsRefreshing] = useState(false)
 
   // 🔥 Firebase realtime data
   const { data: sensorData, connected } = useLiveSensorData()
   const firebaseChartData = useChartHistory()
   const firebaseAlerts = useAlerts()
+  const cameraData = useCameraAnalysis()
 
   // Use Firebase chart data if available, otherwise fallback
   const [fallbackChart] = useState(generateFallbackChart())
@@ -67,7 +48,7 @@ export default function DashboardPage() {
   const handleRefreshCamera = useCallback(() => {
     setIsRefreshing(true)
     setTimeout(() => {
-      setCameraAnalysis(generateCameraAnalysis())
+      // In a real app, this would trigger an ESP32 manual capture
       setIsRefreshing(false)
     }, 1500)
   }, [])
@@ -124,7 +105,7 @@ export default function DashboardPage() {
           <div className="grid gap-6 lg:grid-cols-2">
             <TemperatureChart data={temperatureData} />
             <AICameraAnalysis
-              analysis={cameraAnalysis}
+              cameraData={cameraData}
               onRefresh={handleRefreshCamera}
               isRefreshing={isRefreshing}
             />

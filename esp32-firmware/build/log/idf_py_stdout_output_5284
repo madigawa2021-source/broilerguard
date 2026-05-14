@@ -1,5 +1,5 @@
 Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM18 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\broilerguard.elf C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
-[0;32mI (123) esp_image: segment 1: paddr=00041ac8 vaddr=3fc9ab00 sizeESP-ROM:esp32s3-20210327[0m
+[0;32mI (123) esp_image: segment 1: paddr=00041af8 vaddr=3fc9ab00 sizeESP-ROM:esp32s3-20210327[0m
 Build:Mar 27 2021
 rst:0x15 (USB_UART_CHIP_RESET),boot:0x29 (SPI_FAST_FLASH_BOOT)
 Saved PC:0x40379e9e
@@ -24,12 +24,12 @@ entry 0x403c8924
 [0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
 [0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
 [0;32mI (76) boot: End of partition table[0m
-[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=31aa0h (203424) map[0m
-[0;32mI (123) esp_image: segment 1: paddr=00041ac8 vaddr=3fc9ab00 size=04afch ( 19196) load[0m
-[0;32mI (127) esp_image: segment 2: paddr=000465cc vaddr=40374000 size=09a4ch ( 39500) load[0m
-[0;32mI (136) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=a462ch (673324) map[0m
-[0;32mI (255) esp_image: segment 4: paddr=000f4654 vaddr=4037da4c size=0d024h ( 53284) load[0m
-[0;32mI (267) esp_image: segment 5: paddr=00101680 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=31ad0h (203472) map[0m
+[0;32mI (123) esp_image: segment 1: paddr=00041af8 vaddr=3fc9ab00 size=04afch ( 19196) load[0m
+[0;32mI (127) esp_image: segment 2: paddr=000465fc vaddr=40374000 size=09a1ch ( 39452) load[0m
+[0;32mI (136) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=a4624h (673316) map[0m
+[0;32mI (255) esp_image: segment 4: paddr=000f464c vaddr=4037da1c size=0d054h ( 53332) load[0m
+[0;32mI (267) esp_image: segment 5: paddr=001016a8 vaddr=50000000 size=00020h (    32) load[0m
 [0;32mI (276) boot: Loaded app from partition at offset 0x10000[0m
 [0;32mI (277) boot: Disabling RNG early entropy source...[0m
 [0;32mI (287) cpu_start: Multicore app[0m
@@ -37,9 +37,9 @@ entry 0x403c8924
 [0;32mI (296) cpu_start: cpu freq: 160000000 Hz[0m
 [0;32mI (296) app_init: Application information:[0m
 [0;32mI (296) app_init: Project name:     broilerguard[0m
-[0;32mI (300) app_init: App version:      de3239e-dirty[0m
-[0;32mI (305) app_init: Compile time:     May 13 2026 06:57:24[0m
-[0;32mI (310) app_init: ELF file SHA256:  4b5cfbd76...[0m
+[0;32mI (300) app_init: App version:      0b21676-dirty[0m
+[0;32mI (305) app_init: Compile time:     May 13 2026 17:41:18[0m
+[0;32mI (310) app_init: ELF file SHA256:  ab52b1536...[0m
 [0;32mI (314) app_init: ESP-IDF:          v5.5.1-dirty[0m
 [0;32mI (318) efuse_init: Min chip rev:     v0.0[0m
 [0;32mI (322) efuse_init: Max chip rev:     v0.99 [0m
@@ -50,8 +50,8 @@ entry 0x403c8924
 [0;32mI (347) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
 [0;32mI (352) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
 [0;32mI (358) spi_flash: detected chip: boya[0m
-[0;32mI (360) spi_flash: flash io: dio[0m
-[0;33mW (363) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (361) spi_flash: flash io: dio[0m
+[0;33mW (364) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
 [0;32mI (376) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
 [0;32mI (382) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
 [0;32mI (389) main_task: Started on CPU0[0m
@@ -85,224 +85,1410 @@ entry 0x403c8924
 [0;32mI (509) wifi_init: WiFi IRAM OP enabled[0m
 [0;32mI (509) wifi_init: WiFi RX IRAM OP enabled[0m
 [0;32mI (519) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
-[0;32mI (559) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
-[0;32mI (559) wifi:enable tsf[0m
-[0;32mI (559) BroilerGuard: Connecting to WiFi: Redmi 9C ...[0m
-[0;32mI (569) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
-[0;32mI (569) wifi:state: init -> auth (0xb0)[0m
-[0;32mI (579) wifi:state: auth -> assoc (0x0)[0m
-[0;32mI (589) wifi:state: assoc -> run (0x10)[0m
-[0;32mI (619) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = b2:c1:83:b7:63:3a[0m
-[0;32mI (619) wifi:security: WPA2-PSK, phy: bgn, rssi: -26[0m
-[0;32mI (619) wifi:pm start, type: 1[0m
+[0;32mI (589) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (589) wifi:enable tsf[0m
+[0;32mI (589) BroilerGuard: Connecting to WiFi: Redmi 9C ...[0m
+[0;32mI (599) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (599) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (609) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (619) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (659) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = b6:79:4a:b3:9e:02[0m
+[0;32mI (659) wifi:security: WPA2-PSK, phy: bgn, rssi: -40[0m
+[0;32mI (659) wifi:pm start, type: 1[0m
 
-[0;32mI (619) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
-[0;32mI (629) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
-[0;32mI (659) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
-[0;32mI (659) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
-[0;32mI (1689) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
-[0;32mI (1689) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
-[0;32mI (1689) main_task: Returned from app_main()[0m
-[0;32mI (1689) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
-[0;32mI (1699) BroilerGuard: Servo initialized at 90 degrees[0m
-[0;32mI (1699) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
-[0;32mI (1709) BroilerGuard: Camera initialization starting...[0m
-[0;33mW (1709) BroilerGuard: Camera driver code is present but disabled. Add 'esp32-camera' component to enable.[0m
-[0;32mI (2419) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
-[0;32mI (5419) BroilerGuard: LDR: Dark detected (2931) -> Light ON[0m
-[0;32mI (6419) BroilerGuard: LDR: Light detected (3053) -> Light OFF[0m
-[0;32mI (28419) BroilerGuard: LDR: Dark detected (1898) -> Light ON[0m
-[0;32mI (29419) BroilerGuard: LDR: Light detected (3161) -> Light OFF[0m
-[0;32mI (45419) BroilerGuard: LDR: Dark detected (1773) -> Light ON[0m
-[0;32mI (46419) BroilerGuard: LDR: Light detected (3163) -> Light OFF[0m
-[0;32mI (60439) BroilerGuard: Temp=35.0C  Hum=37% | Fan=off Mist=off Light=off Heat=off[0m
-[0;32mI (60439) BroilerGuard: AGENT: Temp HIGH (35.0C) → Fan ON, Heater OFF[0m
-[0;32mI (61149) BroilerGuard: AGENT: Hum LOW (37%) → Mister ON[0m
-[0;32mI (62299) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (63329) wifi:<ba-add>idx:0 (ifx:0, b2:c1:83:b7:63:3a), tid:0, ssn:16, winSize:64[0m
-[0;32mI (64149) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (64889) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (68039) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (68989) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (70299) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (87299) BroilerGuard: LDR: Dark detected (2031) -> Light ON[0m
-[0;32mI (88299) BroilerGuard: LDR: Light detected (3197) -> Light OFF[0m
-[0;32mI (121319) BroilerGuard: Temp=38.0C  Hum=22% | Fan=ON Mist=ON Light=off Heat=off[0m
-[0;32mI (121829) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (123129) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (124699) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (126409) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (128549) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (136859) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (137869) BroilerGuard: LDR: Dark detected (2967) -> Light ON[0m
-[0;32mI (138869) BroilerGuard: LDR: Light detected (3100) -> Light OFF[0m
-[0;32mI (139869) BroilerGuard: LDR: Dark detected (2953) -> Light ON[0m
-[0;32mI (140869) BroilerGuard: LDR: Light detected (3067) -> Light OFF[0m
-[0;32mI (141869) BroilerGuard: LDR: Dark detected (2988) -> Light ON[0m
-[0;32mI (142869) BroilerGuard: LDR: Light detected (3099) -> Light OFF[0m
-[0;32mI (143869) BroilerGuard: LDR: Dark detected (2942) -> Light ON[0m
-[0;32mI (144869) BroilerGuard: LDR: Light detected (3125) -> Light OFF[0m
-[0;32mI (145869) BroilerGuard: LDR: Dark detected (2963) -> Light ON[0m
-[0;32mI (146869) BroilerGuard: LDR: Light detected (3068) -> Light OFF[0m
-[0;32mI (147869) BroilerGuard: LDR: Dark detected (2985) -> Light ON[0m
-[0;32mI (148869) BroilerGuard: LDR: Light detected (3099) -> Light OFF[0m
-[0;32mI (149869) BroilerGuard: LDR: Dark detected (2984) -> Light ON[0m
-[0;32mI (150869) BroilerGuard: LDR: Light detected (3135) -> Light OFF[0m
-[0;32mI (151869) BroilerGuard: LDR: Dark detected (2863) -> Light ON[0m
-[0;32mI (153869) BroilerGuard: LDR: Light detected (3082) -> Light OFF[0m
-[0;32mI (154869) BroilerGuard: LDR: Dark detected (2973) -> Light ON[0m
-[0;32mI (155869) BroilerGuard: LDR: Light detected (3095) -> Light OFF[0m
-[0;32mI (156869) BroilerGuard: LDR: Dark detected (2971) -> Light ON[0m
-[0;32mI (157869) BroilerGuard: LDR: Light detected (3097) -> Light OFF[0m
-[0;32mI (158869) BroilerGuard: LDR: Dark detected (2964) -> Light ON[0m
-[0;32mI (159869) BroilerGuard: LDR: Light detected (3097) -> Light OFF[0m
-[0;32mI (160869) BroilerGuard: LDR: Dark detected (2963) -> Light ON[0m
-[0;32mI (161869) BroilerGuard: LDR: Light detected (3091) -> Light OFF[0m
-[0;32mI (162869) BroilerGuard: LDR: Dark detected (2983) -> Light ON[0m
-[0;32mI (163869) BroilerGuard: LDR: Light detected (3119) -> Light OFF[0m
-[0;32mI (164869) BroilerGuard: LDR: Dark detected (2941) -> Light ON[0m
-[0;32mI (165869) BroilerGuard: LDR: Light detected (3208) -> Light OFF[0m
-[0;32mI (171869) BroilerGuard: LDR: Dark detected (2937) -> Light ON[0m
-[0;32mI (172869) BroilerGuard: LDR: Light detected (3001) -> Light OFF[0m
-[0;32mI (173869) BroilerGuard: LDR: Dark detected (2892) -> Light ON[0m
-[0;32mI (174869) BroilerGuard: LDR: Light detected (3109) -> Light OFF[0m
-[0;32mI (181889) BroilerGuard: Temp=40.0C  Hum=17% | Fan=ON Mist=ON Light=off Heat=off[0m
-[0;32mI (182449) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (183959) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (185929) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (187239) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (188189) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (189289) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (190289) BroilerGuard: LDR: Dark detected (2825) -> Light ON[0m
-[0;32mI (193289) BroilerGuard: LDR: Light detected (3045) -> Light OFF[0m
-[0;32mI (194289) BroilerGuard: LDR: Dark detected (2875) -> Light ON[0m
-[0;32mI (242309) BroilerGuard: Temp=40.0C  Hum=14% | Fan=ON Mist=ON Light=ON Heat=off[0m
-[0;32mI (248189) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (249909) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (252549) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (254419) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (255569) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (256869) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (302899) BroilerGuard: Temp=40.0C  Hum=17% | Fan=ON Mist=ON Light=ON Heat=off[0m
-[0;32mI (303699) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (305619) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (314139) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (315649) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (316599) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (319129) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (363159) BroilerGuard: Temp=41.0C  Hum=14% | Fan=ON Mist=ON Light=ON Heat=off[0m
-[0;32mI (372719) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (373819) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (375379) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (387949) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (392169) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (395319) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (423339) BroilerGuard: Temp=41.0C  Hum=17% | Fan=ON Mist=ON Light=ON Heat=off[0m
-[0;32mI (424119) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (425219) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (426779) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (427889) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (428829) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (430959) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (445959) BroilerGuard: LDR: Light detected (3095) -> Light OFF[0m
-[0;32mI (446959) BroilerGuard: LDR: Dark detected (2362) -> Light ON[0m
-[0;32mI (483979) BroilerGuard: Temp=41.0C  Hum=21% | Fan=ON Mist=ON Light=ON Heat=off[0m
-[0;32mI (484949) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (486869) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (488839) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (490349) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (491299) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (492399) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (530399) BroilerGuard: LDR: Light detected (3135) -> Light OFF[0m
-[0;32mI (531399) BroilerGuard: LDR: Dark detected (2893) -> Light ON[0m
-[0;32mI (535399) BroilerGuard: LDR: Light detected (3043) -> Light OFF[0m
-[0;32mI (536399) BroilerGuard: LDR: Dark detected (2775) -> Light ON[0m
-[0;32mI (537399) BroilerGuard: LDR: Light detected (3187) -> Light OFF[0m
-[0;32mI (538399) BroilerGuard: LDR: Dark detected (2890) -> Light ON[0m
-[0;32mI (539399) BroilerGuard: LDR: Light detected (3223) -> Light OFF[0m
-[0;32mI (540399) BroilerGuard: LDR: Dark detected (2959) -> Light ON[0m
-[0;32mI (541399) BroilerGuard: LDR: Light detected (3254) -> Light OFF[0m
-[0;32mI (542399) BroilerGuard: LDR: Dark detected (2953) -> Light ON[0m
-[0;32mI (543399) BroilerGuard: LDR: Light detected (3219) -> Light OFF[0m
-[0;32mI (544399) BroilerGuard: LDR: Dark detected (2941) -> Light ON[0m
-[0;32mI (544419) BroilerGuard: Temp=41.0C  Hum=14% | Fan=ON Mist=ON Light=ON Heat=off[0m
-[0;32mI (544959) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (546059) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (547819) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (549339) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (550279) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (553229) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (554229) BroilerGuard: LDR: Light detected (3227) -> Light OFF[0m
-[0;32mI (555229) BroilerGuard: LDR: Dark detected (2935) -> Light ON[0m
-[0;32mI (556229) BroilerGuard: LDR: Light detected (3219) -> Light OFF[0m
-[0;32mI (557229) BroilerGuard: LDR: Dark detected (2927) -> Light ON[0m
-[0;32mI (558229) BroilerGuard: LDR: Light detected (3211) -> Light OFF[0m
-[0;32mI (559229) BroilerGuard: LDR: Dark detected (2939) -> Light ON[0m
-[0;32mI (560229) BroilerGuard: LDR: Light detected (3187) -> Light OFF[0m
-[0;32mI (561229) BroilerGuard: LDR: Dark detected (2933) -> Light ON[0m
-[0;32mI (562229) BroilerGuard: LDR: Light detected (3160) -> Light OFF[0m
-[0;32mI (563229) BroilerGuard: LDR: Dark detected (2921) -> Light ON[0m
-[0;32mI (564229) BroilerGuard: LDR: Light detected (3133) -> Light OFF[0m
-[0;32mI (565229) BroilerGuard: LDR: Dark detected (741) -> Light ON[0m
-[0;32mI (576229) BroilerGuard: LDR: Light detected (3013) -> Light OFF[0m
-[0;32mI (577229) BroilerGuard: LDR: Dark detected (2904) -> Light ON[0m
-[0;32mI (578229) BroilerGuard: LDR: Light detected (3193) -> Light OFF[0m
-[0;32mI (579229) BroilerGuard: LDR: Dark detected (2904) -> Light ON[0m
-[0;32mI (580229) BroilerGuard: LDR: Light detected (3188) -> Light OFF[0m
-[0;32mI (581229) BroilerGuard: LDR: Dark detected (2894) -> Light ON[0m
-[0;32mI (582229) BroilerGuard: LDR: Light detected (3181) -> Light OFF[0m
-[0;32mI (583229) BroilerGuard: LDR: Dark detected (2910) -> Light ON[0m
-[0;32mI (584229) BroilerGuard: LDR: Light detected (3181) -> Light OFF[0m
-[0;32mI (585229) BroilerGuard: LDR: Dark detected (2897) -> Light ON[0m
-[0;32mI (586229) BroilerGuard: LDR: Light detected (3175) -> Light OFF[0m
-[0;32mI (587229) BroilerGuard: LDR: Dark detected (2891) -> Light ON[0m
-[0;32mI (588229) BroilerGuard: LDR: Light detected (3191) -> Light OFF[0m
-[0;32mI (589229) BroilerGuard: LDR: Dark detected (2953) -> Light ON[0m
-[0;32mI (590229) BroilerGuard: LDR: Light detected (3229) -> Light OFF[0m
-[0;32mI (591229) BroilerGuard: LDR: Dark detected (2889) -> Light ON[0m
-[0;32mI (593229) BroilerGuard: LDR: Light detected (3177) -> Light OFF[0m
-[0;32mI (602229) BroilerGuard: LDR: Dark detected (2999) -> Light ON[0m
-[0;32mI (603229) BroilerGuard: LDR: Light detected (3288) -> Light OFF[0m
-[0;32mI (605249) BroilerGuard: Temp=41.0C  Hum=17% | Fan=ON Mist=ON Light=off Heat=off[0m
-[0;32mI (606189) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (608319) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (609879) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (611189) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (612339) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (613439) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (653439) BroilerGuard: LDR: Dark detected (2957) -> Light ON[0m
-[0;32mI (654439) BroilerGuard: LDR: Light detected (3211) -> Light OFF[0m
-[0;32mI (655439) BroilerGuard: LDR: Dark detected (2813) -> Light ON[0m
-[0;32mI (656439) BroilerGuard: LDR: Light detected (3205) -> Light OFF[0m
-[0;32mI (657439) BroilerGuard: LDR: Dark detected (2951) -> Light ON[0m
-[0;32mI (658439) BroilerGuard: LDR: Light detected (3281) -> Light OFF[0m
-[0;32mI (665439) BroilerGuard: LDR: Dark detected (2943) -> Light ON[0m
-[0;32mI (665459) BroilerGuard: Temp=41.0C  Hum=17% | Fan=ON Mist=ON Light=ON Heat=off[0m
-[0;32mI (665989) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (667299) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (668859) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (670169) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (671109) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (672419) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
-[0;32mI (673429) BroilerGuard: LDR: Light detected (3256) -> Light OFF[0m
-[0;32mI (674429) BroilerGuard: LDR: Dark detected (2968) -> Light ON[0m
-[0;32mI (675429) BroilerGuard: LDR: Light detected (3243) -> Light OFF[0m
-[0;32mI (676429) BroilerGuard: LDR: Dark detected (2968) -> Light ON[0m
-[0;32mI (677429) BroilerGuard: LDR: Light detected (3234) -> Light OFF[0m
-[0;32mI (678429) BroilerGuard: LDR: Dark detected (2915) -> Light ON[0m
-[0;32mI (679429) BroilerGuard: LDR: Light detected (3292) -> Light OFF[0m
-[0;32mI (680429) BroilerGuard: LDR: Dark detected (2975) -> Light ON[0m
-[0;32mI (681429) BroilerGuard: LDR: Light detected (3247) -> Light OFF[0m
-[0;32mI (685429) BroilerGuard: LDR: Dark detected (2958) -> Light ON[0m
-[0;32mI (686429) BroilerGuard: LDR: Light detected (3223) -> Light OFF[0m
-[0;32mI (695429) BroilerGuard: LDR: Dark detected (2861) -> Light ON[0m
-[0;32mI (696429) BroilerGuard: LDR: Light detected (3287) -> Light OFF[0m
-[0;32mI (697429) BroilerGuard: LDR: Dark detected (2909) -> Light ON[0m
-[0;32mI (698429) BroilerGuard: LDR: Light detected (3337) -> Light OFF[0m
-[0;32mI (726449) BroilerGuard: Temp=41.0C  Hum=13% | Fan=ON Mist=ON Light=off Heat=off[0m
-[0;32mI (727029) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (728759) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (730509) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (732229) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
-[0;32mI (733169) esp-x509-crt-bundle: Certificate validated[0m
-[0;32mI (734479) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (659) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (669) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (679) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (679) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1759) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1759) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1759) main_task: Returned from app_main()[0m
+[0;32mI (1759) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (1769) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (1769) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (1779) BroilerGuard: Camera initialization starting...[0m
+[0;33mW (1779) BroilerGuard: Camera driver code is present but disabled. Add 'esp32-camera' component to enable.[0m
+[0;32mI (2489) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+[0;32mI (5509) BroilerGuard: Temp=35.0C  Hum=22% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (5509) BroilerGuard: AGENT: Temp HIGH (35.0C) → Fan ON, Heater OFF[0m
+[0;32mI (6219) BroilerGuard: AGENT: Hum LOW (22%) → Mister ON[0m
+[0;32mI (7559) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (9069) wifi:<ba-add>idx:0 (ifx:0, b6:79:4a:b3:9e:02), tid:0, ssn:17, winSize:64[0m
+[0;32mI (9889) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (10669) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (12549) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (15949) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (17469) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (18489) BroilerGuard: Temp=35.0C  Hum=22% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (20249) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (22179) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (22949) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (24839) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (25989) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (27909) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (28929) BroilerGuard: Temp=35.0C  Hum=23% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (29879) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (31799) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (32579) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (34259) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (35409) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (37329) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (38349) BroilerGuard: Temp=35.0C  Hum=23% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (39139) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (41019) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (51789) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (53719) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (54869) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (56789) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (57809) BroilerGuard: Temp=35.0C  Hum=23% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (58599) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (60469) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (61249) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (63139) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (64289) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (66209) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (67229) BroilerGuard: Temp=35.0C  Hum=23% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (68179) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (70099) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (70839) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (72759) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (73909) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (75839) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (76859) BroilerGuard: Temp=35.0C  Hum=23% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (77649) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (79519) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (80319) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (82179) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (83329) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (85259) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (86279) BroilerGuard: Temp=35.0C  Hum=24% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (87049) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (88939) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (89889) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (91809) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (92989) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (94679) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (95699) BroilerGuard: Temp=35.0C  Hum=23% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (96479) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (98359) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (99129) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (101229) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (102379) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (103939) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (104969) BroilerGuard: Temp=35.0C  Hum=24% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (105709) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (107379) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (108149) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (110239) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (111389) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (113929) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;33mW (114949) DHT: Timeout on bit 39 high[0m
+[0;33mW (114959) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (119979) BroilerGuard: Temp=35.0C  Hum=24% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (121429) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (123349) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (124499) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (126419) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (127569) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (129489) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (130499) BroilerGuard: LDR: Dark detected (0) -> Light ON[0m
+[0;33mW (130519) DHT: Timeout waiting for response low[0m
+[0;33mW (130519) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (135539) DHT: Timeout waiting for response low[0m
+[0;33mW (135539) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (138539) BroilerGuard: LDR: Light detected (4095) -> Light OFF[0m
+[0;32mI (139539) BroilerGuard: LDR: Dark detected (0) -> Light ON[0m
+[0;33mW (140559) DHT: Timeout waiting for response low[0m
+[0;33mW (140559) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (145579) DHT: Timeout waiting for response low[0m
+[0;33mW (145579) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (150599) DHT: Timeout waiting for response low[0m
+[0;33mW (150599) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (152599) BroilerGuard: LDR: Light detected (3719) -> Light OFF[0m
+[0;32mI (154599) BroilerGuard: LDR: Dark detected (599) -> Light ON[0m
+[0;32mI (154889) wifi:[ADDBA]RX DELBA, reason:1, delete tid:0, initiator:0(recipient)[0m
+[0;33mW (155619) DHT: Timeout waiting for response low[0m
+[0;33mW (155619) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (160639) DHT: Timeout waiting for response low[0m
+[0;33mW (160639) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (165659) DHT: Timeout waiting for response low[0m
+[0;33mW (165659) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (170679) DHT: Timeout waiting for response low[0m
+[0;33mW (170679) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (175699) DHT: Timeout waiting for response low[0m
+[0;33mW (175699) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (180719) DHT: Timeout waiting for response low[0m
+[0;33mW (180719) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (185739) DHT: Timeout waiting for response low[0m
+[0;33mW (185739) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (190759) DHT: Timeout waiting for response low[0m
+[0;33mW (190759) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (195779) DHT: Timeout waiting for response low[0m
+[0;33mW (195779) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (200799) DHT: Timeout waiting for response low[0m
+[0;33mW (200799) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (205819) DHT: Timeout waiting for response low[0m
+[0;33mW (205819) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (210839) DHT: Timeout waiting for response low[0m
+[0;33mW (210839) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (215859) DHT: Timeout waiting for response low[0m
+[0;33mW (215859) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (220879) DHT: Timeout waiting for response low[0m
+[0;33mW (220879) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (225899) DHT: Timeout waiting for response low[0m
+[0;33mW (225899) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (230919) DHT: Timeout waiting for response low[0m
+[0;33mW (230919) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (235939) DHT: Timeout waiting for response low[0m
+[0;33mW (235939) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (240959) DHT: Timeout waiting for response low[0m
+[0;33mW (240959) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (245979) DHT: Timeout waiting for response low[0m
+[0;33mW (245979) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (250999) DHT: Timeout waiting for response low[0m
+[0;33mW (250999) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (256019) DHT: Timeout waiting for response low[0m
+[0;33mW (256019) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (261039) DHT: Timeout waiting for response low[0m
+[0;33mW (261039) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (266059) DHT: Timeout waiting for response low[0m
+[0;33mW (266059) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (271079) DHT: Timeout waiting for response low[0m
+[0;33mW (271079) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (276099) DHT: Timeout waiting for response low[0m
+[0;33mW (276099) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (281119) DHT: Timeout waiting for response low[0m
+[0;33mW (281119) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (286139) DHT: Timeout waiting for response low[0m
+[0;33mW (286139) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (291159) DHT: Timeout waiting for response low[0m
+[0;33mW (291159) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (296179) DHT: Timeout waiting for response low[0m
+[0;33mW (296179) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (301199) DHT: Timeout waiting for response low[0m
+[0;33mW (301199) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (306219) DHT: Timeout waiting for response low[0m
+[0;33mW (306219) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (311239) DHT: Timeout waiting for response low[0m
+[0;33mW (311239) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (316259) DHT: Timeout waiting for response low[0m
+[0;33mW (316259) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (321279) DHT: Timeout waiting for response low[0m
+[0;33mW (321279) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (326299) DHT: Timeout waiting for response low[0m
+[0;33mW (326299) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (331319) DHT: Timeout waiting for response low[0m
+[0;33mW (331319) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (336339) DHT: Timeout waiting for response low[0m
+[0;33mW (336339) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (341359) DHT: Timeout waiting for response low[0m
+[0;33mW (341359) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (346379) DHT: Timeout waiting for response low[0m
+[0;33mW (346379) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (351399) DHT: Timeout waiting for response low[0m
+[0;33mW (351399) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (356419) DHT: Timeout waiting for response low[0m
+[0;33mW (356419) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (361439) DHT: Timeout waiting for response low[0m
+[0;33mW (361439) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (366459) DHT: Timeout waiting for response low[0m
+[0;33mW (366459) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (371479) DHT: Timeout waiting for response low[0m
+[0;33mW (371479) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (376499) DHT: Timeout waiting for response low[0m
+[0;33mW (376499) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (381519) DHT: Timeout waiting for response low[0m
+[0;33mW (381519) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (386539) DHT: Timeout waiting for response low[0m
+[0;33mW (386539) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (391559) DHT: Timeout waiting for response low[0m
+[0;33mW (391559) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (395559) BroilerGuard: LDR: Light detected (3720) -> Light OFF[0m
+[0;33mW (396579) DHT: Timeout waiting for response low[0m
+[0;33mW (396579) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (397579) BroilerGuard: LDR: Dark detected (571) -> Light ON[0m
+[0;33mW (401599) DHT: Timeout waiting for response low[0m
+[0;33mW (401599) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (406619) DHT: Timeout waiting for response low[0m
+[0;33mW (406619) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (411639) DHT: Timeout waiting for response low[0m
+[0;33mW (411639) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (416639) BroilerGuard: LDR: Light detected (4095) -> Light OFF[0m
+[0;33mW (416659) DHT: Timeout waiting for response low[0m
+[0;33mW (416659) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (418659) BroilerGuard: LDR: Dark detected (603) -> Light ON[0m
+[0;32mI (419659) BroilerGuard: LDR: Light detected (1821) -> Light OFF[0m
+[0;32mI (420659) BroilerGuard: LDR: Dark detected (1093) -> Light ON[0m
+[0;33mW (421679) DHT: Timeout waiting for response low[0m
+[0;33mW (421679) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (255) esp_image: segment 4: paddr=000f464c vaddr=4037da1c sizeW (904) wifi:tx null, bss is null[0m
+[0;33mW (3064) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (3064) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (3074) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (3084) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (3094) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (3124) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = b6:79:4a:b3:9e:02[0m
+[0;32mI (3124) wifi:security: WPA2-PSK, phy: bgn, rssi: -29[0m
+[0;32mI (3134) wifi:pm start, type: 1[0m
+
+[0;32mI (3134) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (3144) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (3154) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (3154) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (4224) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (4224) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (4224) main_task: Returned from app_main()[0m
+[0;32mI (4224) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (4234) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (4234) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (4244) BroilerGuard: Camera initialization starting...[0m
+[0;33mW (4244) BroilerGuard: Camera driver code is present but disabled. Add 'esp32-camera' component to enable.[0m
+[0;32mI (4954) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+[0;32mI (7954) BroilerGuard: LDR: Dark detected (524) -> Light ON[0m
+[0;33mW (7974) DHT: Timeout waiting for response low[0m
+[0;33mW (7974) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (12994) DHT: Timeout waiting for response low[0m
+[0;33mW (12994) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (13994) BroilerGuard: LDR: Light detected (1513) -> Light OFF[0m
+[0;32mI (14994) BroilerGuard: LDR: Dark detected (565) -> Light ON[0m
+[0;33mW (18014) DHT: Timeout waiting for response low[0m
+[0;33mW (18014) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (19014) BroilerGuard: LDR: Light detected (1500) -> Light OFF[0m
+[0;32mI (20014) BroilerGuard: LDR: Dark detected (619) -> Light ON[0m
+[0;33mW (23034) DHT: Timeout waiting for response low[0m
+[0;33mW (23034) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (28054) DHT: Timeout waiting for response low[0m
+[0;33mW (28054) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (33074) DHT: Timeout waiting for response low[0m
+[0;33mW (33074) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (38094) DHT: Timeout waiting for response low[0m
+[0;33mW (38094) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (43114) DHT: Timeout waiting for response low[0m
+[0;33mW (43114) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (48134) DHT: Timeout waiting for response low[0m
+[0;33mW (48134) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (53154) DHT: Timeout waiting for response low[0m
+[0;33mW (53154) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (53754) BroilerGuard: SECURITY ALERT: Vibration detected via ISR![0m
+[0;32mI (56154) BroilerGuard: LDR: Light detected (1527) -> Light OFF[0m
+[0;32mI (57154) BroilerGuard: LDR: Dark detected (667) -> Light ON[0m
+[0;32mI (58074) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (58374) DHT: Timeout waiting for response low[0m
+[0;33mW (58374) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (58764) wifi:<ba-add>idx:0 (ifx:0, b6:79:4a:b3:9e:02), tid:0, ssn:16, winSize:64[0m
+[0;32mI (59584) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;33mW (61584) BroilerGuard: SECURITY ALERT: Vibration detected via ISR![0m
+[0;33mW (63394) DHT: Timeout waiting for response low[0m
+[0;33mW (63394) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (63394) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (65324) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;33mW (68414) DHT: Timeout waiting for response low[0m
+[0;33mW (68414) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (73434) DHT: Timeout waiting for response low[0m
+[0;33mW (73434) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (78454) DHT: Timeout waiting for response low[0m
+[0;33mW (78454) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (83474) DHT: Timeout waiting for response low[0m
+[0;33mW (83474) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (88494) DHT: Timeout waiting for response low[0m
+[0;33mW (88494) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (93514) DHT: Timeout waiting for response low[0m
+[0;33mW (93514) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (97514) BroilerGuard: LDR: Light detected (1511) -> Light OFF[0m
+[0;32mI (98514) BroilerGuard: LDR: Dark detected (549) -> Light ON[0m
+[0;33mW (98534) DHT: Timeout waiting for response low[0m
+[0;33mW (98534) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (103554) DHT: Timeout waiting for response low[0m
+[0;33mW (103554) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (108574) DHT: Timeout waiting for response low[0m
+[0;33mW (108574) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (113594) DHT: Timeout waiting for response low[0m
+[0;33mW (113594) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (118614) DHT: Timeout waiting for response low[0m
+[0;33mW (118614) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (123634) DHT: Timeout waiting for response low[0m
+[0;33mW (123634) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (124634) BroilerGuard: LDR: Light detected (1519) -> Light OFF[0m
+[0;32mI (125634) BroilerGuard: LDR: Dark detected (509) -> Light ON[0m
+[0;32mI (126634) BroilerGuard: LDR: Light detected (1501) -> Light OFF[0m
+[0;32mI (128634) BroilerGuard: LDR: Dark detected (405) -> Light ON[0m
+[0;33mW (128654) DHT: Timeout waiting for response low[0m
+[0;33mW (128654) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (133674) DHT: Timeout waiting for response low[0m
+[0;33mW (133674) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (138694) DHT: Timeout waiting for response low[0m
+[0;33mW (138694) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (143714) DHT: Timeout on bit 2 high[0m
+[0;33mW (143714) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (145714) BroilerGuard: LDR: Light detected (1527) -> Light OFF[0m
+[0;32mI (146714) BroilerGuard: LDR: Dark detected (435) -> Light ON[0m
+[0;32mI (147714) BroilerGuard: LDR: Light detected (1573) -> Light OFF[0m
+[0;32mI (148714) BroilerGuard: LDR: Dark detected (413) -> Light ON[0m
+[0;32mI (148734) BroilerGuard: Temp=35.0C  Hum=27% | Fan=off Mist=off Light=ON Heat=off[0m
+[0;32mI (148734) BroilerGuard: AGENT: Temp HIGH (35.0C) → Fan ON, Heater OFF[0m
+[0;32mI (149444) BroilerGuard: AGENT: Hum LOW (27%) → Mister ON[0m
+[0;32mI (150234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (152974) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (153724) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (155234) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (156384) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (160354) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (161354) BroilerGuard: LDR: Light detected (1591) -> Light OFF[0m
+[0;32mI (161374) BroilerGuard: Temp=35.0C  Hum=27% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (162124) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (163624) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (164394) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (166294) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (167434) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (169364) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (170364) BroilerGuard: LDR: Dark detected (719) -> Light ON[0m
+[0;32mI (170384) BroilerGuard: Temp=35.0C  Hum=27% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (171174) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (173044) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (173784) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (175714) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (176864) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (178784) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (179784) BroilerGuard: LDR: Light detected (1592) -> Light OFF[0m
+[0;32mI (179804) BroilerGuard: Temp=35.0C  Hum=27% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (180584) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (182474) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (183264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (185134) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (186284) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (188204) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (189204) BroilerGuard: LDR: Dark detected (713) -> Light ON[0m
+[0;32mI (189224) BroilerGuard: Temp=35.0C  Hum=27% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (189994) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (191894) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (192644) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (194554) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (195734) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (197624) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (198624) BroilerGuard: LDR: Light detected (1571) -> Light OFF[0m
+[0;32mI (198644) BroilerGuard: Temp=35.0C  Hum=27% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (199434) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (201314) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (202074) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (203974) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (205174) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (207044) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (208044) BroilerGuard: LDR: Dark detected (704) -> Light ON[0m
+[0;32mI (208064) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (208824) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (210734) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (211474) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (213394) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (214544) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (216464) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (217474) BroilerGuard: LDR: Light detected (1577) -> Light OFF[0m
+[0;32mI (217494) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (218234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (220154) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (220934) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (222814) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (223964) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (225884) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (226894) BroilerGuard: LDR: Dark detected (701) -> Light ON[0m
+[0;32mI (226914) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (227684) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (229574) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (230334) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (232234) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (233384) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (235314) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (236314) BroilerGuard: LDR: Light detected (1575) -> Light OFF[0m
+[0;32mI (236334) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (237274) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (239204) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (240144) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (242064) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (243274) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (245344) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (246344) BroilerGuard: LDR: Dark detected (680) -> Light ON[0m
+[0;32mI (246364) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (247314) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (249234) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (250004) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (251894) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (253044) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (254974) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (255974) BroilerGuard: LDR: Light detected (1516) -> Light OFF[0m
+[0;32mI (255994) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (256774) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (258654) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (259404) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (261314) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (262474) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (264394) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (265394) BroilerGuard: LDR: Dark detected (667) -> Light ON[0m
+[0;32mI (265414) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (266154) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (268074) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (268844) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (270744) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (271894) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (273814) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (274814) BroilerGuard: LDR: Light detected (1519) -> Light OFF[0m
+[0;32mI (274834) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (275594) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (277494) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (278264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (280164) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (281314) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (283234) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (284234) BroilerGuard: LDR: Dark detected (654) -> Light ON[0m
+[0;32mI (284254) BroilerGuard: Temp=35.0C  Hum=28% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (285024) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (286924) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (287704) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (289584) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (290734) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (292654) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (293654) BroilerGuard: LDR: Light detected (1532) -> Light OFF[0m
+[0;32mI (293674) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (294454) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (296344) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (297114) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (299004) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (300154) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (301664) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (302664) BroilerGuard: LDR: Dark detected (660) -> Light ON[0m
+[0;32mI (302684) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (303454) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (305354) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (306114) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (308014) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (309164) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (311084) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (312094) BroilerGuard: LDR: Light detected (1511) -> Light OFF[0m
+[0;32mI (312114) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (312894) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (314574) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (315344) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (317234) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (318384) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (320304) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (321304) BroilerGuard: LDR: Dark detected (659) -> Light ON[0m
+[0;32mI (321324) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (322094) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (323994) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (324754) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (326654) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (327824) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (329514) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (330544) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (331314) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (333204) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (334154) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (336074) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (337264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (339144) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (340144) BroilerGuard: LDR: Light detected (1500) -> Light OFF[0m
+[0;32mI (340164) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (340914) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (342834) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (343574) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (345084) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (346234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (348154) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (349164) BroilerGuard: LDR: Dark detected (655) -> Light ON[0m
+[0;32mI (349184) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (349944) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (351844) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (352584) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (354504) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (355654) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (357574) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (358584) BroilerGuard: LDR: Light detected (1501) -> Light OFF[0m
+[0;32mI (358604) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (359594) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (361464) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (362224) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (364134) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (365284) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (367204) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (368204) BroilerGuard: LDR: Dark detected (648) -> Light ON[0m
+[0;32mI (368224) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (368984) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (370894) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (371664) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (373554) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (374704) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (376624) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (377644) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (378594) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (380514) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (381264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (383174) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (384324) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (386254) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (387274) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (388044) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (389734) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (390484) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (392394) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (393544) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (395464) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (396494) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (397264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (399154) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (399924) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (401814) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (402964) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (404884) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (405914) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (406684) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (408574) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (409354) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (411234) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (412414) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (414314) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (415334) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (416094) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (417994) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (418944) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (420864) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (422014) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (423934) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (424954) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (425744) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (427624) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (428384) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (430284) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (431434) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (433354) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (434384) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (435324) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (437244) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (438024) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (439914) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (441054) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (442984) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (444004) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (444774) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (446664) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (447414) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (449334) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (450684) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (452604) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (453634) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (454384) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (456294) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (457244) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (459164) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (460314) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (462234) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (463254) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (464014) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (465924) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (466704) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (468584) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (469734) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (471654) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (472674) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (473444) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (475344) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (476124) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (478004) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (480174) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (483324) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (484354) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (485094) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (486804) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (487594) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (489474) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (490624) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (492544) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (493564) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (494334) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (496234) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (496984) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (498684) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (499834) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (502374) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (503394) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (507414) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (517694) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (517694) transport_base: Failed to open a new connection[0m
+[1;31mE (517694) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (517704) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (520724) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (522854) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (524004) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (527364) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (528384) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (529134) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (531044) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (531814) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (533714) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (534864) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (536574) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (537604) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (538544) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (540464) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (541234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (543134) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (544284) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (545794) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (546814) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (547964) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (549894) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (550654) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (552554) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (553754) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (555424) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (556424) BroilerGuard: LDR: Light detected (1501) -> Light OFF[0m
+[0;32mI (556444) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (557594) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (559724) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (560494) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (562384) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (563574) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (565454) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (566454) BroilerGuard: LDR: Dark detected (655) -> Light ON[0m
+[0;32mI (566474) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (567254) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (569144) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (569884) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (571804) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (572954) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (574874) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (575894) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (576654) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (578564) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (579334) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (581224) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (582374) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (584294) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (585324) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (586094) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (587984) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (588744) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (590644) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (591794) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (593714) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (594744) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (595534) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (597404) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (598174) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (600064) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (601214) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (602934) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (603954) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (604704) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (606624) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (607394) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (609284) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (610434) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (612354) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (613374) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (614154) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (616044) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (616814) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (618704) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (619854) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (621774) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (622794) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (623594) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (625464) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (626814) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (628534) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (629684) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (631604) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (632634) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (633374) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (635294) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (636034) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (637954) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (639104) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (641024) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (642054) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (642814) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (644714) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (645494) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (647374) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (648524) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (650454) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (651474) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (652234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (654134) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (654894) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (656794) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (657944) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (659874) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (660894) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (661844) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (663764) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (664704) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (666624) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (667774) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (669704) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (670724) BroilerGuard: Temp=35.0C  Hum=29% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (671514) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (673384) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (674154) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (676054) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (677204) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (679124) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (680144) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (680914) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (682804) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (683594) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (685474) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (686664) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (688544) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (689564) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (690334) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (692224) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (693014) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (694894) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (696044) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (697964) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (698984) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (699774) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (701654) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (702414) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (704314) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (705494) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (707384) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (708404) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (709214) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (711074) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (711834) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (713734) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (714884) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (716604) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (717624) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (718394) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (720284) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (721024) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (722954) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (724104) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (726024) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (727044) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (727824) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (729704) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (730474) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (732374) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (733544) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (735444) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;33mW (736464) DHT: Timeout on bit 36 high[0m
+[0;33mW (736464) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (741484) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (742174) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (743844) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (744824) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (746704) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (747854) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (749784) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (750804) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (751584) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (753464) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (754414) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (756334) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (757284) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (758994) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (760014) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (760804) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (762684) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (763464) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (765144) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (766294) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (768214) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (769234) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (769984) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (771894) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (772654) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (774354) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (775504) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (777424) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (778454) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (779214) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (780914) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (781694) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (783574) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (784924) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (786854) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (787874) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (788644) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (790534) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (791484) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (793404) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (794554) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (796474) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (797494) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (798264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (800164) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (800964) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (802824) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (803974) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (805894) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (806914) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (807684) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (809584) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (810404) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (812244) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (813394) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (815114) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (816134) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (816914) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (818794) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (819574) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (821464) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (822614) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (824534) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (825554) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (826344) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (828424) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (829184) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (831084) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (832234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (834164) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (835184) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (836334) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (838254) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (839054) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (840914) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (842064) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (843994) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (845014) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (845954) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (847884) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (848664) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (850544) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (851694) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (853614) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (854634) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (855444) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (857304) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (858094) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (859964) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (861114) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (863034) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (864054) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (865004) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (867544) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (868354) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (870204) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (871354) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (873074) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (874094) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (874864) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (876754) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (877534) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (879424) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (880574) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (882494) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (883514) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (884314) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (886184) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (886944) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (888844) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (889994) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (891914) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (892934) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (893714) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (895394) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (896194) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (898054) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (899204) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (900924) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (901944) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (902734) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (904614) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (905764) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (907684) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (908834) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (910754) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (911784) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (912574) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (914444) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (915234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (917104) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (921124) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (931404) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (931404) transport_base: Failed to open a new connection[0m
+[1;31mE (931404) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (931414) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (932434) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (933054) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (934924) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (935694) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (937584) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (938734) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (940454) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (941474) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (942264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (944144) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (944924) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (946804) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (947954) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (949874) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (950894) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (951654) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (953564) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (954334) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (956224) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (957374) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (959294) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (960314) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (961474) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (965234) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (966414) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (968304) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (969454) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (971374) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (972404) BroilerGuard: Temp=36.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (973184) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (975064) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (975824) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (977724) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (978874) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (987354) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (988374) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (989174) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (991044) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (991824) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (993704) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (994854) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (996774) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (997794) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (998574) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1000464) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1001224) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1003124) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1004274) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1006194) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1007224) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1007984) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1009884) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1010664) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1012544) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1013694) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1015614) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1016644) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1017434) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1019304) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1020064) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1021764) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1022914) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1024834) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1025854) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1026624) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1028524) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1029294) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1031184) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1032334) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1034254) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1035274) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1036054) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1037944) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1038704) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1040604) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1041754) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1043674) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1044694) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1045464) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1047364) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1048134) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1050024) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1051174) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1053094) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1054124) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1054894) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1056784) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1057574) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1059444) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1060394) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1062314) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1063334) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1064094) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1065994) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1066734) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1068664) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1069814) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1071734) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1072754) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1073544) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1075424) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1076364) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1078284) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1079434) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1081354) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1082384) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1083174) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1085044) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1085834) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1087704) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1088854) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1090784) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1091804) BroilerGuard: Temp=35.0C  Hum=30% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1092574) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1094464) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1095244) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1097134) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1098284) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1100204) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1101224) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1101974) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1103884) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1104684) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1106554) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1107704) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1109624) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1110644) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1111424) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1113314) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1114094) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1115974) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1117124) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1119044) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1120064) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1120824) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1122734) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1123494) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1125394) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1126544) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1128464) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1129484) BroilerGuard: Temp=36.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1130254) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1132154) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1133094) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1135014) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1136164) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1138094) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1139114) BroilerGuard: Temp=36.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1139864) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1141774) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1142924) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1148334) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1150504) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1152424) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1153454) BroilerGuard: Temp=36.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1154224) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1156114) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1156904) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1158774) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1159924) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1161844) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1162874) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1163624) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1168604) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1169994) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1174344) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1175694) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1177614) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1178644) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1179414) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1181104) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1181884) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1183764) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1184914) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1187044) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1188064) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1188824) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1190524) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1191294) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1193394) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1195544) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1198724) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1199744) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1200514) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1203214) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1204984) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1207524) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1209084) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1211614) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1212644) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1213584) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1215514) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1216454) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1220424) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1222184) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1224524) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1225544) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1226894) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1230664) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1232224) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1234964) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1236324) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1238454) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1239474) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1241234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1245004) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1246154) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1249094) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1251064) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1253804) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1254824) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1255984) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1258104) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1258894) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1261174) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1262944) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1266294) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1267324) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1269504) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1272244) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1273394) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1275514) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1276724) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1278584) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1279614) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1280384) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1282274) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1283034) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1284934) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1286084) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1288004) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1289034) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1290794) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1294974) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1295764) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1297634) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1298784) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1300704) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1301734) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1302674) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1304594) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1305354) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1307254) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1308404) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1310334) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1311354) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1312184) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1314014) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1314964) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1316884) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1318244) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1320164) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1321184) BroilerGuard: Temp=35.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1326024) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1329784) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1332374) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1334494) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1335644) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1337574) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1338594) BroilerGuard: Temp=35.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1340554) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1347604) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1348374) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1350264) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1351414) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1353344) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1354364) BroilerGuard: Temp=35.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1355104) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1357024) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1357794) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1359694) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1360844) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1362764) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1363784) BroilerGuard: Temp=35.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1364544) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1366244) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1367034) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1368904) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1370054) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1371984) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1373004) BroilerGuard: Temp=35.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1376404) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1378324) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1379104) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1380984) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1382134) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1384064) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1385084) BroilerGuard: Temp=35.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1386034) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1396354) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1397124) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1399014) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1400164) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1402084) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1403104) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1403874) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1405774) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1406534) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1415604) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1416754) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1418674) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1419694) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1420644) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1422564) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1423354) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1425224) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1426584) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1428504) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1429524) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1430334) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1432194) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1432974) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1434854) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1436004) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1437924) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1438944) BroilerGuard: Temp=36.0C  Hum=31% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1439734) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1441404) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1442154) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1444064) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1445234) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1447144) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1448164) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1448964) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1450824) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1451584) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1453494) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1454844) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1456764) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1457794) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1458564) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1460454) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1461264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1463114) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1464264) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1466184) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1467214) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1468154) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1470084) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1470834) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1472944) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1474714) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (1484994) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1484994) transport_base: Failed to open a new connection[0m
+[1;31mE (1484994) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1485004) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1486004) BroilerGuard: LDR: Light detected (4095) -> Light OFF[0m
+[0;32mI (1486024) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (1487004) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1489534) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1490314) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1492194) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1493344) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1495274) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1496294) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (1498064) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1499984) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1502064) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1503664) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1504814) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (1515094) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1515094) transport_base: Failed to open a new connection[0m
+[1;31mE (1515094) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1515104) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1516104) BroilerGuard: LDR: Dark detected (587) -> Light ON[0m
+[0;32mI (1516124) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;33mW (1526574) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1526574) transport_base: Failed to open a new connection[0m
+[1;31mE (1526574) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1526584) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (1536934) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1536934) transport_base: Failed to open a new connection[0m
+[1;31mE (1536934) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1536944) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (1547664) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1547664) transport_base: Failed to open a new connection[0m
+[1;31mE (1547664) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1547674) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1548694) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;33mW (1559134) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1559134) transport_base: Failed to open a new connection[0m
+[1;31mE (1559134) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1559144) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (1569434) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1569434) transport_base: Failed to open a new connection[0m
+[1;31mE (1569434) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1569444) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[1;31mE (1576794) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (1576794) esp-tls: Failed to open new connection[0m
+[1;31mE (1576794) transport_base: Failed to open a new connection[0m
+[1;31mE (1576804) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1576804) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1577814) BroilerGuard: LDR: Light detected (4095) -> Light OFF[0m
+[0;32mI (1577834) BroilerGuard: Temp=36.0C  Hum=32% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (1579364) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1581284) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1583054) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1585994) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (1588584) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1599724) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1600724) BroilerGuard: LDR: Dark detected (154) -> Light ON[0m
+[0;32mI (1600744) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1602304) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1613854) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;33mW (1624264) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1624264) transport_base: Failed to open a new connection[0m
+[1;31mE (1624264) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1624274) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (1638194) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1638194) transport_base: Failed to open a new connection[0m
+[1;31mE (1638194) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1638204) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1639224) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[1;31mE (1649244) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1649244) esp-tls: Failed to open new connection[0m
+[1;31mE (1649244) transport_base: Failed to open a new connection[0m
+[1;31mE (1649244) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1649254) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[1;31mE (1659274) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1659274) esp-tls: Failed to open new connection[0m
+[1;31mE (1659274) transport_base: Failed to open a new connection[0m
+[1;31mE (1659274) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1659284) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[1;31mE (1669644) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1669644) esp-tls: Failed to open new connection[0m
+[1;31mE (1669644) transport_base: Failed to open a new connection[0m
+[1;31mE (1669644) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1669654) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1670674) BroilerGuard: Temp=35.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[1;31mE (1680694) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (1680694) esp-tls: Failed to open new connection[0m
+[1;31mE (1680694) transport_base: Failed to open a new connection[0m
+[1;31mE (1680694) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1680704) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1685684) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1687584) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;33mW (1700244) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1700244) transport_base: Failed to open a new connection[0m
+[1;31mE (1700244) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1700254) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1701274) BroilerGuard: Temp=35.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;33mW (1712124) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1712124) transport_base: Failed to open a new connection[0m
+[1;31mE (1712124) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1712134) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (1722774) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1722774) transport_base: Failed to open a new connection[0m
+[1;31mE (1722774) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1722784) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (1735674) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1735674) transport_base: Failed to open a new connection[0m
+[1;31mE (1735674) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1735684) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1736704) BroilerGuard: Temp=35.0C  Hum=32% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;33mW (1748584) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1748584) transport_base: Failed to open a new connection[0m
+[1;31mE (1748584) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1748594) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (1760254) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1760254) transport_base: Failed to open a new connection[0m
+[1;31mE (1760254) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1760264) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (1771314) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1771314) transport_base: Failed to open a new connection[0m
+[1;31mE (1771314) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1771324) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1772344) BroilerGuard: Temp=35.0C  Hum=33% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1778434) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (1788714) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1788714) transport_base: Failed to open a new connection[0m
+[1;31mE (1788714) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1788724) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1791544) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (1801824) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (1801824) transport_base: Failed to open a new connection[0m
+[1;31mE (1801824) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (1801834) BroilerGuard: Firebase request failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (1813054) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1814974) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (1815994) BroilerGuard: Temp=35.0C  Hum=33% | Fan=ON Mist=ON Light=ON Heat=off[0m
+[0;32mI (1817144) esp-x509-crt-bundle: Certificate validated[0m

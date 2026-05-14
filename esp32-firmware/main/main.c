@@ -44,9 +44,9 @@
 #include "esp_timer.h"
 #include "dht.h"
 #include "esp_crt_bundle.h"
-
-// Optional: Camera headers (Requires esp32-camera component)
-// #include "esp_camera.h"
+#include "cJSON.h"
+#include "mbedtls/base64.h"
+#include "esp_camera.h"
 
 static const char *TAG = "BroilerGuard";
 
@@ -55,6 +55,13 @@ static const char *TAG = "BroilerGuard";
 #define WIFI_PASSWORD       "10987654321"
 #define FIREBASE_HOST       "https://broilerguard-default-rtdb.europe-west1.firebasedatabase.app"
 #define FIREBASE_AUTH       "iauTh0i8FbK9evb2azrzvMPzdFgt3WiYHo13faiJ"
+
+// ─── GEMINI CONFIGURATION ─────────────────────────────────────────────────────
+#define GEMINI_API_KEY   "AIzaSyBN6Fms35wo3I4ed2bp571inJw-6VGvCUg"
+#define GEMINI_HOST      "generativelanguage.googleapis.com"
+#define GEMINI_PORT      443
+#define GEMINI_MODEL     "gemini-3.1-flash-lite-preview"
+#define GEMINI_PATH      "/v1beta/models/" GEMINI_MODEL ":generateContent?key=" GEMINI_API_KEY
 
 // ─── PIN DEFINITIONS ─────────────────────────────────────────────────────────
 #define DHT11_GPIO          GPIO_NUM_2
@@ -99,7 +106,7 @@ static const char *TAG = "BroilerGuard";
 #define TEMP_CRITICAL_LOW   25.0f
 #define HUMIDITY_MAX        80.0f
 #define HUMIDITY_MIN        40.0f
-#define LDR_DARK_THRESHOLD  1500  // Increased threshold for internal pull-down1
+#define LDR_DARK_THRESHOLD  500  // Increased threshold for internal pull-down1
 // ─── TIMING ───────────────────────────────────────────────────────────────────
 #define SENSOR_INTERVAL_MS      5000
 #define HISTORY_INTERVAL_MS     3600000
@@ -111,7 +118,7 @@ static EventGroupHandle_t wifi_event_group;
 #define WIFI_CONNECTED_BIT BIT0
 
 // ─── HTTP BUFFER ──────────────────────────────────────────────────────────────
-#define HTTP_BUF_SIZE 512
+#define HTTP_BUF_SIZE 4096
 static char http_response_buf[HTTP_BUF_SIZE];
 static int  http_response_len = 0;
 
@@ -338,8 +345,7 @@ static void IRAM_ATTR vibration_isr_handler(void* arg)
 static void camera_init(void)
 {
     ESP_LOGI(TAG, "Camera initialization starting...");
-    /* 
-    // Uncomment once esp32-camera component is added to the project
+    
     camera_config_t config;
     config.ledc_channel = LEDC_CHANNEL_1;
     config.ledc_timer = LEDC_TIMER_1;
@@ -373,8 +379,6 @@ static void camera_init(void)
         return;
     }
     ESP_LOGI(TAG, "Camera Ready!");
-    */
-    ESP_LOGW(TAG, "Camera driver code is present but disabled. Add 'esp32-camera' component to enable.");
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -521,6 +525,153 @@ static void climate_agent(float temp, float hum)
 // ─────────────────────────────────────────────────────────────────────────────
 // SENSOR TASK
 // ─────────────────────────────────────────────────────────────────────────────
+
+static void gemini_analysis_task(void *pvParameters)
+{
+    ESP_LOGI(TAG, "Gemini Analysis Task Started. Waiting 15s before first capture...");
+    vTaskDelay(pdMS_TO_TICKS(15000)); 
+
+    while (1) {
+        ESP_LOGI(TAG, "Starting Gemini Analysis Cycle...");
+        
+        // 1. Capture Image
+        camera_fb_t *fb = esp_camera_fb_get();
+        if (!fb) {
+            ESP_LOGE(TAG, "Camera capture failed");
+            vTaskDelay(pdMS_TO_TICKS(10000));
+            continue;
+        }
+
+        // 2. Base64 Encode
+        size_t base64_len = 0;
+        mbedtls_base64_encode(NULL, 0, &base64_len, fb->buf, fb->len);
+        char *base64_buf = malloc(base64_len + 1);
+        if (!base64_buf) {
+            ESP_LOGE(TAG, "Failed to allocate memory for Base64");
+            esp_camera_fb_return(fb);
+            vTaskDelay(pdMS_TO_TICKS(10000));
+            continue;
+        }
+        
+        size_t written_len = 0;
+        mbedtls_base64_encode((unsigned char*)base64_buf, base64_len, &written_len, fb->buf, fb->len);
+        base64_buf[written_len] = '\0';
+        esp_camera_fb_return(fb); // Free camera buffer early
+
+        // 3. Construct Gemini JSON Payload
+        const char *prompt = "You are an expert poultry veterinarian. Analyze this image of a broiler chicken pen. "
+                             "Check the chickens' physical appearance (ruffled feathers, pale wattles) and any visible droppings "
+                             "(bloody/red = Coccidiosis, watery/green = Newcastle, normal = brown/firm). "
+                             "Return ONLY a JSON object exactly like this, no markdown or code blocks: "
+                             "{\\\"totalCount\\\": 150, \\\"activePercentage\\\": 40, \\\"feedingPercentage\\\": 30, \\\"restingPercentage\\\": 30, "
+                             "\\\"healthScore\\\": 85, \\\"alerts\\\": [{\\\"type\\\": \\\"warning\\\", \\\"message\\\": \\\"Possible watery dropping detected.\\\"}]}";
+
+        // Manual construction to avoid cJSON memory overhead for huge strings
+        const char *json_part1 = "{\"contents\":[{\"parts\":[{\"text\":\"";
+        const char *json_part2 = "\"},{\"inline_data\":{\"mime_type\":\"image/jpeg\",\"data\":\"";
+        const char *json_part3 = "\"}}]}]}";
+        
+        size_t payload_size = strlen(json_part1) + strlen(prompt) + strlen(json_part2) + written_len + strlen(json_part3) + 1;
+        char *payload = malloc(payload_size);
+        if (!payload) {
+            ESP_LOGE(TAG, "Failed to allocate memory for Gemini Payload");
+            free(base64_buf);
+            vTaskDelay(pdMS_TO_TICKS(10000));
+            continue;
+        }
+        
+        snprintf(payload, payload_size, "%s%s%s%s%s", json_part1, prompt, json_part2, base64_buf, json_part3);
+
+        // 4. Send to Gemini
+        char url[300];
+        snprintf(url, sizeof(url), "https://%s%s", GEMINI_HOST, GEMINI_PATH);
+        
+        esp_http_client_config_t config = {
+            .url = url,
+            .event_handler = http_event_handler,
+            .transport_type = HTTP_TRANSPORT_OVER_SSL,
+            .crt_bundle_attach = esp_crt_bundle_attach,
+            .buffer_size = HTTP_BUF_SIZE,
+            .timeout_ms = 30000,
+        };
+
+        http_response_len = 0; // Reset global response buffer
+        memset(http_response_buf, 0, HTTP_BUF_SIZE);
+
+        esp_http_client_handle_t client = esp_http_client_init(&config);
+        esp_http_client_set_method(client, HTTP_METHOD_POST);
+        esp_http_client_set_header(client, "Content-Type", "application/json");
+        esp_http_client_set_post_field(client, payload, strlen(payload));
+
+        ESP_LOGI(TAG, "Sending request to Gemini... (Payload size: %u bytes)", strlen(payload));
+        esp_err_t err = esp_http_client_perform(client);
+        free(payload);
+
+        if (err == ESP_OK) {
+            int status = esp_http_client_get_status_code(client);
+            ESP_LOGI(TAG, "Gemini HTTP Status: %d", status);
+            
+            if (status == 200 && http_response_len > 0) {
+                // 5. Parse Gemini Response
+                cJSON *root = cJSON_Parse(http_response_buf);
+                if (root) {
+                    cJSON *candidates = cJSON_GetObjectItem(root, "candidates");
+                    if (candidates && cJSON_GetArraySize(candidates) > 0) {
+                        cJSON *candidate = cJSON_GetArrayItem(candidates, 0);
+                        cJSON *content = cJSON_GetObjectItem(candidate, "content");
+                        cJSON *parts = cJSON_GetObjectItem(content, "parts");
+                        if (parts && cJSON_GetArraySize(parts) > 0) {
+                            cJSON *part = cJSON_GetArrayItem(parts, 0);
+                            cJSON *text = cJSON_GetObjectItem(part, "text");
+                            if (text && text->valuestring) {
+                                ESP_LOGI(TAG, "Gemini Analysis:\n%s", text->valuestring);
+                                
+                                // 6. Push to Firebase
+                                // We combine the analysis string and the base64 image
+                                // Remove markdown wrapper from Gemini output if present (e.g. ```json ... ```)
+                                char *clean_json = text->valuestring;
+                                if (strncmp(clean_json, "```json\n", 8) == 0) {
+                                    clean_json += 8;
+                                    char *end = strstr(clean_json, "```");
+                                    if (end) *end = '\0';
+                                } else if (strncmp(clean_json, "```\n", 4) == 0) {
+                                    clean_json += 4;
+                                    char *end = strstr(clean_json, "```");
+                                    if (end) *end = '\0';
+                                }
+
+                                const char *fb_part1 = "{\"analysis\":";
+                                const char *fb_part2 = ",\"image\":\"data:image/jpeg;base64,";
+                                const char *fb_part3 = "\",\"lastUpdated\":{\".sv\":\"timestamp\"}}";
+                                
+                                size_t fb_payload_size = strlen(fb_part1) + strlen(clean_json) + strlen(fb_part2) + written_len + strlen(fb_part3) + 1;
+                                char *fb_payload = malloc(fb_payload_size);
+                                if (fb_payload) {
+                                    snprintf(fb_payload, fb_payload_size, "%s%s%s%s%s", fb_part1, clean_json, fb_part2, base64_buf, fb_part3);
+                                    firebase_request("/camera_analysis", fb_payload, HTTP_METHOD_PUT);
+                                    free(fb_payload);
+                                }
+                            }
+                        }
+                    }
+                    cJSON_Delete(root);
+                } else {
+                    ESP_LOGE(TAG, "Failed to parse Gemini JSON response");
+                }
+            } else {
+                 ESP_LOGE(TAG, "Gemini API error. Status: %d, Response: %s", status, http_response_buf);
+            }
+        } else {
+            ESP_LOGE(TAG, "Gemini Request Failed: %s", esp_err_to_name(err));
+        }
+
+        esp_http_client_cleanup(client);
+        free(base64_buf);
+
+        // Run every 15 minutes
+        vTaskDelay(pdMS_TO_TICKS(15 * 60 * 1000));
+    }
+}
 
 static void sensor_task(void *pvParameters)
 {
@@ -681,4 +832,7 @@ void app_main(void)
 
     // Start Sensor Task
     xTaskCreatePinnedToCore(sensor_task, "sensor_task", 16384, NULL, 5, NULL, 1);
+
+    // Start Gemini Task
+    xTaskCreatePinnedToCore(gemini_analysis_task, "gemini_task", 24576, NULL, 4, NULL, 1);
 }

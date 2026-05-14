@@ -13,30 +13,33 @@ import {
   RefreshCw,
 } from "lucide-react"
 
-interface BirdAnalysis {
-  totalCount: number
-  activePercentage: number
-  feedingPercentage: number
-  restingPercentage: number
-  healthScore: number
-  alerts: {
-    type: "warning" | "critical" | "info"
-    message: string
-  }[]
-  lastUpdated: string
-}
+import type { CameraAnalysisData } from "@/lib/useSensorData"
 
 interface AICameraAnalysisProps {
-  analysis: BirdAnalysis
+  cameraData: CameraAnalysisData
   onRefresh: () => void
   isRefreshing?: boolean
 }
 
 export function AICameraAnalysis({
-  analysis,
+  cameraData,
   onRefresh,
   isRefreshing = false,
 }: AICameraAnalysisProps) {
+  
+  const analysis = cameraData.analysis || {
+    totalCount: 0,
+    activePercentage: 0,
+    feedingPercentage: 0,
+    restingPercentage: 0,
+    healthScore: 0,
+    alerts: [],
+  }
+
+  const lastUpdatedFormatted = cameraData.lastUpdated
+    ? new Date(cameraData.lastUpdated).toLocaleTimeString()
+    : "Waiting for AI..."
+
   const getHealthColor = (score: number) => {
     if (score >= 90) return "text-primary"
     if (score >= 70) return "text-accent"
@@ -75,15 +78,23 @@ export function AICameraAnalysis({
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
-        {/* Camera Feed Placeholder */}
+        {/* Camera Feed */}
         <div className="relative aspect-video overflow-hidden rounded-lg bg-secondary">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <Eye className="mx-auto h-12 w-12 text-muted-foreground/50" />
-              <p className="mt-2 text-sm text-muted-foreground">
-                Live camera feed
-              </p>
-            </div>
+            {cameraData.image ? (
+              <img 
+                src={cameraData.image} 
+                alt="Live Pen View" 
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <div className="text-center">
+                <Eye className="mx-auto h-12 w-12 text-muted-foreground/50" />
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Waiting for camera feed...
+                </p>
+              </div>
+            )}
           </div>
           <div className="absolute left-3 top-3">
             <Badge variant="default" className="gap-1">
@@ -94,7 +105,7 @@ export function AICameraAnalysis({
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-lg bg-background/80 px-3 py-2 backdrop-blur-sm">
             <span className="text-sm font-medium">Pen A - Camera 1</span>
             <span className="text-xs text-muted-foreground">
-              {analysis.lastUpdated}
+              {lastUpdatedFormatted}
             </span>
           </div>
         </div>

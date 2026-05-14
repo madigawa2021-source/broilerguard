@@ -564,6 +564,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Users/Abdullahi Uba Aliyu/BroilerGuard/broilerguard_firebase (2)/broilerguard/esp32-firmware/build/esp-idf/espressif__esp_jpeg/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Abdullahi Uba Aliyu/BroilerGuard/broilerguard_firebase (2)/broilerguard/esp32-firmware/build/esp-idf/espressif__esp32-camera/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Users/Abdullahi Uba Aliyu/BroilerGuard/broilerguard_firebase (2)/broilerguard/esp32-firmware/build/esp-idf/main/cmake_install.cmake")
 endif()
 

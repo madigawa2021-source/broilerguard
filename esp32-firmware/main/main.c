@@ -60,7 +60,7 @@ static const char *TAG = "BroilerGuard";
 #define FIREBASE_AUTH       "iauTh0i8FbK9evb2azrzvMPzdFgt3WiYHo13faiJ"
 
 // ─── GEMINI CONFIGURATION ─────────────────────────────────────────────────────
-#define GEMINI_API_KEY   "AIzaSyBN6Fms35wo3I4ed2bp571inJw-6VGvCUg"
+#define GEMINI_API_KEY   "AIzaSyBFIZ5-eYzMLawp3UepYoKM4YJM0BoOS-o"
 #define GEMINI_HOST      "generativelanguage.googleapis.com"
 #define GEMINI_PORT      443
 #define GEMINI_MODEL     "gemini-3.1-flash-lite-preview"
@@ -605,13 +605,23 @@ static void gemini_analysis_task(void *pvParameters)
             base64_buf[written_len] = '\0';
             esp_camera_fb_return(fb);
 
-            // 5. Gemini Request
+            // DNS Check
+            struct addrinfo hints = { .ai_family = AF_INET, .ai_socktype = SOCK_STREAM };
+            struct addrinfo *res;
+            if (getaddrinfo(GEMINI_HOST, NULL, &hints, &res) != 0) {
+                ESP_LOGE(TAG, "DNS lookup failed for %s", GEMINI_HOST);
+                if (base64_buf) free(base64_buf);
+                continue;
+            }
+            freeaddrinfo(res);
+
             char gemini_url[400];
             snprintf(gemini_url, sizeof(gemini_url), "https://%s%s", GEMINI_HOST, GEMINI_PATH);
             
+            // Use single quotes in the prompt to avoid double-quote escaping mess
             const char *prompt = "Analyze this broiler chicken pen view. Return ONLY a JSON object: "
-                                 "{\"totalCount\": 50, \"activePercentage\": 40, \"feedingPercentage\": 30, "
-                                 "\"restingPercentage\": 30, \"healthScore\": 85, \"alerts\": []}";
+                                 "{'totalCount': 50, 'activePercentage': 40, 'feedingPercentage': 30, "
+                                 "'restingPercentage': 30, 'healthScore': 85, 'alerts': []}";
 
             const char *j1 = "{\"contents\":[{\"parts\":[{\"text\":\"";
             const char *j2 = "\"},{\"inline_data\":{\"mime_type\":\"image/jpeg\",\"data\":\"";
@@ -634,34 +644,60 @@ static void gemini_analysis_task(void *pvParameters)
                 
                 http_response_len = 0;
                 esp_http_client_handle_t client = esp_http_client_init(&config);
+                esp_http_client_set_header(client, "Content-Type", "application/json");
                 esp_http_client_set_post_field(client, payload, strlen(payload));
                 
                 esp_err_t err = esp_http_client_perform(client);
                 free(payload);
 
-                if (err == ESP_OK && esp_http_client_get_status_code(client) == 200) {
+                int status = esp_http_client_get_status_code(client);
+                if (err == ESP_OK && status == 200) {
                     cJSON *root = cJSON_Parse(http_response_buf);
                     if (root) {
-                        cJSON *parts = cJSON_GetObjectItem(cJSON_GetObjectItem(cJSON_GetArrayItem(cJSON_GetObjectItem(root, "candidates"), 0), "content"), "parts");
-                        if (parts) {
-                            char *raw_text = cJSON_GetObjectItem(cJSON_GetArrayItem(parts, 0), "text")->valuestring;
-                            if (strncmp(raw_text, "```json\n", 8) == 0) { raw_text += 8; char *end = strstr(raw_text, "```"); if (end) *end = '\0'; }
-                            
-                            // Construct Firebase update for THIS angle
-                            size_t fb_size = strlen(raw_text) + strlen(base64_buf) + 256;
-                            char *fb_payload = malloc(fb_size);
-                            if (fb_payload) {
-                                snprintf(fb_payload, fb_size, "{\"analysis\":%s,\"image\":\"data:image/jpeg;base64,%s\",\"lastUpdated\":{\".sv\":\"timestamp\"}}", raw_text, base64_buf);
-                                char path[64];
-                                snprintf(path, sizeof(path), "/camera_analysis/angles/%d", current_angle);
-                                firebase_request(path, fb_payload, HTTP_METHOD_PUT);
-                                
-                                // Also update the main "latest" node for backwards compatibility
-                                firebase_request("/camera_analysis/latest", fb_payload, HTTP_METHOD_PUT);
-                                free(fb_payload);
+                        cJSON *candidates = cJSON_GetObjectItem(root, "candidates");
+                        if (candidates && cJSON_GetArraySize(candidates) > 0) {
+                            cJSON *candidate = cJSON_GetArrayItem(candidates, 0);
+                            cJSON *content = cJSON_GetObjectItem(candidate, "content");
+                            if (content) {
+                                cJSON *parts = cJSON_GetObjectItem(content, "parts");
+                                if (parts && cJSON_GetArraySize(parts) > 0) {
+                                    cJSON *part = cJSON_GetArrayItem(parts, 0);
+                                    cJSON *text = cJSON_GetObjectItem(part, "text");
+                                    if (text && text->valuestring) {
+                                        char *raw_text = text->valuestring;
+                                        if (strncmp(raw_text, "```json\n", 8) == 0) {
+                                            raw_text += 8;
+                                            char *end = strstr(raw_text, "```");
+                                            if (end) *end = '\0';
+                                        }
+                                        
+                                        // Construct Firebase update for THIS angle
+                                        size_t fb_size = strlen(raw_text) + strlen(base64_buf) + 256;
+                                        char *fb_payload = malloc(fb_size);
+                                        if (fb_payload) {
+                                            snprintf(fb_payload, fb_size, 
+                                                "{\"analysis\":%s,\"image\":\"data:image/jpeg;base64,%s\",\"lastUpdated\":{\".sv\":\"timestamp\"}}", 
+                                                raw_text, base64_buf);
+                                            
+                                            char path[64];
+                                            snprintf(path, sizeof(path), "/camera_analysis/angles/%d", current_angle);
+                                            ESP_LOGI(TAG, "Pushing Scan Angle %d to Firebase...", current_angle);
+                                            firebase_request(path, fb_payload, HTTP_METHOD_PUT);
+                                            
+                                            // Also update latest for backwards compatibility
+                                            firebase_request("/camera_analysis/latest", fb_payload, HTTP_METHOD_PUT);
+                                            free(fb_payload);
+                                        }
+                                    }
+                                }
                             }
                         }
                         cJSON_Delete(root);
+                    }
+                } else {
+                    ESP_LOGE(TAG, "Gemini Request failed. Status: %d, Error: %s", status, esp_err_to_name(err));
+                    if (http_response_len > 0) {
+                        ESP_LOGE(TAG, "Gemini Error Response: %s", http_response_buf);
                     }
                 }
                 esp_http_client_cleanup(client);

@@ -9,8 +9,14 @@ next.user-config.*
 
 # Environment variables
 .env*.local
+.env
 
 # Common ignores
 node_modules
 .next/
 .DS_Store
+
+# ESP32 Build artifacts
+esp32-firmware/build/
+esp32-firmware/sdkconfig.old
+esp32-firmware/managed_components/

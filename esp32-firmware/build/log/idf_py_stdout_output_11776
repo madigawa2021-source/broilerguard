@@ -1,0 +1,460 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM18 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\broilerguard.elf C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+[0;32mI (126) esp_image: segment 1: paddr=00046470 vaddr=3fc9b400 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037a3f6
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time May 14 2026 07:32:01[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0c0020 size=36448h (222280) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=00046470 vaddr=3fc9b400 size=07250h ( 29264) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=0004d6c8 vaddr=40374000 size=02950h ( 10576) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=b71a0h (749984) map[0m
+[0;32mI (269) esp_image: segment 4: paddr=001071c8 vaddr=40376950 size=14a6ch ( 84588) load[0m
+[0;32mI (288) esp_image: segment 5: paddr=0011bc3c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (298) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (298) boot: Disabling RNG early entropy source...[0m
+[0;32mI (308) cpu_start: Multicore app[0m
+[0;32mI (318) cpu_start: Pro cpu start user code[0m
+[0;32mI (318) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (318) app_init: Application information:[0m
+[0;32mI (318) app_init: Project name:     broilerguard[0m
+[0;32mI (322) app_init: App version:      34e16c8-dirty[0m
+[0;32mI (326) app_init: Compile time:     May 14 2026 07:31:17[0m
+[0;32mI (331) app_init: ELF file SHA256:  1a73ab043...[0m
+[0;32mI (336) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (340) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (344) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (348) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (352) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (358) heap_init: At 3FCA8260 len 000414B0 (261 KiB): RAM[0m
+[0;32mI (363) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (368) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (374) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (380) spi_flash: detected chip: boya[0m
+[0;32mI (382) spi_flash: flash io: dio[0m
+[0;33mW (385) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (398) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (404) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (411) main_task: Started on CPU0[0m
+[0;32mI (421) main_task: Calling app_main()[0m
+[0;32mI (421) BroilerGuard: ==============================[0m
+[0;32mI (421) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (431) BroilerGuard: ==============================[0m
+[0;32mI (451) pp: pp rom version: e7ae62f[0m
+[0;32mI (451) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (461) wifi:wifi driver task: 3fced440, prio:23, stack:6656, core=0[0m
+[0;32mI (471) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (471) wifi:wifi certification version: v7.0[0m
+[0;32mI (471) wifi:config NVS flash: enabled[0m
+[0;32mI (471) wifi:config nano formatting: disabled[0m
+[0;32mI (471) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (481) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (481) wifi:Init management short buffer num: 32[0m
+[0;32mI (481) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (491) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (491) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (501) wifi:Init static rx buffer num: 10[0m
+[0;32mI (501) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (511) wifi_init: rx ba win: 6[0m
+[0;32mI (511) wifi_init: accept mbox: 6[0m
+[0;32mI (511) wifi_init: tcpip mbox: 32[0m
+[0;32mI (511) wifi_init: udp mbox: 6[0m
+[0;32mI (521) wifi_init: tcp mbox: 6[0m
+[0;32mI (521) wifi_init: tcp tx win: 5760[0m
+[0;32mI (521) wifi_init: tcp rx win: 5760[0m
+[0;32mI (531) wifi_init: tcp mss: 1440[0m
+[0;32mI (531) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (531) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (541) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (581) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (581) wifi:enable tsf[0m
+[0;32mI (581) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (581) BroilerGuard: Connecting to WiFi: Redmi 9C ...[0m
+[0;32mI (591) wifi:new:<5,0>, old:<1,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (591) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (601) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (611) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (651) wifi:connected with Redmi 9C, aid = 2, channel 5, BW20, bssid = 5e:40:f9:35:ce:01[0m
+[0;32mI (651) wifi:security: WPA2-PSK, phy: bgn, rssi: -31[0m
+[0;32mI (651) wifi:pm start, type: 1[0m
+
+[0;32mI (651) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (661) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (671) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (671) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1711) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1711) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1711) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (1711) main_task: Returned from app_main()[0m
+[0;32mI (1721) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (1721) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (1721) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (2431) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+[0;32mI (5451) BroilerGuard: Temp=37.0C  Hum=38% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (5451) BroilerGuard: AGENT: Temp HIGH (37.0C) → Fan ON, Heater OFF[0m
+[0;32mI (6161) BroilerGuard: AGENT: Hum LOW (38%) → Mister ON[0m
+[0;32mI (6841) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (7531) wifi:<ba-add>idx:0 (ifx:0, 5e:40:f9:35:ce:01), tid:0, ssn:16, winSize:64[0m
+[0;32mI (7941) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (9911) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (11011) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (12041) BroilerGuard: Temp=37.0C  Hum=38% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (14011) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (15111) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (16741) BroilerGuard: Starting Gemini Analysis Cycle...[0m
+[0;32mI (16741) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (17131) BroilerGuard: Temp=37.0C  Hum=38% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (18481) BroilerGuard: Firebase skipped — Gemini active[0m
+[0;32mI (19741) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (19741) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (19741) cam_hal: cam init ok[0m
+[0;32mI (19741) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (19741) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (19761) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (19761) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (19761) camera: Detected OV5640 camera[0m
+[0;32mI (19761) camera: Detected camera at address=0x3c[0m
+[0;32mI (20451) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (20451) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (20451) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (20461) cam_hal: cam config ok[0m
+[0;32mI (20471) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (20481) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (20511) BroilerGuard: Camera Ready![0m
+[0;32mI (22161) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (22501) BroilerGuard: Temp=37.0C  Hum=38% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (23851) BroilerGuard: Firebase skipped — Gemini active[0m
+[0;32mI (26161) BroilerGuard: Sending request to Gemini... (Payload size: 3857 bytes)[0m
+[0;32mI (27871) BroilerGuard: Temp=37.0C  Hum=37% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (29221) BroilerGuard: Firebase skipped — Gemini active[0m
+[1;31mE (33161) esp-tls: couldn't get hostname for :generativelanguage.googleapis.com: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (33161) esp-tls: Failed to open new connection[0m
+[1;31mE (33161) transport_base: Failed to open a new connection[0m
+[1;31mE (33161) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (33171) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (33181) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (33241) BroilerGuard: Temp=37.0C  Hum=37% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (44601) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (44601) esp-tls: Failed to open new connection[0m
+[1;31mE (44601) transport_base: Failed to open a new connection[0m
+[1;31mE (44601) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (45631) BroilerGuard: Temp=37.0C  Hum=37% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (56991) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (56991) esp-tls: Failed to open new connection[0m
+[1;31mE (56991) transport_base: Failed to open a new connection[0m
+[1;31mE (56991) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (58021) BroilerGuard: Temp=37.0C  Hum=37% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (69381) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (69381) esp-tls: Failed to open new connection[0m
+[1;31mE (69381) transport_base: Failed to open a new connection[0m
+[1;31mE (69381) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (70411) BroilerGuard: Temp=37.0C  Hum=38% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (81771) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (81771) esp-tls: Failed to open new connection[0m
+[1;31mE (81771) transport_base: Failed to open a new connection[0m
+[1;31mE (81771) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (82801) BroilerGuard: Temp=37.0C  Hum=38% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (94161) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (94161) esp-tls: Failed to open new connection[0m
+[1;31mE (94161) transport_base: Failed to open a new connection[0m
+[1;31mE (94161) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (95191) BroilerGuard: Temp=37.0C  Hum=38% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (106551) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (106551) esp-tls: Failed to open new connection[0m
+[1;31mE (106551) transport_base: Failed to open a new connection[0m
+[1;31mE (106551) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (107581) BroilerGuard: Temp=37.0C  Hum=38% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (118941) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (118941) esp-tls: Failed to open new connection[0m
+[1;31mE (118941) transport_base: Failed to open a new connection[0m
+[1;31mE (118941) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (119971) BroilerGuard: Temp=37.0C  Hum=38% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (131331) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (131331) esp-tls: Failed to open new connection[0m
+[1;31mE (131331) transport_base: Failed to open a new connection[0m
+[1;31mE (131331) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (132361) BroilerGuard: Temp=37.0C  Hum=37% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (143721) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (143721) esp-tls: Failed to open new connection[0m
+[1;31mE (143721) transport_base: Failed to open a new connection[0m
+[1;31mE (143721) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (144751) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (156111) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (156111) esp-tls: Failed to open new connection[0m
+[1;31mE (156111) transport_base: Failed to open a new connection[0m
+[1;31mE (156111) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (157141) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (168501) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (168501) esp-tls: Failed to open new connection[0m
+[1;31mE (168501) transport_base: Failed to open a new connection[0m
+[1;31mE (168501) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (169531) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (180891) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (180891) esp-tls: Failed to open new connection[0m
+[1;31mE (180891) transport_base: Failed to open a new connection[0m
+[1;31mE (180891) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (181921) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (193061) wifi:state: run -> init (0x7c0)[0m
+[0;32mI (193071) wifi:pm stop, total sleep time: 13555203 us / 192415491 us[0m
+
+[0;32mI (193071) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (193071) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (193071) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (193081) esp-tls: [sock=54] delayed connect error: Software caused connection abort[0m
+[0;32mI (193081) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[1;31mE (193091) esp-tls: Failed to open new connection[0m
+[0;32mI (193091) wifi:E (193101) transport_base: Failed to open a new connection[0m
+state: init -> auth (0xb0)
+[1;31mE (193101) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (194121) wifi:state: auth -> init (0x200)[0m
+[0;32mI (194131) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (194131) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (194131) DHT: Timeout on bit 36 high[0m
+[0;33mW (194131) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (196541) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (196561) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (196571) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (197581) wifi:state: auth -> init (0x200)[0m
+[0;32mI (197591) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (197591) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (199161) BroilerGuard: Temp=38.0C  Hum=37% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (200001) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (200051) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (200051) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (200481) wifi:state: auth -> assoc (0x0)[0m
+[1;31mE (200511) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (200511) esp-tls: Failed to open new connection[0m
+[1;31mE (200511) transport_base: Failed to open a new connection[0m
+[1;31mE (200521) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (201481) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (201491) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (201491) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (203901) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (203941) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (203941) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (204541) BroilerGuard: Temp=38.0C  Hum=37% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (204951) wifi:state: auth -> init (0x200)[0m
+[0;32mI (204961) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (204961) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (205891) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (205891) esp-tls: Failed to open new connection[0m
+[1;31mE (205891) transport_base: Failed to open a new connection[0m
+[1;31mE (205901) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (207371) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (207421) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (207421) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (208431) wifi:state: auth -> init (0x200)[0m
+[0;32mI (208441) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (208441) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (209921) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (210851) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (210901) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (210901) wifi:state: init -> auth (0xb0)[0m
+[1;31mE (211271) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (211271) esp-tls: Failed to open new connection[0m
+[1;31mE (211271) transport_base: Failed to open a new connection[0m
+[1;31mE (211281) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (211911) wifi:state: auth -> init (0x200)[0m
+[0;32mI (211921) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (211921) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (214331) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (214381) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (214381) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (215301) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (215391) wifi:state: auth -> init (0x200)[0m
+[0;32mI (215401) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (215401) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (216651) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (216651) esp-tls: Failed to open new connection[0m
+[1;31mE (216651) transport_base: Failed to open a new connection[0m
+[1;31mE (216661) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (217811) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (217861) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (217871) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (218231) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (219231) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (219241) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (219241) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (220681) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (221651) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (221651) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (221651) wifi:state: init -> auth (0xb0)[0m
+[1;31mE (222031) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (222031) esp-tls: Failed to open new connection[0m
+[1;31mE (222031) transport_base: Failed to open a new connection[0m
+[1;31mE (222041) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (222661) wifi:state: auth -> init (0x200)[0m
+[0;32mI (222671) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (222671) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (225081) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (225131) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (225141) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (226061) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (226151) wifi:state: auth -> init (0x200)[0m
+[0;32mI (226161) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (226161) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (227411) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (227411) esp-tls: Failed to open new connection[0m
+[1;31mE (227411) transport_base: Failed to open a new connection[0m
+[1;31mE (227421) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (228571) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (228621) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (228621) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (229631) wifi:state: auth -> init (0x200)[0m
+[0;32mI (229641) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (229641) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (231441) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (232051) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (232081) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (232081) wifi:state: init -> auth (0xb0)[0m
+[1;31mE (232791) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (232791) esp-tls: Failed to open new connection[0m
+[1;31mE (232791) transport_base: Failed to open a new connection[0m
+[1;31mE (232801) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (233091) wifi:state: auth -> init (0x200)[0m
+[0;32mI (233101) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (233101) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (235511) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (235581) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (235581) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (236591) wifi:state: auth -> init (0x200)[0m
+[0;32mI (236601) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (236601) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (236821) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (238171) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (238171) esp-tls: Failed to open new connection[0m
+[1;31mE (238171) transport_base: Failed to open a new connection[0m
+[1;31mE (238181) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (239011) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (239061) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (239061) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (240071) wifi:state: auth -> init (0x200)[0m
+[0;32mI (240081) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (240081) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (242201) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (242491) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (242541) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (242541) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (243551) wifi:state: auth -> init (0x200)[0m
+[1;31mE (243551) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (243551) esp-tls: Failed to open new connection[0m
+[1;31mE (243551) transport_base: Failed to open a new connection[0m
+[1;31mE (243561) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (243561) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (243571) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (245981) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (246021) wifi:new:<5,0>, old:<5,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (246031) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (246461) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (246571) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (246851) wifi:connected with Redmi 9C, aid = 2, channel 5, BW20, bssid = 5e:40:f9:35:ce:01[0m
+[0;32mI (246851) wifi:security: WPA2-PSK, phy: bgn, rssi: -38[0m
+[0;32mI (246851) wifi:pm start, type: 1[0m
+
+[0;32mI (246851) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (246861) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (246941) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (246951) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (247581) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (248931) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (248931) esp-tls: Failed to open new connection[0m
+[1;31mE (248931) transport_base: Failed to open a new connection[0m
+[1;31mE (248941) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (249411) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (249411) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (252961) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (264321) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (264321) esp-tls: Failed to open new connection[0m
+[1;31mE (264321) transport_base: Failed to open a new connection[0m
+[1;31mE (264321) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (265351) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (276711) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (276711) esp-tls: Failed to open new connection[0m
+[1;31mE (276711) transport_base: Failed to open a new connection[0m
+[1;31mE (276711) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (277741) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (286091) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (286091) esp-tls: Failed to open new connection[0m
+[1;31mE (286091) transport_base: Failed to open a new connection[0m
+[1;31mE (286101) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (287121) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (295471) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (295471) esp-tls: Failed to open new connection[0m
+[1;31mE (295471) transport_base: Failed to open a new connection[0m
+[1;31mE (295481) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (296501) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (304851) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (304851) esp-tls: Failed to open new connection[0m
+[1;31mE (304851) transport_base: Failed to open a new connection[0m
+[1;31mE (304861) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (305881) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (312911) wifi:<ba-add>idx:0 (ifx:0, 5e:40:f9:35:ce:01), tid:0, ssn:16, winSize:64[0m
+[1;31mE (314231) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (314231) esp-tls: Failed to open new connection[0m
+[1;31mE (314231) transport_base: Failed to open a new connection[0m
+[1;31mE (314241) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (315261) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (316861) wifi:[ADDBA]RX DELBA, reason:1, delete tid:0, initiator:1(originator)[0m
+[0;32mI (316871) wifi:<ba-del>idx:0, tid:0[0m
+[1;31mE (323611) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (323611) esp-tls: Failed to open new connection[0m
+[1;31mE (323611) transport_base: Failed to open a new connection[0m
+[1;31mE (323621) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (324641) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (332991) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (332991) esp-tls: Failed to open new connection[0m
+[1;31mE (332991) transport_base: Failed to open a new connection[0m
+[1;31mE (333001) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (334021) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (342371) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (342371) esp-tls: Failed to open new connection[0m
+[1;31mE (342371) transport_base: Failed to open a new connection[0m
+[1;31mE (342381) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (343401) BroilerGuard: Temp=38.0C  Hum=36% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (351751) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (351751) esp-tls: Failed to open new connection[0m
+[1;31mE (351751) transport_base: Failed to open a new connection[0m
+[1;31mE (351761) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (352781) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (361131) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (361131) esp-tls: Failed to open new connection[0m
+[1;31mE (361131) transport_base: Failed to open a new connection[0m
+[1;31mE (361141) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (362161) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (370511) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (370511) esp-tls: Failed to open new connection[0m
+[1;31mE (370511) transport_base: Failed to open a new connection[0m
+[1;31mE (370521) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (371541) BroilerGuard: Temp=38.0C  Hum=34% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (379891) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (379891) esp-tls: Failed to open new connection[0m
+[1;31mE (379891) transport_base: Failed to open a new connection[0m
+[1;31mE (379901) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (380921) BroilerGuard: Temp=38.0C  Hum=34% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (389271) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (389271) esp-tls: Failed to open new connection[0m
+[1;31mE (389271) transport_base: Failed to open a new connection[0m
+[1;31mE (389281) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (390301) BroilerGuard: Temp=38.0C  Hum=35% | Fan=ON Mist=ON Light=off Heat=off[0m

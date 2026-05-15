@@ -47,6 +47,9 @@
 #include "cJSON.h"
 #include "mbedtls/base64.h"
 #include "esp_camera.h"
+#include "lwip/dns.h"
+#include "lwip/netdb.h"
+#include "lwip/ip_addr.h"
 
 static const char *TAG = "BroilerGuard";
 
@@ -64,7 +67,7 @@ static const char *TAG = "BroilerGuard";
 #define GEMINI_PATH      "/v1beta/models/" GEMINI_MODEL ":generateContent?key=" GEMINI_API_KEY
 
 // ─── PIN DEFINITIONS ─────────────────────────────────────────────────────────
-#define DHT11_GPIO          GPIO_NUM_2
+#define DHT11_GPIO          GPIO_NUM_41
 #define VIBRATION_GPIO      GPIO_NUM_39
 #define LDR_ADC_CHANNEL     ADC_CHANNEL_2 // GPIO 3
 #define FAN_RELAY_GPIO      GPIO_NUM_48
@@ -118,7 +121,7 @@ static EventGroupHandle_t wifi_event_group;
 #define WIFI_CONNECTED_BIT BIT0
 
 // ─── HTTP BUFFER ──────────────────────────────────────────────────────────────
-#define HTTP_BUF_SIZE 4096
+#define HTTP_BUF_SIZE 8192
 static char http_response_buf[HTTP_BUF_SIZE];
 static int  http_response_len = 0;
 
@@ -132,6 +135,7 @@ static bool g_vibration     = false;
 static int  g_servo_angle   = 90;
 
 static TaskHandle_t security_task_handle = NULL;
+static volatile bool g_gemini_active = false;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // WIFI
@@ -158,7 +162,9 @@ static void wifi_init(void)
     wifi_event_group = xEventGroupCreate();
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
-    esp_netif_create_default_wifi_sta();
+    
+    esp_netif_t *sta_netif = esp_netif_create_default_wifi_sta();
+    esp_netif_set_hostname(sta_netif, "broilerguard"); // CRITICAL for Android Hotspots!
 
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
@@ -181,9 +187,27 @@ static void wifi_init(void)
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     ESP_ERROR_CHECK(esp_wifi_start());
+    ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_MIN_MODEM)); // Restore normal power save (fixes ESP32 overheating)
+    
+    // REDUCE WIFI TX POWER TO PREVENT HARDWARE BROWNOUT!
+    // Set to 56 (14dBm) for better stability during high-current tasks (TLS/Camera)
+    ESP_ERROR_CHECK(esp_wifi_set_max_tx_power(56)); 
+    
     ESP_LOGI(TAG, "Connecting to WiFi: %s ...", WIFI_SSID);
     xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT,
                         pdFALSE, pdTRUE, portMAX_DELAY);
+
+    // Force Static DNS (Google 8.8.8.8) to bypass hotspot DNS issues
+    esp_netif_dns_info_t dns;
+    ip4addr_aton("8.8.8.8", (ip4_addr_t *)&dns.ip.u_addr.ip4);
+    dns.ip.type = IPADDR_TYPE_V4;
+    esp_netif_set_dns_info(sta_netif, ESP_NETIF_DNS_MAIN, &dns);
+
+    // Backup DNS → Cloudflare
+    IP4_ADDR(&dns.ip.u_addr.ip4, 1, 1, 1, 1);
+    ESP_ERROR_CHECK(esp_netif_set_dns_info(sta_netif, ESP_NETIF_DNS_BACKUP, &dns));
+
+    ESP_LOGI(TAG, "DNS Server forced to 8.8.8.8 / 1.1.1.1");
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -194,7 +218,7 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
 {
     switch (evt->event_id) {
         case HTTP_EVENT_ON_DATA:
-            if (!esp_http_client_is_chunked_response(evt->client)) {
+            {
                 int copy_len = (evt->data_len < HTTP_BUF_SIZE - http_response_len - 1)
                                ? evt->data_len
                                : HTTP_BUF_SIZE - http_response_len - 1;
@@ -203,8 +227,6 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
                 http_response_buf[http_response_len] = '\0';
             }
             break;
-        case HTTP_EVENT_ON_FINISH:
-            http_response_len = 0;
             break;
         default:
             break;
@@ -215,6 +237,10 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
 static esp_err_t firebase_request(const char *path, const char *json_body,
                                    esp_http_client_method_t method)
 {
+    if (g_gemini_active) {
+        ESP_LOGW(TAG, "Firebase skipped — Gemini active");
+        return ESP_ERR_INVALID_STATE;
+    }
     char url[300];
     snprintf(url, sizeof(url), "%s%s.json?auth=%s",
              FIREBASE_HOST, path, FIREBASE_AUTH);
@@ -238,8 +264,6 @@ static esp_err_t firebase_request(const char *path, const char *json_body,
     if (err == ESP_OK) {
         int status = esp_http_client_get_status_code(client);
         ESP_LOGI(TAG, "Firebase [%s] → HTTP %d", path, status);
-    } else {
-        ESP_LOGE(TAG, "Firebase request failed: %s", esp_err_to_name(err));
     }
     esp_http_client_cleanup(client);
     return err;
@@ -330,6 +354,9 @@ static void check_and_alert(float temp, float hum, bool power_ok)
 // ─── VIBRATION INTERRUPT HANDLER ─────────────────────────────────────────────
 static void IRAM_ATTR vibration_isr_handler(void* arg)
 {
+    if (security_task_handle == NULL)
+        return;
+
     // Notify the security task
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
     vTaskNotifyGiveFromISR(security_task_handle, &xHigherPriorityTaskWoken);
@@ -342,7 +369,7 @@ static void IRAM_ATTR vibration_isr_handler(void* arg)
 // CAMERA INITIALIZATION (Skeleton)
 // ─────────────────────────────────────────────────────────────────────────────
 
-static void camera_init(void)
+static esp_err_t camera_init(void)
 {
     ESP_LOGI(TAG, "Camera initialization starting...");
     
@@ -365,20 +392,21 @@ static void camera_init(void)
     config.pin_sccb_scl = CAM_PIN_SIOC;
     config.pin_pwdn = CAM_PIN_PWDN;
     config.pin_reset = CAM_PIN_RESET;
-    config.xclk_freq_hz = 20000000;
+    config.xclk_freq_hz = 10000000; // REDUCED FROM 20MHz TO PREVENT 2.4GHz WiFi JAMMING!
     config.frame_size = FRAMESIZE_QVGA;
     config.pixel_format = PIXFORMAT_JPEG;
     config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
     config.fb_location = CAMERA_FB_IN_DRAM;
-    config.jpeg_quality = 12;
+    config.jpeg_quality = 20;
     config.fb_count = 1;
 
     esp_err_t err = esp_camera_init(&config);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "Camera init failed with error 0x%x", err);
-        return;
+        return err;
     }
     ESP_LOGI(TAG, "Camera Ready!");
+    return ESP_OK;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -532,13 +560,32 @@ static void gemini_analysis_task(void *pvParameters)
     vTaskDelay(pdMS_TO_TICKS(15000)); 
 
     while (1) {
-        ESP_LOGI(TAG, "Starting Gemini Analysis Cycle...");
+        g_gemini_active = true;
+        // RELAY LOCKDOWN: Turn off power-hungry motors to prevent WiFi brownout
+        gpio_set_level(FAN_RELAY_GPIO, 0);
+        gpio_set_level(MISTER_RELAY_GPIO, 0);
+        gpio_set_level(HEATER_RELAY_GPIO, 0);
         
-        // 1. Capture Image
+        ESP_LOGI(TAG, "Starting Gemini Analysis Cycle (Relays Locked)...");
+        
+        // DISABLE WIFI POWER SAVE DURING CAMERA/ANALYSIS CYCLE TO PREVENT BEACON DROPS
+        ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
+        
+        vTaskDelay(pdMS_TO_TICKS(3000)); // Let any in-flight Firebase TLS session finish before starting Gemini
+        
+        // Capturing Image (Camera is already initialized at boot)
+        ESP_LOGI(TAG, "Gemini Cycle: Capturing Image...");
+        
+        // Grab a dummy frame to discard dark/under-exposed frames
         camera_fb_t *fb = esp_camera_fb_get();
+        if (fb) esp_camera_fb_return(fb);
+
+        // 1. Capture Real Image
+        fb = esp_camera_fb_get();
         if (!fb) {
             ESP_LOGE(TAG, "Camera capture failed");
-            vTaskDelay(pdMS_TO_TICKS(10000));
+            g_gemini_active = false;
+            vTaskDelay(pdMS_TO_TICKS(60000));
             continue;
         }
 
@@ -549,14 +596,20 @@ static void gemini_analysis_task(void *pvParameters)
         if (!base64_buf) {
             ESP_LOGE(TAG, "Failed to allocate memory for Base64");
             esp_camera_fb_return(fb);
-            vTaskDelay(pdMS_TO_TICKS(10000));
+            g_gemini_active = false;
+            vTaskDelay(pdMS_TO_TICKS(60000));
             continue;
         }
         
         size_t written_len = 0;
         mbedtls_base64_encode((unsigned char*)base64_buf, base64_len, &written_len, fb->buf, fb->len);
         base64_buf[written_len] = '\0';
-        esp_camera_fb_return(fb); // Free camera buffer early
+        
+        esp_camera_fb_return(fb);
+        ESP_LOGI(TAG, "Image captured and encoded. Settling power...");
+
+        // Wait for power rail to recover after camera burst
+        vTaskDelay(pdMS_TO_TICKS(4000)); 
 
         // 3. Construct Gemini JSON Payload
         const char *prompt = "You are an expert poultry veterinarian. Analyze this image of a broiler chicken pen. "
@@ -575,24 +628,49 @@ static void gemini_analysis_task(void *pvParameters)
         char *payload = malloc(payload_size);
         if (!payload) {
             ESP_LOGE(TAG, "Failed to allocate memory for Gemini Payload");
-            free(base64_buf);
+            if (base64_buf) free(base64_buf);
+            g_gemini_active = false;
             vTaskDelay(pdMS_TO_TICKS(10000));
             continue;
         }
         
         snprintf(payload, payload_size, "%s%s%s%s%s", json_part1, prompt, json_part2, base64_buf, json_part3);
 
-        // 4. Send to Gemini
-        char url[300];
-        snprintf(url, sizeof(url), "https://%s%s", GEMINI_HOST, GEMINI_PATH);
-        
+
+        // 4. DNS Resolve & Send to Gemini
+        struct addrinfo hints = { .ai_family = AF_INET, .ai_socktype = SOCK_STREAM };
+        struct addrinfo *res;
+        bool dns_ok = false;
+        for (int i = 0; i < 3; i++) {
+            if (getaddrinfo(GEMINI_HOST, NULL, &hints, &res) == 0) {
+                freeaddrinfo(res);
+                dns_ok = true;
+                break;
+            }
+            ESP_LOGW(TAG, "DNS lookup failed for %s (attempt %d/3). Retrying...", GEMINI_HOST, i + 1);
+            vTaskDelay(pdMS_TO_TICKS(2000));
+        }
+
+        if (!dns_ok) {
+            ESP_LOGE(TAG, "Could not resolve Gemini host. Skipping cycle.");
+            if (base64_buf) free(base64_buf);
+            g_gemini_active = false;
+            vTaskDelay(pdMS_TO_TICKS(60000));
+            continue;
+        }
+
+        char gemini_url[400];
+        snprintf(gemini_url, sizeof(gemini_url), "https://%s%s", GEMINI_HOST, GEMINI_PATH);
+
         esp_http_client_config_t config = {
-            .url = url,
-            .event_handler = http_event_handler,
-            .transport_type = HTTP_TRANSPORT_OVER_SSL,
+            .url               = gemini_url,
+            .method            = HTTP_METHOD_POST,
+            .transport_type    = HTTP_TRANSPORT_OVER_SSL,
             .crt_bundle_attach = esp_crt_bundle_attach,
-            .buffer_size = HTTP_BUF_SIZE,
-            .timeout_ms = 30000,
+            .event_handler     = http_event_handler,
+            .timeout_ms        = 60000,
+            .buffer_size       = 4096,
+            .buffer_size_tx    = 4096,
         };
 
         http_response_len = 0; // Reset global response buffer
@@ -602,10 +680,11 @@ static void gemini_analysis_task(void *pvParameters)
         esp_http_client_set_method(client, HTTP_METHOD_POST);
         esp_http_client_set_header(client, "Content-Type", "application/json");
         esp_http_client_set_post_field(client, payload, strlen(payload));
-
+        
         ESP_LOGI(TAG, "Sending request to Gemini... (Payload size: %u bytes)", strlen(payload));
+        
         esp_err_t err = esp_http_client_perform(client);
-        free(payload);
+        free(payload); // Free ~10KB of heap before mbedTLS handshake allocations
 
         if (err == ESP_OK) {
             int status = esp_http_client_get_status_code(client);
@@ -627,8 +706,6 @@ static void gemini_analysis_task(void *pvParameters)
                                 ESP_LOGI(TAG, "Gemini Analysis:\n%s", text->valuestring);
                                 
                                 // 6. Push to Firebase
-                                // We combine the analysis string and the base64 image
-                                // Remove markdown wrapper from Gemini output if present (e.g. ```json ... ```)
                                 char *clean_json = text->valuestring;
                                 if (strncmp(clean_json, "```json\n", 8) == 0) {
                                     clean_json += 8;
@@ -640,17 +717,13 @@ static void gemini_analysis_task(void *pvParameters)
                                     if (end) *end = '\0';
                                 }
 
-                                const char *fb_part1 = "{\"analysis\":";
-                                const char *fb_part2 = ",\"image\":\"data:image/jpeg;base64,";
-                                const char *fb_part3 = "\",\"lastUpdated\":{\".sv\":\"timestamp\"}}";
+                                g_gemini_active = false;
                                 
-                                size_t fb_payload_size = strlen(fb_part1) + strlen(clean_json) + strlen(fb_part2) + written_len + strlen(fb_part3) + 1;
-                                char *fb_payload = malloc(fb_payload_size);
-                                if (fb_payload) {
-                                    snprintf(fb_payload, fb_payload_size, "%s%s%s%s%s", fb_part1, clean_json, fb_part2, base64_buf, fb_part3);
-                                    firebase_request("/camera_analysis", fb_payload, HTTP_METHOD_PUT);
-                                    free(fb_payload);
-                                }
+                                char fb_payload[512];
+                                snprintf(fb_payload, sizeof(fb_payload),
+                                    "{\"analysis\":%s,\"lastUpdated\":{\".sv\":\"timestamp\"}}",
+                                    clean_json);
+                                firebase_request("/camera_analysis", fb_payload, HTTP_METHOD_PUT);
                             }
                         }
                     }
@@ -666,7 +739,11 @@ static void gemini_analysis_task(void *pvParameters)
         }
 
         esp_http_client_cleanup(client);
-        free(base64_buf);
+        if (base64_buf) free(base64_buf);
+        g_gemini_active = false;
+        
+        // RESTORE WIFI POWER SAVE TO PREVENT OVERHEATING DURING IDLE
+        ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_MIN_MODEM));
 
         // Run every 15 minutes
         vTaskDelay(pdMS_TO_TICKS(15 * 60 * 1000));
@@ -730,8 +807,7 @@ static void sensor_task(void *pvParameters)
     servo_init();
     servo_set_angle(90);
 
-    // ── Camera (Skeleton) ─────────────────────────────────────────────────────
-    camera_init();
+    // Camera is now initialized in app_main for stability
 
     buzzer_alert(2); // 2 beeps = ready
     ESP_LOGI(TAG, "BroilerGuard ESP32-S3: Hardware ready. Monitoring...");
@@ -741,6 +817,12 @@ static void sensor_task(void *pvParameters)
     int64_t last_history_ms = 0;
 
     while (1) {
+        if (g_gemini_active) {
+            ESP_LOGD(TAG, "Sensor task yielding for Gemini analysis...");
+            vTaskDelay(pdMS_TO_TICKS(10000));
+            continue;
+        }
+
         // ── 1. FAST POLLING: LDR (Light Control) ──────────────────────────────
         int ldr_raw = 0;
         adc_oneshot_read(adc1_handle, LDR_ADC_CHANNEL, &ldr_raw);
@@ -827,6 +909,14 @@ void app_main(void)
 
     wifi_init();
 
+    vTaskDelay(pdMS_TO_TICKS(5000));
+
+    if (camera_init() == ESP_OK) {
+        ESP_LOGI(TAG, "Camera System Online.");
+    } else {
+        ESP_LOGE(TAG, "Camera Hardware Error! Check connections.");
+    }
+
     // Start Security Task (High Priority for instant alerts)
     xTaskCreatePinnedToCore(security_task, "security_task", 4096, NULL, 10, &security_task_handle, 1);
 
@@ -834,5 +924,5 @@ void app_main(void)
     xTaskCreatePinnedToCore(sensor_task, "sensor_task", 16384, NULL, 5, NULL, 1);
 
     // Start Gemini Task
-    xTaskCreatePinnedToCore(gemini_analysis_task, "gemini_task", 24576, NULL, 4, NULL, 1);
+    xTaskCreatePinnedToCore(gemini_analysis_task, "gemini_task", 24576, NULL, 6, NULL, 1);
 }

@@ -1,0 +1,198 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM18 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\broilerguard.elf C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+[0;32mI (126) esp_image: segment 1: paddr=000464c0 vaddr=3fc9b400 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037a3f6
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time May 14 2026 07:32:01[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0c0020 size=36498h (222360) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=000464c0 vaddr=3fc9b400 size=07250h ( 29264) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=0004d718 vaddr=40374000 size=02900h ( 10496) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=b7188h (749960) map[0m
+[0;32mI (269) esp_image: segment 4: paddr=001071b0 vaddr=40376900 size=14abch ( 84668) load[0m
+[0;32mI (288) esp_image: segment 5: paddr=0011bc74 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (298) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (299) boot: Disabling RNG early entropy source...[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (318) cpu_start: Pro cpu start user code[0m
+[0;32mI (318) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (318) app_init: Application information:[0m
+[0;32mI (318) app_init: Project name:     broilerguard[0m
+[0;32mI (322) app_init: App version:      34e16c8-dirty[0m
+[0;32mI (327) app_init: Compile time:     May 14 2026 07:31:17[0m
+[0;32mI (332) app_init: ELF file SHA256:  6a00fa0d9...[0m
+[0;32mI (336) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (340) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (344) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (348) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (352) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (358) heap_init: At 3FCA8250 len 000414C0 (261 KiB): RAM[0m
+[0;32mI (363) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (369) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (374) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (380) spi_flash: detected chip: boya[0m
+[0;32mI (383) spi_flash: flash io: dio[0m
+[0;33mW (385) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (398) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (404) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (411) main_task: Started on CPU0[0m
+[0;32mI (421) main_task: Calling app_main()[0m
+[0;32mI (421) BroilerGuard: ==============================[0m
+[0;32mI (421) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (431) BroilerGuard: ==============================[0m
+[0;32mI (451) pp: pp rom version: e7ae62f[0m
+[0;32mI (451) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (461) wifi:wifi driver task: 3fced4c4, prio:23, stack:6656, core=0[0m
+[0;32mI (471) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (471) wifi:wifi certification version: v7.0[0m
+[0;32mI (471) wifi:config NVS flash: enabled[0m
+[0;32mI (471) wifi:config nano formatting: disabled[0m
+[0;32mI (471) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (481) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (481) wifi:Init management short buffer num: 32[0m
+[0;32mI (481) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (491) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (491) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (501) wifi:Init static rx buffer num: 10[0m
+[0;32mI (501) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (511) wifi_init: rx ba win: 6[0m
+[0;32mI (511) wifi_init: accept mbox: 6[0m
+[0;32mI (511) wifi_init: tcpip mbox: 32[0m
+[0;32mI (511) wifi_init: udp mbox: 6[0m
+[0;32mI (521) wifi_init: tcp mbox: 6[0m
+[0;32mI (521) wifi_init: tcp tx win: 5760[0m
+[0;32mI (521) wifi_init: tcp rx win: 5760[0m
+[0;32mI (531) wifi_init: tcp mss: 1440[0m
+[0;32mI (531) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (531) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (541) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (581) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (581) wifi:enable tsf[0m
+[0;32mI (581) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (581) BroilerGuard: Connecting to WiFi: Redmi 9C ...[0m
+[0;32mI (591) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (591) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (601) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (611) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (631) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = ea:3f:d9:61:c0:e9[0m
+[0;32mI (631) wifi:security: WPA2-PSK, phy: bgn, rssi: -47[0m
+[0;32mI (631) wifi:pm start, type: 1[0m
+
+[0;32mI (631) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (641) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (661) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (671) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1671) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1671) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1671) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (1671) main_task: Returned from app_main()[0m
+[0;32mI (1681) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (1681) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (1681) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (2391) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+[0;32mI (5411) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (6021) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (6911) wifi:<ba-add>idx:0 (ifx:0, ea:3f:d9:61:c0:e9), tid:0, ssn:16, winSize:64[0m
+[0;32mI (7331) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (11351) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (12161) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (13471) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (16491) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (16701) BroilerGuard: Starting Gemini Analysis Cycle...[0m
+[0;32mI (16701) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (16701) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (16711) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (16711) cam_hal: cam init ok[0m
+[0;32mI (16711) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (16711) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (16731) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (16731) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (16731) camera: Detected OV5640 camera[0m
+[0;32mI (16731) camera: Detected camera at address=0x3c[0m
+[0;32mI (17011) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (17751) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (17751) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (17751) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (17761) cam_hal: cam config ok[0m
+[0;32mI (17781) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (17781) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (17811) BroilerGuard: Camera Ready![0m
+[0;32mI (19461) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (23461) BroilerGuard: Sending request to Gemini... (Payload size: 9781 bytes)[0m
+[0;33mW (32251) HTTP_CLIENT: Connection timed out before data was ready![0m
+[0;32mI (33271) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;33mW (33281) BroilerGuard: Gemini active — skipping Firebase push this cycle[0m
+[0;32mI (38301) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;33mW (38311) BroilerGuard: Gemini active — skipping Firebase push this cycle[0m
+[0;32mI (38901) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (43331) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;33mW (43341) BroilerGuard: Gemini active — skipping Firebase push this cycle[0m
+[0;32mI (48361) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;33mW (48371) BroilerGuard: Gemini active — skipping Firebase push this cycle[0m
+[1;31mE (48801) esp-tls-mbedtls: mbedtls_ssl_handshake returned -0x7280[0m
+[0;32mI (48801) esp-tls-mbedtls: Certificate verified.[0m
+[1;31mE (48801) esp-tls: Failed to open new connection[0m
+[1;31mE (48811) transport_base: Failed to open a new connection[0m
+[1;31mE (48811) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (48821) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (48821) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (53391) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (62171) wifi:bcn_timeout,ap_probe_send_start[0m
+[1;31mE (63411) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (63411) esp-tls: Failed to open new connection[0m
+[1;31mE (63411) transport_base: Failed to open a new connection[0m
+[1;31mE (63411) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (64441) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[1;31mE (74461) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (74461) esp-tls: Failed to open new connection[0m
+[1;31mE (74461) transport_base: Failed to open a new connection[0m
+[1;31mE (74461) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (75491) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[1;31mE (85511) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (85511) esp-tls: Failed to open new connection[0m
+[1;31mE (85511) transport_base: Failed to open a new connection[0m
+[1;31mE (85511) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (86541) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;33mW (104151) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (104151) transport_base: Failed to open a new connection[0m
+[1;31mE (104151) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (105181) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[1;31mE (115201) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (115201) esp-tls: Failed to open new connection[0m
+[1;31mE (115201) transport_base: Failed to open a new connection[0m
+[1;31mE (115201) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (115241) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (116231) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (124361) wifi:bcn_timeout,ap_probe_send_start[0m
+[1;31mE (126251) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (126251) esp-tls: Failed to open new connection[0m
+[1;31mE (126251) transport_base: Failed to open a new connection[0m
+[1;31mE (126251) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (127281) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m
+[1;31mE (137301) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (137301) esp-tls: Failed to open new connection[0m
+[1;31mE (137301) transport_base: Failed to open a new connection[0m
+[1;31mE (137301) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (138331) BroilerGuard: Temp=32.0C  Hum=47% | Fan=off Mist=off Light=off Heat=off[0m

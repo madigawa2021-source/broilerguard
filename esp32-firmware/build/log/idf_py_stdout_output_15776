@@ -1,0 +1,832 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM18 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\broilerguard.elf C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+[0;32mI (126) esp_image: segment 1: paddr=000463f0 vaddr=3fc9b400 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037a3f6
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time May 14 2026 07:32:01[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0c0020 size=363c8h (222152) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=000463f0 vaddr=3fc9b400 size=07250h ( 29264) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=0004d648 vaddr=40374000 size=029d0h ( 10704) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=b7150h (749904) map[0m
+[0;32mI (269) esp_image: segment 4: paddr=00107178 vaddr=403769d0 size=149ech ( 84460) load[0m
+[0;32mI (288) esp_image: segment 5: paddr=0011bb6c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (298) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (298) boot: Disabling RNG early entropy source...[0m
+[0;32mI (308) cpu_start: Multicore app[0m
+[0;32mI (317) cpu_start: Pro cpu start user code[0m
+[0;32mI (318) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (318) app_init: Application information:[0m
+[0;32mI (318) app_init: Project name:     broilerguard[0m
+[0;32mI (322) app_init: App version:      34e16c8-dirty[0m
+[0;32mI (326) app_init: Compile time:     May 14 2026 07:31:17[0m
+[0;32mI (331) app_init: ELF file SHA256:  e2e489fa1...[0m
+[0;32mI (336) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (340) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (344) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (348) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (352) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (358) heap_init: At 3FCA8270 len 000414A0 (261 KiB): RAM[0m
+[0;32mI (363) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (368) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (374) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (380) spi_flash: detected chip: boya[0m
+[0;32mI (382) spi_flash: flash io: dio[0m
+[0;33mW (385) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (398) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (404) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (411) main_task: Started on CPU0[0m
+[0;32mI (421) main_task: Calling app_main()[0m
+[0;32mI (421) BroilerGuard: ==============================[0m
+[0;32mI (421) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (431) BroilerGuard: ==============================[0m
+[0;32mI (451) pp: pp rom version: e7ae62f[0m
+[0;32mI (451) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (461) wifi:wifi driver task: 3fced4c4, prio:23, stack:6656, core=0[0m
+[0;32mI (471) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (471) wifi:wifi certification version: v7.0[0m
+[0;32mI (471) wifi:config NVS flash: enabled[0m
+[0;32mI (471) wifi:config nano formatting: disabled[0m
+[0;32mI (471) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (481) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (481) wifi:Init management short buffer num: 32[0m
+[0;32mI (491) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (491) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (491) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (501) wifi:Init static rx buffer num: 10[0m
+[0;32mI (501) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (511) wifi_init: rx ba win: 6[0m
+[0;32mI (511) wifi_init: accept mbox: 6[0m
+[0;32mI (511) wifi_init: tcpip mbox: 32[0m
+[0;32mI (511) wifi_init: udp mbox: 6[0m
+[0;32mI (521) wifi_init: tcp mbox: 6[0m
+[0;32mI (521) wifi_init: tcp tx win: 5760[0m
+[0;32mI (521) wifi_init: tcp rx win: 5760[0m
+[0;32mI (531) wifi_init: tcp mss: 1440[0m
+[0;32mI (531) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (531) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (541) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (581) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (581) wifi:enable tsf[0m
+[0;32mI (581) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (581) BroilerGuard: wifi_init finished.[0m
+[0;32mI (591) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (591) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (601) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (611) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (621) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (621) wifi:security: WPA2-PSK, phy: bg, rssi: -44[0m
+[0;32mI (621) wifi:pm start, type: 1[0m
+
+[0;32mI (621) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (631) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (651) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (651) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1661) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1661) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1661) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (1661) main_task: Returned from app_main()[0m
+[0;32mI (1671) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (1681) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (1681) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (2391) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+[0;33mW (10411) DHT: Timeout waiting for response low[0m
+[0;33mW (10411) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (16671) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (16671) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (16671) cam_hal: cam init ok[0m
+[0;32mI (16671) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (16671) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (16691) ov3660: Mismatch PID=0x101[0m
+[0;32mI (16691) ov5640: Mismatch PID=0x101[0m
+[0;32mI (16701) gc2145: Mismatch PID=0x101[0m
+[0;32mI (16701) ov3660: Mismatch PID=0x101[0m
+[0;32mI (16701) ov5640: Mismatch PID=0x101[0m
+[0;32mI (16701) gc2145: Mismatch PID=0x101[0m
+[0;32mI (16701) ov3660: Mismatch PID=0x101[0m
+[0;32mI (16711) ov5640: Mismatch PID=0x101[0m
+[0;32mI (16711) gc2145: Mismatch PID=0x101[0m
+[1;31mE (16711) camera: Detected camera not supported.[0m
+[1;31mE (16721) camera: Camera probe failed with error 0x106(ESP_ERR_NOT_SUPPORTED)[0m
+[1;31mE (16721) BroilerGuard: Camera init failed with error 0x106[0m
+[1;31mE (16731) BroilerGuard: On-demand camera init failed[0m
+[0;33mW (20431) DHT: Timeout waiting for response low[0m
+[0;33mW (20431) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (30451) DHT: Timeout waiting for response low[0m
+[0;33mW (30451) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (40471) DHT: Timeout waiting for response low[0m
+[0;33mW (40471) BroilerGuard: DHT11 read failed.[0m
+E BOD: Brownout detector was triggered
+
+[0;32mI (385) spi_flash: detected chip: boya[0m
+[0;32mI (387) spi_flash: flash io: dio[0m
+[0;33mW (390) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (403) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (409) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (416) main_task: Started on CPU0[0m
+[0;32mI (426) main_task: Calling app_main()[0m
+[0;32mI (426) BroilerGuard: ==============================[0m
+[0;32mI (426) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (436) BroilerGuard: ==============================[0m
+[0;32mI (456) pp: pp rom version: e7ae62f[0m
+[0;32mI (456) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (466) wifi:wifi driver task: 3fced440, prio:23, stack:6656, core=0[0m
+[0;32mI (476) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (476) wifi:wifi certification version: v7.0[0m
+[0;32mI (476) wifi:config NVS flash: enabled[0m
+[0;32mI (476) wifi:config nano formatting: disabled[0m
+[0;32mI (476) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (486) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (486) wifi:Init management short buffer num: 32[0m
+[0;32mI (486) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (496) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (496) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (506) wifi:Init static rx buffer num: 10[0m
+[0;32mI (506) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (516) wifi_init: rx ba win: 6[0m
+[0;32mI (516) wifi_init: accept mbox: 6[0m
+[0;32mI (516) wifi_init: tcpip mbox: 32[0m
+[0;32mI (516) wifi_init: udp mbox: 6[0m
+[0;32mI (526) wifi_init: tcp mbox: 6[0m
+[0;32mI (526) wifi_init: tcp tx win: 5760[0m
+[0;32mI (526) wifi_init: tcp rx win: 5760[0m
+[0;32mI (536) wifi_init: tcp mss: 1440[0m
+[0;32mI (536) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (536) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (546) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (586) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (606) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (606) wifi:enable tsf[0m
+[0;32mI (606) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (606) BroilerGuard: wifi_init finished.[0m
+[0;32mI (616) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (616) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (626) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (626) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (646) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (646) wifi:security: WPA2-PSK, phy: bg, rssi: -41[0m
+[0;32mI (656) wifi:pm start, type: 1[0m
+
+[0;32mI (656) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (666) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (746) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (746) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1696) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1696) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1696) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (1696) main_task: Returned from app_main()[0m
+[0;32mI (1706) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (1716) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (1716) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (2426) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+E BOD: Brownout detector was triggered
+[0;32mI (387) spi_flash: flash io: dio[0m
+[0;33mW (390) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (403) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (409) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (416) main_task: Started on CPU0[0m
+[0;32mI (426) main_task: Calling app_main()[0m
+[0;32mI (426) BroilerGuard: ==============================[0m
+[0;32mI (426) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (436) BroilerGuard: ==============================[0m
+[0;32mI (456) pp: pp rom version: e7ae62f[0m
+[0;32mI (456) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (466) wifi:wifi driver task: 3fced4c4, prio:23, stack:6656, core=0[0m
+[0;32mI (476) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (476) wifi:wifi certification version: v7.0[0m
+[0;32mI (476) wifi:config NVS flash: enabled[0m
+[0;32mI (476) wifi:config nano formatting: disabled[0m
+[0;32mI (476) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (486) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (486) wifi:Init management short buffer num: 32[0m
+[0;32mI (496) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (496) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (496) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (506) wifi:Init static rx buffer num: 10[0m
+[0;32mI (506) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (516) wifi_init: rx ba win: 6[0m
+[0;32mI (516) wifi_init: accept mbox: 6[0m
+[0;32mI (516) wifi_init: tcpip mbox: 32[0m
+[0;32mI (516) wifi_init: udp mbox: 6[0m
+[0;32mI (526) wifi_init: tcp mbox: 6[0m
+[0;32mI (526) wifi_init: tcp tx win: 5760[0m
+[0;32mI (526) wifi_init: tcp rx win: 5760[0m
+[0;32mI (536) wifi_init: tcp mss: 1440[0m
+[0;32mI (536) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (536) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (546) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (586) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (606) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (606) wifi:enable tsf[0m
+[0;32mI (606) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (606) BroilerGuard: wifi_init finished.[0m
+[0;32mI (616) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (616) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (626) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (636) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (656) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (656) wifi:security: WPA2-PSK, phy: bg, rssi: -38[0m
+[0;32mI (666) wifi:pm start, type: 1[0m
+
+[0;32mI (666) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (676) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (756) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (756) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+E BOD: Brownout detector was triggered
+
+
+[0;32mI (486) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (496) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (496) wifi:Init management short buffer num: 32[0m
+[0;32mI (496) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (506) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (506) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (516) wifi:Init static rx buffer num: 10[0m
+[0;32mI (516) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (526) wifi_init: rx ba win: 6[0m
+[0;32mI (526) wifi_init: accept mbox: 6[0m
+[0;32mI (526) wifi_init: tcpip mbox: 32[0m
+[0;32mI (526) wifi_init: udp mbox: 6[0m
+[0;32mI (536) wifi_init: tcp mbox: 6[0m
+[0;32mI (536) wifi_init: tcp tx win: 5760[0m
+[0;32mI (536) wifi_init: tcp rx win: 5760[0m
+[0;32mI (546) wifi_init: tcp mss: 1440[0m
+[0;32mI (546) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (546) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (556) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (596) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (656) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (656) wifi:enable tsf[0m
+[0;32mI (656) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (656) BroilerGuard: wifi_init finished.[0m
+[0;32mI (666) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (666) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (676) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (676) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (696) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (696) wifi:security: WPA2-PSK, phy: bg, rssi: -35[0m
+[0;32mI (706) wifi:pm start, type: 1[0m
+
+[0;32mI (706) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (706) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (766) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (766) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+E BOD: Brownout detector was triggered
+
+[0;32mI (436) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (436) BroilerGuard: ==============================[0m
+[0;32mI (466) pp: pp rom version: e7ae62f[0m
+[0;32mI (466) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (476) wifi:wifi driver task: 3fced440, prio:23, stack:6656, core=0[0m
+[0;32mI (486) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (486) wifi:wifi certification version: v7.0[0m
+[0;32mI (486) wifi:config NVS flash: enabled[0m
+[0;32mI (486) wifi:config nano formatting: disabled[0m
+[0;32mI (486) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (496) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (496) wifi:Init management short buffer num: 32[0m
+[0;32mI (506) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (506) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (506) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (516) wifi:Init static rx buffer num: 10[0m
+[0;32mI (516) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (526) wifi_init: rx ba win: 6[0m
+[0;32mI (526) wifi_init: accept mbox: 6[0m
+[0;32mI (526) wifi_init: tcpip mbox: 32[0m
+[0;32mI (526) wifi_init: udp mbox: 6[0m
+[0;32mI (536) wifi_init: tcp mbox: 6[0m
+[0;32mI (536) wifi_init: tcp tx win: 5760[0m
+[0;32mI (536) wifi_init: tcp rx win: 5760[0m
+[0;32mI (546) wifi_init: tcp mss: 1440[0m
+[0;32mI (546) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (546) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (556) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (596) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (646) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (646) wifi:enable tsf[0m
+[0;32mI (656) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (656) BroilerGuard: wifi_init finished.[0m
+[0;32mI (656) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (656) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (676) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (686) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (706) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (706) wifi:security: WPA2-PSK, phy: bg, rssi: -41[0m
+[0;32mI (716) wifi:pm start, type: 1[0m
+
+[0;32mI (716) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (726) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (726) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (736) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1766) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1766) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1766) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (1766) main_task: Returned from app_main()[0m
+[0;32mI (1776) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (1786) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (1786) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (2496) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+[0;32mI (10516) BroilerGuard: Temp=36.0C  Hum=33% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (10516) BroilerGuard: AGENT: Temp HIGH (36.0C) → Fan ON, Heater OFF[0m
+[0;32mI (11226) BroilerGuard: AGENT: Hum LOW (33%) → Mister ON[0m
+[0;32mI (12106) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (13216) BroilerGuard: Firebase [/alerts] → HTTP 200[0m
+[0;32mI (14156) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (15256) BroilerGuard: Firebase [/sensors] → HTTP 200[0m
+[0;32mI (16776) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (16776) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (16776) cam_hal: cam init ok[0m
+[0;32mI (16776) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (16776) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (16796) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (16796) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (16796) camera: Detected OV5640 camera[0m
+[0;32mI (16796) camera: Detected camera at address=0x3c[0m
+[0;32mI (17486) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (17486) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (17486) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (17496) cam_hal: cam config ok[0m
+[0;32mI (17516) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (17516) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (17546) BroilerGuard: Camera Ready![0m
+[0;32mI (19196) BroilerGuard: Sending request to Gemini... (Payload size: 8277 bytes)[0m
+[1;31mE (25226) esp-tls: couldn't get hostname for :generativelanguage.googleapis.com: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (25226) esp-tls: Failed to open new connection[0m
+[1;31mE (25226) transport_base: Failed to open a new connection[0m
+[1;31mE (25226) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (25236) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (25286) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (35646) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (35646) esp-tls: Failed to open new connection[0m
+[1;31mE (35646) transport_base: Failed to open a new connection[0m
+[1;31mE (35646) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (36676) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (47036) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (47036) esp-tls: Failed to open new connection[0m
+[1;31mE (47036) transport_base: Failed to open a new connection[0m
+[1;31mE (47036) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (48066) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (58426) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (58426) esp-tls: Failed to open new connection[0m
+[1;31mE (58426) transport_base: Failed to open a new connection[0m
+[1;31mE (58426) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (59456) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (69816) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (69816) esp-tls: Failed to open new connection[0m
+[1;31mE (69816) transport_base: Failed to open a new connection[0m
+[1;31mE (69816) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (70846) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (81206) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (81206) esp-tls: Failed to open new connection[0m
+[1;31mE (81206) transport_base: Failed to open a new connection[0m
+[1;31mE (81206) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (82236) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (85246) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (85246) s3 ll_cam: DMA Channel=2[0m
+[0;32mI (85246) cam_hal: cam init ok[0m
+[1;31mE (85246) camera: Camera probe failed with error 0x103(ESP_ERR_INVALID_STATE)[0m
+[1;31mE (85256) BroilerGuard: Camera init failed with error 0x103[0m
+[1;31mE (85256) BroilerGuard: On-demand camera init failed[0m
+[0;32mI (91196) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;33mW (92846) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (92846) transport_base: Failed to open a new connection[0m
+[1;31mE (92846) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (93876) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (101846) wifi:bcn_timeout,ap_probe_send_start[0m
+[1;31mE (104236) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (104236) esp-tls: Failed to open new connection[0m
+[1;31mE (104236) transport_base: Failed to open a new connection[0m
+[1;31mE (104236) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (104356) wifi:ap_probe_send over, reset wifi status to disassoc[0m
+[0;32mI (104356) wifi:state: run -> init (0xc800)[0m
+[0;32mI (104366) wifi:pm stop, total sleep time: 16529902 us / 103649181 us[0m
+
+[0;32mI (104366) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (104366) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (105266) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (105616) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (105616) esp-tls: Failed to open new connection[0m
+[1;31mE (105616) transport_base: Failed to open a new connection[0m
+[1;31mE (105626) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (106776) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (109186) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (111606) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (114006) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (115646) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (115996) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (115996) esp-tls: Failed to open new connection[0m
+[1;31mE (115996) transport_base: Failed to open a new connection[0m
+[1;31mE (116006) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (116426) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (118826) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (121236) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (123646) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (126026) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (126066) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (126376) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (126376) esp-tls: Failed to open new connection[0m
+[1;31mE (126376) transport_base: Failed to open a new connection[0m
+[1;31mE (126386) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (128476) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (130886) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (133296) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (135706) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (135786) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (135786) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (136406) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (136756) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (136756) esp-tls: Failed to open new connection[0m
+[1;31mE (136756) transport_base: Failed to open a new connection[0m
+[1;31mE (136766) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (136796) wifi:state: auth -> init (0x200)[0m
+[0;32mI (136806) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (136806) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (139216) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (139266) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (139266) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (140276) wifi:state: auth -> init (0x200)[0m
+[0;32mI (140286) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (140286) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (142696) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (142746) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (142746) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (143756) wifi:state: auth -> init (0x200)[0m
+[0;32mI (143766) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (143766) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (145266) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (145266) s3 ll_cam: DMA Channel=2[0m
+[0;32mI (145266) cam_hal: cam init ok[0m
+[0;32mI (145266) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (145266) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (145286) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (145286) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (145286) camera: Detected OV5640 camera[0m
+[0;32mI (145286) camera: Detected camera at address=0x3c[0m
+[0;32mI (145976) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (145976) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (145976) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (145986) cam_hal: cam config ok[0m
+[0;32mI (146006) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (146006) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (146036) BroilerGuard: Camera Ready![0m
+[0;33mW (146176) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (146226) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (146226) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (147246) wifi:state: auth -> init (0x200)[0m
+[0;32mI (147256) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (147256) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (149666) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (149706) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (149716) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (150726) wifi:state: auth -> init (0x200)[0m
+[0;32mI (150736) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (150736) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (151536) cam_hal: Failed to get frame: timeout[0m
+[0;33mW (153146) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (153196) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (153196) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (154206) wifi:state: auth -> init (0x200)[0m
+[0;32mI (154216) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (154216) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (155536) cam_hal: Failed to get frame: timeout[0m
+[1;31mE (155536) BroilerGuard: Camera capture failed[0m
+[0;32mI (155786) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (156136) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (156136) esp-tls: Failed to open new connection[0m
+[1;31mE (156136) transport_base: Failed to open a new connection[0m
+[1;31mE (156146) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (156626) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (156676) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (156676) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (157686) wifi:state: auth -> init (0x200)[0m
+[0;32mI (157696) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (157696) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (160106) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (160156) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (160156) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (161166) wifi:state: auth -> init (0x200)[0m
+[0;32mI (161176) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (161176) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (163586) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (163636) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (163636) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (164646) wifi:state: auth -> init (0x200)[0m
+[0;32mI (164656) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (164656) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (166166) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (166516) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (166516) esp-tls: Failed to open new connection[0m
+[1;31mE (166516) transport_base: Failed to open a new connection[0m
+[1;31mE (166526) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (167066) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (167116) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (167116) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (168136) wifi:state: auth -> init (0x200)[0m
+[0;32mI (168146) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (168146) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (170556) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (170596) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (170606) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (171616) wifi:state: auth -> init (0x200)[0m
+[0;32mI (171626) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (171626) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (174036) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (174086) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (174086) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (175096) wifi:state: auth -> init (0x200)[0m
+[0;32mI (175106) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (175106) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (176546) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (176896) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (176896) esp-tls: Failed to open new connection[0m
+[1;31mE (176896) transport_base: Failed to open a new connection[0m
+[1;31mE (176906) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (177516) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (177566) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (177566) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (178576) wifi:state: auth -> init (0x200)[0m
+[0;32mI (178586) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (178586) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (180996) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (181046) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (181046) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (182056) wifi:state: auth -> init (0x200)[0m
+[0;32mI (182066) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (182066) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (184476) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (184526) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (184526) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (185536) wifi:state: auth -> init (0x200)[0m
+[0;32mI (185546) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (185546) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (186926) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (187276) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (187276) esp-tls: Failed to open new connection[0m
+[1;31mE (187276) transport_base: Failed to open a new connection[0m
+[1;31mE (187286) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (187956) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (188006) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (188006) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (189026) wifi:state: auth -> init (0x200)[0m
+[0;32mI (189036) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (189036) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (191446) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (191496) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (191496) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (192506) wifi:state: auth -> init (0x200)[0m
+[0;32mI (192516) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (192516) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (194926) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (194976) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (194976) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (195236) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (196236) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (196246) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (196246) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (197306) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (197656) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (197656) esp-tls: Failed to open new connection[0m
+[1;31mE (197656) transport_base: Failed to open a new connection[0m
+[1;31mE (197666) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (198656) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (198656) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (198656) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (199676) wifi:state: auth -> init (0x200)[0m
+[0;32mI (199686) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (199686) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (202096) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (202136) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (202146) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (203156) wifi:state: auth -> init (0x200)[0m
+[0;32mI (203166) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (203166) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (205576) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (205626) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (205626) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (206636) wifi:state: auth -> init (0x200)[0m
+[0;32mI (206646) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (206646) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (207686) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (208036) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (208036) esp-tls: Failed to open new connection[0m
+[1;31mE (208036) transport_base: Failed to open a new connection[0m
+[1;31mE (208046) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (209056) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (209106) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (209106) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (210116) wifi:state: auth -> init (0x200)[0m
+[0;32mI (210126) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (210126) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (212536) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (212586) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (212586) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (213596) wifi:state: auth -> init (0x200)[0m
+[0;32mI (213606) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (213606) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (215536) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (215536) s3 ll_cam: DMA Channel=3[0m
+[0;32mI (215536) cam_hal: cam init ok[0m
+[1;31mE (215536) camera: Camera probe failed with error 0x103(ESP_ERR_INVALID_STATE)[0m
+[1;31mE (215546) BroilerGuard: Camera init failed with error 0x103[0m
+[1;31mE (215546) BroilerGuard: On-demand camera init failed[0m
+[0;33mW (216016) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (216066) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (216066) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (217076) wifi:state: auth -> init (0x200)[0m
+[0;32mI (217086) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (217086) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (218066) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (218416) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (218416) esp-tls: Failed to open new connection[0m
+[1;31mE (218416) transport_base: Failed to open a new connection[0m
+[1;31mE (218426) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (219496) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (219546) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (219546) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (220566) wifi:state: auth -> init (0x200)[0m
+[0;32mI (220576) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (220576) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (222986) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (223026) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (223036) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (224046) wifi:state: auth -> init (0x200)[0m
+[0;32mI (224056) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (224056) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (226466) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (226516) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (226516) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (226716) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (227716) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (227726) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (227726) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (228446) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (228796) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (228796) esp-tls: Failed to open new connection[0m
+[1;31mE (228796) transport_base: Failed to open a new connection[0m
+[1;31mE (228806) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (230136) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (230196) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (230196) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (231216) wifi:state: auth -> init (0x200)[0m
+[0;32mI (231226) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (231226) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (233636) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (233676) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (233686) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (234696) wifi:state: auth -> init (0x200)[0m
+[0;32mI (234706) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (234706) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (237116) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (237166) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (237166) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (238176) wifi:state: auth -> init (0x200)[0m
+[0;32mI (238186) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (238186) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (238826) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (239176) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (239176) esp-tls: Failed to open new connection[0m
+[1;31mE (239176) transport_base: Failed to open a new connection[0m
+[1;31mE (239186) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (240596) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (240646) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (240646) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (241656) wifi:state: auth -> init (0x200)[0m
+[0;32mI (241666) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (241666) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (244076) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (244126) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (244126) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (245136) wifi:state: auth -> init (0x200)[0m
+[0;32mI (245146) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (245146) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (247556) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (247606) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (247606) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (248226) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (249206) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (249226) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (249236) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (249236) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (249556) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (249556) esp-tls: Failed to open new connection[0m
+[1;31mE (249556) transport_base: Failed to open a new connection[0m
+[1;31mE (249566) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (251646) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (251706) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (251706) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (252716) wifi:state: auth -> init (0x200)[0m
+[0;32mI (252726) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (252726) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (255136) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (255186) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (255186) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (256196) wifi:state: auth -> init (0x200)[0m
+[0;32mI (256206) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (256206) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (258616) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (258666) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (258666) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (259586) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (259676) wifi:state: auth -> init (0x200)[0m
+[0;32mI (259686) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (259686) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (259936) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (259936) esp-tls: Failed to open new connection[0m
+[1;31mE (259936) transport_base: Failed to open a new connection[0m
+[1;31mE (259946) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (262096) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (262146) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (262146) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (262596) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (262676) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (262906) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (262906) wifi:security: WPA2-PSK, phy: bg, rssi: -40[0m
+[0;32mI (262906) wifi:pm start, type: 1[0m
+
+[0;32mI (262906) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (262916) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (262966) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (262966) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (263986) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (263986) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (269966) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (275556) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (275556) s3 ll_cam: DMA Channel=3[0m
+[0;32mI (275556) cam_hal: cam init ok[0m
+[0;32mI (275556) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (275556) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (275576) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (275576) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (275576) camera: Detected OV5640 camera[0m
+[0;32mI (275576) camera: Detected camera at address=0x3c[0m
+[0;32mI (276266) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (276266) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (276266) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (276276) cam_hal: cam config ok[0m
+[0;32mI (276296) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (276296) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (276326) BroilerGuard: Camera Ready![0m
+[0;33mW (281826) cam_hal: Failed to get frame: timeout[0m
+[0;33mW (285826) cam_hal: Failed to get frame: timeout[0m
+[1;31mE (285826) BroilerGuard: Camera capture failed[0m
+[0;33mW (286456) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (286456) transport_base: Failed to open a new connection[0m
+[1;31mE (286456) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (287486) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (297846) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (297846) esp-tls: Failed to open new connection[0m
+[1;31mE (297846) transport_base: Failed to open a new connection[0m
+[1;31mE (297846) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (298876) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (310746) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (310746) transport_base: Failed to open a new connection[0m
+[1;31mE (310746) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (311776) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (322336) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (322336) esp-tls: Failed to open new connection[0m
+[1;31mE (322336) transport_base: Failed to open a new connection[0m
+[1;31mE (322336) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (323366) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (338766) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (338766) transport_base: Failed to open a new connection[0m
+[1;31mE (338766) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (339796) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (345826) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (345826) s3 ll_cam: DMA Channel=4[0m
+[0;32mI (345826) cam_hal: cam init ok[0m
+[1;31mE (345826) camera: Camera probe failed with error 0x103(ESP_ERR_INVALID_STATE)[0m
+[1;31mE (345836) BroilerGuard: Camera init failed with error 0x103[0m
+[1;31mE (345836) BroilerGuard: On-demand camera init failed[0m
+[1;31mE (350156) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (350156) esp-tls: Failed to open new connection[0m
+[1;31mE (350156) transport_base: Failed to open a new connection[0m
+[1;31mE (350156) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (351186) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (363506) esp-tls: Failed to open new connection in specified timeout[0m
+[1;31mE (363506) transport_base: Failed to open a new connection[0m
+[1;31mE (363506) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (364536) BroilerGuard: Temp=36.0C  Hum=33% | Fan=ON Mist=ON Light=off Heat=off[0m

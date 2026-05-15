@@ -1,0 +1,1251 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM18 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\broilerguard.elf C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+[0;32mI (126) esp_image: segment 1: paddr=00046480 vaddr=3fc9b400 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x29 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037a3f2
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time May 14 2026 07:32:01[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0c0020 size=36458h (222296) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=00046480 vaddr=3fc9b400 size=07250h ( 29264) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=0004d6d8 vaddr=40374000 size=02940h ( 10560) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=b7208h (750088) map[0m
+[0;32mI (269) esp_image: segment 4: paddr=00107230 vaddr=40376940 size=14a78h ( 84600) load[0m
+[0;32mI (288) esp_image: segment 5: paddr=0011bcb0 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (298) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (298) boot: Disabling RNG early entropy source...[0m
+[0;32mI (309) cpu_start: Multicore app[0m
+[0;32mI (318) cpu_start: Pro cpu start user code[0m
+[0;32mI (318) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (318) app_init: Application information:[0m
+[0;32mI (318) app_init: Project name:     broilerguard[0m
+[0;32mI (322) app_init: App version:      34e16c8-dirty[0m
+[0;32mI (327) app_init: Compile time:     May 14 2026 07:31:17[0m
+[0;32mI (332) app_init: ELF file SHA256:  346677939...[0m
+[0;32mI (336) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (340) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (344) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (348) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (352) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (358) heap_init: At 3FCA8260 len 000414B0 (261 KiB): RAM[0m
+[0;32mI (363) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (368) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (374) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (380) spi_flash: detected chip: boya[0m
+[0;32mI (382) spi_flash: flash io: dio[0m
+[0;33mW (385) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (398) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (404) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (411) main_task: Started on CPU0[0m
+[0;32mI (421) main_task: Calling app_main()[0m
+[0;32mI (421) BroilerGuard: ==============================[0m
+[0;32mI (421) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (431) BroilerGuard: ==============================[0m
+[0;32mI (451) pp: pp rom version: e7ae62f[0m
+[0;32mI (451) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (461) wifi:wifi driver task: 3fced440, prio:23, stack:6656, core=0[0m
+[0;32mI (471) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (471) wifi:wifi certification version: v7.0[0m
+[0;32mI (471) wifi:config NVS flash: enabled[0m
+[0;32mI (471) wifi:config nano formatting: disabled[0m
+[0;32mI (471) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (481) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (481) wifi:Init management short buffer num: 32[0m
+[0;32mI (481) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (491) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (491) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (501) wifi:Init static rx buffer num: 10[0m
+[0;32mI (501) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (511) wifi_init: rx ba win: 6[0m
+[0;32mI (511) wifi_init: accept mbox: 6[0m
+[0;32mI (511) wifi_init: tcpip mbox: 32[0m
+[0;32mI (511) wifi_init: udp mbox: 6[0m
+[0;32mI (521) wifi_init: tcp mbox: 6[0m
+[0;32mI (521) wifi_init: tcp tx win: 5760[0m
+[0;32mI (521) wifi_init: tcp rx win: 5760[0m
+[0;32mI (531) wifi_init: tcp mss: 1440[0m
+[0;32mI (531) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (531) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (541) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (581) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (581) wifi:enable tsf[0m
+[0;32mI (581) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (581) BroilerGuard: wifi_init finished.[0m
+[0;32mI (591) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (591) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (601) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (601) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (621) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (621) wifi:security: WPA2-PSK, phy: bgn, rssi: -40[0m
+[0;32mI (631) wifi:pm start, type: 1[0m
+
+[0;32mI (631) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (641) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (671) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (671) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1671) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1671) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1671) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (1671) main_task: Returned from app_main()[0m
+[0;32mI (1681) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (1691) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (1691) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (2401) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+[0;32mI (10421) BroilerGuard: Temp=36.0C  Hum=15% | Fan=off Mist=off Light=off Heat=off[0m
+[0;32mI (10421) BroilerGuard: AGENT: Temp HIGH (36.0C) → Fan ON, Heater OFF[0m
+[0;32mI (11131) BroilerGuard: AGENT: Hum LOW (15%) → Mister ON[0m
+[0;32mI (16681) BroilerGuard: Starting Gemini Analysis Cycle...[0m
+[0;32mI (19681) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (19681) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (19681) cam_hal: cam init ok[0m
+[0;32mI (19681) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (19681) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (19701) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (19701) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (19701) camera: Detected OV5640 camera[0m
+[0;32mI (19701) camera: Detected camera at address=0x3c[0m
+[0;32mI (20391) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (20391) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (20391) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (20401) cam_hal: cam config ok[0m
+[0;32mI (20411) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (20421) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (20451) BroilerGuard: Camera Ready![0m
+[1;31mE (21431) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (21431) esp-tls: Failed to open new connection[0m
+[1;31mE (21431) transport_base: Failed to open a new connection[0m
+[1;31mE (21431) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (21791) BroilerGuard: Firebase skipped — Gemini active (Path: /sensors)[0m
+[0;32mI (22101) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (26101) BroilerGuard: Sending request to Gemini... (Payload size: 8881 bytes)[0m
+[1;31mE (32131) esp-tls: couldn't get hostname for :generativelanguage.googleapis.com: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (32131) esp-tls: Failed to open new connection[0m
+[1;31mE (32131) transport_base: Failed to open a new connection[0m
+[1;31mE (32131) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (32141) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (32811) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (43171) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (43171) esp-tls: Failed to open new connection[0m
+[1;31mE (43171) transport_base: Failed to open a new connection[0m
+[1;31mE (43171) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (44201) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (54561) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (54561) esp-tls: Failed to open new connection[0m
+[1;31mE (54561) transport_base: Failed to open a new connection[0m
+[1;31mE (54561) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (55591) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (65951) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (65951) esp-tls: Failed to open new connection[0m
+[1;31mE (65951) transport_base: Failed to open a new connection[0m
+[1;31mE (65951) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (66981) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (77341) esp-tls: [sock=54] select() timeout[0m
+[1;31mE (77341) esp-tls: Failed to open new connection[0m
+[1;31mE (77341) transport_base: Failed to open a new connection[0m
+[1;31mE (77341) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (78371) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (89411) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (91911) wifi:ap_probe_send over, reset wifi status to disassoc[0m
+[0;32mI (91911) wifi:state: run -> init (0xc800)[0m
+[0;32mI (91921) wifi:pm stop, total sleep time: 22620134 us / 91287785 us[0m
+
+[0;32mI (91921) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (91931) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (91931) esp-tls-mbedtls: mbedtls_ssl_handshake returned -0x004C[0m
+[0;32mI (91931) esp-tls-mbedtls: Certificate verified.[0m
+[1;31mE (91941) esp-tls: Failed to open new connection[0m
+[1;31mE (91941) transport_base: Failed to open a new connection[0m
+[1;31mE (91951) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (92971) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (93321) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (93321) esp-tls: Failed to open new connection[0m
+[1;31mE (93321) transport_base: Failed to open a new connection[0m
+[1;31mE (93331) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (94341) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (94371) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (94371) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (95381) wifi:state: auth -> init (0x200)[0m
+[0;32mI (95391) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (95391) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (97801) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (97851) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (97851) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (98861) wifi:state: auth -> init (0x200)[0m
+[0;32mI (98871) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (98871) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (101281) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (101331) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (101331) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (102341) wifi:state: auth -> init (0x200)[0m
+[0;32mI (102351) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (102351) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (103351) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (103701) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (103701) esp-tls: Failed to open new connection[0m
+[1;31mE (103701) transport_base: Failed to open a new connection[0m
+[1;31mE (103711) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (104761) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (104811) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (104811) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (105821) wifi:state: auth -> init (0x200)[0m
+[0;32mI (105831) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (105831) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (108241) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (108291) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (108301) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (109311) wifi:state: auth -> init (0x200)[0m
+[0;32mI (109321) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (109321) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (111731) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (111781) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (111781) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (112791) wifi:state: auth -> init (0x200)[0m
+[0;32mI (112801) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (112801) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (113731) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (114081) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (114081) esp-tls: Failed to open new connection[0m
+[1;31mE (114081) transport_base: Failed to open a new connection[0m
+[1;31mE (114091) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (115211) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (115261) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (115261) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (116271) wifi:state: auth -> init (0x200)[0m
+[0;32mI (116281) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (116281) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (118691) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (118741) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (118741) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (118841) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (119851) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (119861) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (119861) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (122271) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (122321) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (122321) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (123341) wifi:state: auth -> init (0x200)[0m
+[0;32mI (123351) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (123351) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (124111) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (124461) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (124461) esp-tls: Failed to open new connection[0m
+[1;31mE (124461) transport_base: Failed to open a new connection[0m
+[1;31mE (124471) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (125761) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (125811) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (125811) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (126821) wifi:state: auth -> init (0x200)[0m
+[0;32mI (126831) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (126831) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (129241) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (129291) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (129291) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (130301) wifi:state: auth -> init (0x200)[0m
+[0;32mI (130311) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (130311) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (132721) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (132771) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (132771) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (132871) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (133871) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (133891) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (133891) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (134491) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (134841) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (134841) esp-tls: Failed to open new connection[0m
+[1;31mE (134841) transport_base: Failed to open a new connection[0m
+[1;31mE (134851) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (136301) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (136351) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (136351) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (137361) wifi:state: auth -> init (0x200)[0m
+[0;32mI (137371) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (137371) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (139781) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (139831) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (139841) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (139941) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (140941) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (140951) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (140951) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (143361) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (143421) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (143421) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (144431) wifi:state: auth -> init (0x200)[0m
+[0;32mI (144441) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (144441) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (144871) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (145221) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (145221) esp-tls: Failed to open new connection[0m
+[1;31mE (145221) transport_base: Failed to open a new connection[0m
+[1;31mE (145231) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (146851) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (146901) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (146901) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (147911) wifi:state: auth -> init (0x200)[0m
+[0;32mI (147921) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (147921) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (150331) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (150381) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (150381) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (151391) wifi:state: auth -> init (0x200)[0m
+[0;32mI (151401) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (151401) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (153811) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (153861) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (153861) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (154881) wifi:state: auth -> init (0x200)[0m
+[0;32mI (154891) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (154891) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (155251) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (155601) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (155601) esp-tls: Failed to open new connection[0m
+[1;31mE (155601) transport_base: Failed to open a new connection[0m
+[1;31mE (155611) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (157301) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (157351) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (157351) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (158361) wifi:state: auth -> init (0x200)[0m
+[0;32mI (158371) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (158371) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (160781) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (160831) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (160831) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (161841) wifi:state: auth -> init (0x200)[0m
+[0;32mI (161851) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (161851) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (164261) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (164311) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (164311) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (165321) wifi:state: auth -> init (0x200)[0m
+[0;32mI (165331) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (165331) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (165631) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (165981) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (165981) esp-tls: Failed to open new connection[0m
+[1;31mE (165981) transport_base: Failed to open a new connection[0m
+[1;31mE (165991) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (167741) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (167791) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (167791) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (168801) wifi:state: auth -> init (0x200)[0m
+[0;32mI (168811) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (168811) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (171221) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (171271) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (171271) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (172281) wifi:state: auth -> init (0x200)[0m
+[0;32mI (172291) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (172291) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (174701) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (174751) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (174751) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (175771) wifi:state: auth -> init (0x200)[0m
+[0;32mI (175781) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (175781) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (176011) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (176361) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (176361) esp-tls: Failed to open new connection[0m
+[1;31mE (176361) transport_base: Failed to open a new connection[0m
+[1;31mE (176371) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (178191) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (178241) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (178241) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (179251) wifi:state: auth -> init (0x200)[0m
+[0;32mI (179261) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (179261) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (181671) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (181721) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (181721) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (182731) wifi:state: auth -> init (0x200)[0m
+[0;32mI (182741) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (182741) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (185151) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (185201) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (185201) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (186211) wifi:state: auth -> init (0x200)[0m
+[0;32mI (186221) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (186221) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (186391) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (186741) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (186741) esp-tls: Failed to open new connection[0m
+[1;31mE (186741) transport_base: Failed to open a new connection[0m
+[1;31mE (186751) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (188631) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (188681) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (188681) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (189691) wifi:state: auth -> init (0x200)[0m
+[0;32mI (189701) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (189701) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (192111) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (192161) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (192161) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (192631) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (193631) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (193641) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (193641) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (196051) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (196161) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (196161) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (196771) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (197121) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (197121) esp-tls: Failed to open new connection[0m
+[1;31mE (197121) transport_base: Failed to open a new connection[0m
+[1;31mE (197131) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (197171) wifi:state: auth -> init (0x200)[0m
+[0;32mI (197181) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (197181) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (199591) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (199641) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (199641) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (200651) wifi:state: auth -> init (0x200)[0m
+[0;32mI (200661) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (200661) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (203071) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (203121) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (203121) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (204131) wifi:state: auth -> init (0x200)[0m
+[0;32mI (204141) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (204141) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (206551) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (206601) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (206601) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (207151) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (207501) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (207501) esp-tls: Failed to open new connection[0m
+[1;31mE (207501) transport_base: Failed to open a new connection[0m
+[0;32mI (207511) wifi:state: auth -> assoc (0x0)E (207511) HTTP_CLIENT: Connection failed, sock < 0[0m
+
+[0;32mI (208521) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (208531) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (208531) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (210941) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (211001) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (211011) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (212021) wifi:state: auth -> init (0x200)[0m
+[0;32mI (212031) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (212031) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (214441) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (214491) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (214491) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (214591) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (215591) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (215601) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (215601) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (217541) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (217891) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (217891) esp-tls: Failed to open new connection[0m
+[1;31mE (217891) transport_base: Failed to open a new connection[0m
+[1;31mE (217901) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (218011) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (218071) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (218071) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (219081) wifi:state: auth -> init (0x200)[0m
+[0;32mI (219091) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (219091) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (221501) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (221551) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (221551) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (222561) wifi:state: auth -> init (0x200)[0m
+[0;32mI (222571) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (222571) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (224981) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (225031) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (225031) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (226051) wifi:state: auth -> init (0x200)[0m
+[0;32mI (226061) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (226061) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (227921) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (228271) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (228271) esp-tls: Failed to open new connection[0m
+[1;31mE (228271) transport_base: Failed to open a new connection[0m
+[1;31mE (228281) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (228471) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (228521) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (228521) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (229531) wifi:state: auth -> init (0x200)[0m
+[0;32mI (229541) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (229541) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (231951) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (232001) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (232001) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (233011) wifi:state: auth -> init (0x200)[0m
+[0;32mI (233021) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (233021) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (235431) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (235481) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (235481) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (236491) wifi:state: auth -> init (0x200)[0m
+[0;32mI (236501) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (236501) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (238301) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (238651) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (238651) esp-tls: Failed to open new connection[0m
+[1;31mE (238651) transport_base: Failed to open a new connection[0m
+[1;31mE (238661) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (238911) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (238961) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (238961) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (239711) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (240711) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (240721) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (240721) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (243131) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (243161) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (243161) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (244171) wifi:state: auth -> init (0x200)[0m
+[0;32mI (244181) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (244181) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (246591) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (246641) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (246641) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (247651) wifi:state: auth -> init (0x200)[0m
+[0;32mI (247661) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (247661) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (248681) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (249031) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (249031) esp-tls: Failed to open new connection[0m
+[1;31mE (249031) transport_base: Failed to open a new connection[0m
+[1;31mE (249041) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (250071) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (250121) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (250121) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (251131) wifi:state: auth -> init (0x200)[0m
+[0;32mI (251141) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (251141) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (253551) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (253601) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (253601) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (254621) wifi:state: auth -> init (0x200)[0m
+[0;32mI (254631) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (254631) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (257041) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (257091) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (257091) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (258101) wifi:state: auth -> init (0x200)[0m
+[0;32mI (258111) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (258111) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (259061) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (259411) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (259411) esp-tls: Failed to open new connection[0m
+[1;31mE (259411) transport_base: Failed to open a new connection[0m
+[1;31mE (259421) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (260521) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (260571) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (260571) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (261581) wifi:state: auth -> init (0x200)[0m
+[0;32mI (261591) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (261591) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (264001) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (264051) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (264051) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (265061) wifi:state: auth -> init (0x200)[0m
+[0;32mI (265071) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (265071) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (267481) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (267531) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (267531) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (268541) wifi:state: auth -> init (0x200)[0m
+[0;32mI (268551) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (268551) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (269441) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (269791) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (269791) esp-tls: Failed to open new connection[0m
+[1;31mE (269791) transport_base: Failed to open a new connection[0m
+[1;31mE (269801) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (270961) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (271011) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (271011) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (271481) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (271531) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (274551) wifi:state: run -> init (0xf00)[0m
+[0;32mI (274561) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (274561) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (276971) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (277051) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (277051) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (278071) wifi:state: auth -> init (0x200)[0m
+[0;32mI (278081) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (278081) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (279821) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (280171) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (280171) esp-tls: Failed to open new connection[0m
+[1;31mE (280171) transport_base: Failed to open a new connection[0m
+[1;31mE (280181) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (280491) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (280541) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (280541) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (281551) wifi:state: auth -> init (0x200)[0m
+[0;32mI (281561) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (281561) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (283971) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (284021) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (284021) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (285031) wifi:state: auth -> init (0x200)[0m
+[0;32mI (285041) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (285041) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (287451) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (287501) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (287501) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (288511) wifi:state: auth -> init (0x200)[0m
+[0;32mI (288521) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (288521) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (290201) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (290551) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (290551) esp-tls: Failed to open new connection[0m
+[1;31mE (290551) transport_base: Failed to open a new connection[0m
+[1;31mE (290561) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (290931) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (290981) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (290981) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (291991) wifi:state: auth -> init (0x200)[0m
+[0;32mI (292001) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (292001) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (294411) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (294461) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (294461) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (295471) wifi:state: auth -> init (0x200)[0m
+[0;32mI (295481) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (295481) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (297891) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (297941) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (297941) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (298961) wifi:state: auth -> init (0x200)[0m
+[0;32mI (298971) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (298971) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (300581) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[1;31mE (300931) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[1;31mE (300931) esp-tls: Failed to open new connection[0m
+[1;31mE (300931) transport_base: Failed to open a new connection[0m
+[1;31mE (300941) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (301381) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (301431) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (301431) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (302441) wifi:state: auth -> init (0x200)[0m
+[0;32mI (302491) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (302491) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (304901) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (304911) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (304911) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (305921) wifi:state: auth -> init (0x200)[0m
+[0;32mI (305931) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (305931) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (308341) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (308391) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (308391) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (309401) wifi:state: auth -> init (0x200)[0m
+[0;32mI (309411) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (309411) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (310961) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (311821) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (311871) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (311871) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (312881) wifi:state: auth -> init (0x200)[0m
+[0;32mI (312891) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (312891) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (315301) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (315351) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (315351) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (316361) wifi:state: auth -> init (0x200)[0m
+[0;32mI (316371) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (316371) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (318311) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (318311) esp-tls: Failed to open new connection[0m
+[1;31mE (318311) transport_base: Failed to open a new connection[0m
+[1;31mE (318321) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (318781) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (318831) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (318831) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (319851) wifi:state: auth -> init (0x200)[0m
+[0;32mI (319861) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (319861) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (321341) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (322271) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (322321) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (322321) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (323331) wifi:state: auth -> init (0x200)[0m
+[0;32mI (323341) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (323341) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (325751) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (325801) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (325801) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (326811) wifi:state: auth -> init (0x200)[0m
+[0;32mI (326821) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (326821) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (328691) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (328691) esp-tls: Failed to open new connection[0m
+[1;31mE (328691) transport_base: Failed to open a new connection[0m
+[1;31mE (328701) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (329231) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (329281) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (329281) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (330291) wifi:state: auth -> init (0x200)[0m
+[0;32mI (330301) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (330301) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (331721) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (332711) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (332761) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (332761) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (333771) wifi:state: auth -> init (0x200)[0m
+[0;32mI (333781) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (333781) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (336191) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (336241) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (336241) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (337251) wifi:state: auth -> init (0x200)[0m
+[0;32mI (337261) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (337261) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (339071) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (339071) esp-tls: Failed to open new connection[0m
+[1;31mE (339071) transport_base: Failed to open a new connection[0m
+[1;31mE (339081) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (339671) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (339721) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (339721) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (340741) wifi:state: auth -> init (0x200)[0m
+[0;32mI (340751) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (340751) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (342101) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (343161) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (343211) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (343211) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (344221) wifi:state: auth -> init (0x200)[0m
+[0;32mI (344231) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (344231) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (346641) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (346691) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (346691) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (347701) wifi:state: auth -> init (0x200)[0m
+[0;32mI (347711) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (347711) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (349451) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (349451) esp-tls: Failed to open new connection[0m
+[1;31mE (349451) transport_base: Failed to open a new connection[0m
+[1;31mE (349461) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (350121) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (350171) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (350171) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (351181) wifi:state: auth -> init (0x200)[0m
+[0;32mI (351191) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (351191) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (352481) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (353601) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (353651) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (353651) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (354661) wifi:state: auth -> init (0x200)[0m
+[0;32mI (354671) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (354671) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (357081) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (357131) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (357131) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (358141) wifi:state: auth -> init (0x200)[0m
+[0;32mI (358151) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (358151) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (359831) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (359831) esp-tls: Failed to open new connection[0m
+[1;31mE (359831) transport_base: Failed to open a new connection[0m
+[1;31mE (359841) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (360561) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (360611) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (360621) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (361631) wifi:state: auth -> init (0x200)[0m
+[0;32mI (361641) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (361641) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (362861) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (364051) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (364101) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (364101) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (365111) wifi:state: auth -> init (0x200)[0m
+[0;32mI (365121) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (365121) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (367531) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (367581) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (367581) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (368591) wifi:state: auth -> init (0x200)[0m
+[0;32mI (368601) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (368601) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (370211) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (370211) esp-tls: Failed to open new connection[0m
+[1;31mE (370211) transport_base: Failed to open a new connection[0m
+[1;31mE (370221) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (371011) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (371061) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (371061) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (372071) wifi:state: auth -> init (0x200)[0m
+[0;32mI (372081) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (372081) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (373241) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (374491) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (374541) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (374541) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (375551) wifi:state: auth -> init (0x200)[0m
+[0;32mI (375561) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (375561) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (377971) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (378021) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (378021) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (379031) wifi:state: auth -> init (0x200)[0m
+[0;32mI (379041) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (379041) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (380591) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (380591) esp-tls: Failed to open new connection[0m
+[1;31mE (380591) transport_base: Failed to open a new connection[0m
+[1;31mE (380601) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (381451) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (381501) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (381511) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (382521) wifi:state: auth -> init (0x200)[0m
+[0;32mI (382531) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (382531) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (383621) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (384941) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (384991) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (384991) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (386001) wifi:state: auth -> init (0x200)[0m
+[0;32mI (386011) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (386011) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (388421) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (388471) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (388471) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (389481) wifi:state: auth -> init (0x200)[0m
+[0;32mI (389491) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (389491) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (390971) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (390971) esp-tls: Failed to open new connection[0m
+[1;31mE (390971) transport_base: Failed to open a new connection[0m
+[1;31mE (390981) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (391901) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (391951) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (391951) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (392961) wifi:state: auth -> init (0x200)[0m
+[0;32mI (392971) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (392971) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (394001) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (395381) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (395431) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (395431) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (395541) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (396541) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (396551) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (396551) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (398961) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (399021) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (399021) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (400031) wifi:state: auth -> init (0x200)[0m
+[0;32mI (400041) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (400041) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (401351) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (401351) esp-tls: Failed to open new connection[0m
+[1;31mE (401351) transport_base: Failed to open a new connection[0m
+[1;31mE (401361) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (402451) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (402501) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (402501) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (403511) wifi:state: auth -> init (0x200)[0m
+[0;32mI (403521) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (403521) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (404381) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (405931) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (405981) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (405981) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (406991) wifi:state: auth -> init (0x200)[0m
+[0;32mI (407001) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (407001) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (409411) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (409461) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (409461) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (410471) wifi:state: auth -> init (0x200)[0m
+[0;32mI (410481) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (410481) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (411731) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (411731) esp-tls: Failed to open new connection[0m
+[1;31mE (411731) transport_base: Failed to open a new connection[0m
+[1;31mE (411741) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (412891) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (412941) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (412941) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (413951) wifi:state: auth -> init (0x200)[0m
+[0;32mI (413961) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (413961) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (414761) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (416371) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (416421) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (416421) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (417251) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (418251) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (418261) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (418261) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (420671) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (420721) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (420731) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (421741) wifi:state: auth -> init (0x200)[0m
+[0;32mI (421751) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (421751) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (422111) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (422111) esp-tls: Failed to open new connection[0m
+[1;31mE (422111) transport_base: Failed to open a new connection[0m
+[1;31mE (422121) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (424161) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (424211) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (424211) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (425141) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (425221) wifi:state: auth -> init (0x200)[0m
+[0;32mI (425231) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (425231) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (427641) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (427691) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (427691) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (428701) wifi:state: auth -> init (0x200)[0m
+[0;32mI (428711) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (428711) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (431121) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (431171) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (431171) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (432181) wifi:state: auth -> init (0x200)[0m
+[0;32mI (432191) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (432191) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (432491) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (432491) esp-tls: Failed to open new connection[0m
+[1;31mE (432491) transport_base: Failed to open a new connection[0m
+[1;31mE (432501) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (434601) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (434651) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (434651) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (435521) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (435661) wifi:state: auth -> init (0x200)[0m
+[0;32mI (435671) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (435671) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (438081) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (438131) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (438131) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (439141) wifi:state: auth -> init (0x200)[0m
+[0;32mI (439151) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (439151) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (441561) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (441611) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (441621) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (442631) wifi:state: auth -> init (0x200)[0m
+[0;32mI (442641) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (442641) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (442871) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (442871) esp-tls: Failed to open new connection[0m
+[1;31mE (442871) transport_base: Failed to open a new connection[0m
+[1;31mE (442881) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (445051) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (445101) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (445101) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (445901) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;32mI (445911) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (446911) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (446921) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (446921) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (449331) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (449401) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (449401) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (450411) wifi:state: auth -> init (0x200)[0m
+[0;32mI (450421) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (450421) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (452831) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (452881) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (452881) wifi:state: init -> auth (0xb0)[0m
+[1;31mE (453251) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (453251) esp-tls: Failed to open new connection[0m
+[1;31mE (453251) transport_base: Failed to open a new connection[0m
+[1;31mE (453261) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (453891) wifi:state: auth -> init (0x200)[0m
+[0;32mI (453901) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (453901) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (456281) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (456311) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (456361) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (456361) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (457371) wifi:state: auth -> init (0x200)[0m
+[0;32mI (457381) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (457381) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (459791) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (459841) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (459841) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (460851) wifi:state: auth -> init (0x200)[0m
+[0;32mI (460861) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (460861) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (463271) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (463321) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (463321) wifi:state: init -> auth (0xb0)[0m
+[1;31mE (463631) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (463631) esp-tls: Failed to open new connection[0m
+[1;31mE (463631) transport_base: Failed to open a new connection[0m
+[1;31mE (463641) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (464341) wifi:state: auth -> init (0x200)[0m
+[0;32mI (464351) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (464351) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (466661) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (466761) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (466811) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (466811) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (467821) wifi:state: auth -> init (0x200)[0m
+[0;32mI (467831) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (467831) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (470241) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (470291) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (470291) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (471301) wifi:state: auth -> init (0x200)[0m
+[0;32mI (471311) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (471311) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (473721) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (473771) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (473771) wifi:state: init -> auth (0xb0)[0m
+[1;31mE (474011) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (474011) esp-tls: Failed to open new connection[0m
+[1;31mE (474011) transport_base: Failed to open a new connection[0m
+[1;31mE (474021) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (474781) wifi:state: auth -> init (0x200)[0m
+[0;32mI (474791) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (474791) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (477041) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (477201) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (477251) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (477251) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (478261) wifi:state: auth -> init (0x200)[0m
+[0;32mI (478271) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (478271) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (480681) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (480731) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (480731) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (481741) wifi:state: auth -> init (0x200)[0m
+[0;32mI (481751) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (481751) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (484161) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (484211) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (484211) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (484321) wifi:state: auth -> assoc (0x0)[0m
+[1;31mE (484391) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (484391) esp-tls: Failed to open new connection[0m
+[1;31mE (484391) transport_base: Failed to open a new connection[0m
+[1;31mE (484401) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (485321) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (485331) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (485331) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (487421) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (487741) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (487801) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (487801) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (488811) wifi:state: auth -> init (0x200)[0m
+[0;32mI (488821) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (488821) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (491231) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (491281) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (491281) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (492291) wifi:state: auth -> init (0x200)[0m
+[0;32mI (492301) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (492301) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (494711) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (494761) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (494761) wifi:state: init -> auth (0xb0)[0m
+[1;31mE (494771) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (494781) esp-tls: Failed to open new connection[0m
+[1;31mE (494781) transport_base: Failed to open a new connection[0m
+[1;31mE (494781) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (495771) wifi:state: auth -> init (0x200)[0m
+[0;32mI (495781) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (495781) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (497811) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (498191) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (498241) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (498241) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (499251) wifi:state: auth -> init (0x200)[0m
+[0;32mI (499261) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (499261) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (501671) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (501721) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (501731) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (502741) wifi:state: auth -> init (0x200)[0m
+[0;32mI (502751) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (502751) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (505161) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (505161) esp-tls: Failed to open new connection[0m
+[0;33mW (505161) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (505161) transport_base: Failed to open a new connection[0m
+[1;31mE (505171) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;32mI (505181) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (505181) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (506201) wifi:state: auth -> init (0x200)[0m
+[0;32mI (506211) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (506211) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (508201) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (508621) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (508691) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (508691) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (509701) wifi:state: auth -> init (0x200)[0m
+[0;32mI (509711) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (509711) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (512121) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (512171) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (512171) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (513181) wifi:state: auth -> init (0x200)[0m
+[0;32mI (513191) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (513191) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (515551) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (515551) esp-tls: Failed to open new connection[0m
+[1;31mE (515551) transport_base: Failed to open a new connection[0m
+[1;31mE (515561) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (515601) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (515651) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (515651) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (516661) wifi:state: auth -> init (0x200)[0m
+[0;32mI (516671) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (516671) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (518581) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (519081) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (519131) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (519131) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (520151) wifi:state: auth -> init (0x200)[0m
+[0;32mI (520161) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (520161) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (522571) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (522611) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (522621) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (523631) wifi:state: auth -> init (0x200)[0m
+[0;32mI (523681) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (523681) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (525931) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (525931) esp-tls: Failed to open new connection[0m
+[1;31mE (525931) transport_base: Failed to open a new connection[0m
+[1;31mE (525941) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (526091) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (526101) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (526101) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (527111) wifi:state: auth -> init (0x200)[0m
+[0;32mI (527121) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (527121) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (528961) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (529531) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (529581) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (529581) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (530591) wifi:state: auth -> init (0x200)[0m
+[0;32mI (530601) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (530601) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (533011) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (533061) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (533061) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (534071) wifi:state: auth -> init (0x200)[0m
+[0;32mI (534081) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (534081) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (536311) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (536311) esp-tls: Failed to open new connection[0m
+[1;31mE (536311) transport_base: Failed to open a new connection[0m
+[1;31mE (536321) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (536491) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (536541) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (536541) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (537551) wifi:state: auth -> init (0x200)[0m
+[0;32mI (537561) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (537561) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (539341) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (539971) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (540021) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (540021) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (541041) wifi:state: auth -> init (0x200)[0m
+[0;32mI (541051) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (541051) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (543461) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (543501) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (543511) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (544521) wifi:state: auth -> init (0x200)[0m
+[0;32mI (544531) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (544531) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (546691) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (546691) esp-tls: Failed to open new connection[0m
+[1;31mE (546691) transport_base: Failed to open a new connection[0m
+[1;31mE (546701) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (546941) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (546991) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (546991) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (547091) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (548091) wifi:state: assoc -> init (0x400)[0m
+[0;32mI (548101) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (548101) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (549721) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (550511) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (550571) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (550571) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (551581) wifi:state: auth -> init (0x200)[0m
+[0;32mI (551591) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (551591) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (554001) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (554051) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (554051) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (555061) wifi:state: auth -> init (0x200)[0m
+[0;32mI (555071) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (555071) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (557071) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (557071) esp-tls: Failed to open new connection[0m
+[1;31mE (557071) transport_base: Failed to open a new connection[0m
+[1;31mE (557081) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (557481) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (557531) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (557531) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (558551) wifi:state: auth -> init (0x200)[0m
+[0;32mI (558561) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (558561) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (560101) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (560971) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (561021) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (561021) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (562031) wifi:state: auth -> init (0x200)[0m
+[0;32mI (562041) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (562041) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (564451) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (564501) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (564501) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (565511) wifi:state: auth -> init (0x200)[0m
+[0;32mI (565521) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (565521) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (567451) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (567451) esp-tls: Failed to open new connection[0m
+[1;31mE (567451) transport_base: Failed to open a new connection[0m
+[1;31mE (567461) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (567931) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (567981) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (567981) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (568991) wifi:state: auth -> init (0x200)[0m
+[0;32mI (569001) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (569001) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (570481) BroilerGuard: Temp=36.0C  Hum=15% | Fan=ON Mist=ON Light=off Heat=off[0m
+[0;33mW (571411) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (571461) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (571461) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (572471) wifi:state: auth -> init (0x200)[0m
+[0;32mI (572481) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (572481) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (574891) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (574941) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (574941) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (575951) wifi:state: auth -> init (0x200)[0m
+[0;32mI (575961) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (575961) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (577831) esp-tls: couldn't get hostname for :broilerguard-default-rtdb.europe-west1.firebasedatabase.app: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (577831) esp-tls: Failed to open new connection[0m
+[1;31mE (577831) transport_base: Failed to open a new connection[0m
+[1;31mE (577841) HTTP_CLIENT: Connection failed, sock < 0[0m
+[0;33mW (578371) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (578421) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (578421) wifi:state: init -> auth (0xb0)[0m

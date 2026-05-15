@@ -1,0 +1,277 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM18 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\broilerguard.elf C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+[0;32mI (125) esp_image: segment 1: paddr=00044e98 vaddr=3fc9b000 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037a1ee
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time May 14 2026 07:32:01[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0c0020 size=34e70h (216688) map[0m
+[0;32mI (125) esp_image: segment 1: paddr=00044e98 vaddr=3fc9b000 size=07168h ( 29032) load[0m
+[0;32mI (131) esp_image: segment 2: paddr=0004c008 vaddr=40374000 size=04010h ( 16400) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=b3a94h (735892) map[0m
+[0;32mI (266) esp_image: segment 4: paddr=00103abc vaddr=40378010 size=12fdch ( 77788) load[0m
+[0;32mI (283) esp_image: segment 5: paddr=00116aa0 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (293) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (293) boot: Disabling RNG early entropy source...[0m
+[0;32mI (304) cpu_start: Multicore app[0m
+[0;32mI (313) cpu_start: Pro cpu start user code[0m
+[0;32mI (313) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (313) app_init: Application information:[0m
+[0;32mI (313) app_init: Project name:     broilerguard[0m
+[0;32mI (317) app_init: App version:      34e16c8-dirty[0m
+[0;32mI (322) app_init: Compile time:     May 14 2026 07:31:17[0m
+[0;32mI (327) app_init: ELF file SHA256:  53d61fed6...[0m
+[0;32mI (331) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (335) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (339) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (343) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (347) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (353) heap_init: At 3FCA7CF8 len 00041A18 (262 KiB): RAM[0m
+[0;32mI (358) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (363) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (369) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (375) spi_flash: detected chip: boya[0m
+[0;32mI (377) spi_flash: flash io: dio[0m
+[0;33mW (380) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (393) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (399) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (406) main_task: Started on CPU0[0m
+[0;32mI (416) main_task: Calling app_main()[0m
+[0;32mI (416) BroilerGuard: ==============================[0m
+[0;32mI (416) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (426) BroilerGuard: ==============================[0m
+[0;32mI (446) pp: pp rom version: e7ae62f[0m
+[0;32mI (446) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (456) wifi:wifi driver task: 3fced4c4, prio:23, stack:6656, core=0[0m
+[0;32mI (466) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (466) wifi:wifi certification version: v7.0[0m
+[0;32mI (466) wifi:config NVS flash: enabled[0m
+[0;32mI (466) wifi:config nano formatting: disabled[0m
+[0;32mI (466) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (476) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (476) wifi:Init management short buffer num: 32[0m
+[0;32mI (486) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (486) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (486) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (496) wifi:Init static rx buffer num: 10[0m
+[0;32mI (496) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (506) wifi_init: rx ba win: 6[0m
+[0;32mI (506) wifi_init: accept mbox: 6[0m
+[0;32mI (506) wifi_init: tcpip mbox: 32[0m
+[0;32mI (506) wifi_init: udp mbox: 6[0m
+[0;32mI (516) wifi_init: tcp mbox: 6[0m
+[0;32mI (516) wifi_init: tcp tx win: 5760[0m
+[0;32mI (516) wifi_init: tcp rx win: 5760[0m
+[0;32mI (526) wifi_init: tcp mss: 1440[0m
+[0;32mI (526) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (526) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (536) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (576) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (576) wifi:enable tsf[0m
+[0;32mI (576) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (576) BroilerGuard: wifi_init finished.[0m
+[0;32mI (586) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (586) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (596) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (606) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (626) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (626) wifi:security: WPA2-PSK, phy: bg, rssi: -48[0m
+[0;32mI (626) wifi:pm start, type: 0[0m
+
+[0;32mI (626) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (636) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (676) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (676) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1676) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1676) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1676) BroilerGuard: Forced DNS to 8.8.8.8 to bypass Hotspot proxy[0m
+[0;32mI (1676) main_task: Returned from app_main()[0m
+[0;32mI (1676) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (3696) BroilerGuard: Starting Gemini Analysis Cycle. Waiting 12s to safely pause sensors...[0m
+[0;32mI (4896) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (4896) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (4896) cam_hal: cam init ok[0m
+[0;32mI (4896) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (4896) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (4916) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (4916) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (4916) camera: Detected OV5640 camera[0m
+[0;32mI (4916) camera: Detected camera at address=0x3c[0m
+[0;32mI (5606) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (5606) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (5606) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (5616) cam_hal: cam config ok[0m
+[0;32mI (5626) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (5636) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (5666) BroilerGuard: Camera Ready![0m
+[0;32mI (7316) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (11316) BroilerGuard: Free heap before HTTP init: 222980 bytes[0m
+[0;32mI (11316) BroilerGuard: Sending request to Gemini... (Payload size: 7573 bytes)[0m
+[1;31mE (18316) esp-tls: couldn't get hostname for :generativelanguage.googleapis.com: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (18316) esp-tls: Failed to open new connection[0m
+[1;31mE (18316) transport_base: Failed to open a new connection[0m
+[1;31mE (18316) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (18326) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (18336) BroilerGuard: Forcing Wi-Fi reconnect to clear wedged network stack...[0m
+[0;32mI (18336) wifi:state: run -> init (0x0)[0m
+[0;32mI (18356) wifi:pm stop, total sleep time: 0 us / 17725157 us[0m
+
+[0;32mI (18356) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (18356) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (18386) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (18386) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (19406) wifi:state: auth -> init (0x200)[0m
+[0;32mI (19416) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (19416) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (21826) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (21876) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (21876) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (22886) wifi:state: auth -> init (0x200)[0m
+[0;32mI (22896) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (22896) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (25306) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (25356) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (25356) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (26366) wifi:state: auth -> init (0x200)[0m
+[0;32mI (26376) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (26376) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (28786) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (28836) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (28836) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (29846) wifi:state: auth -> init (0x200)[0m
+[0;32mI (29856) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (29856) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (32266) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (32316) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (32316) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (33326) wifi:state: auth -> init (0x200)[0m
+[0;32mI (33336) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (33336) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (35746) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (35796) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (35796) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (36806) wifi:state: auth -> init (0x200)[0m
+[0;32mI (36816) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (36816) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (39226) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (39276) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (39276) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (40296) wifi:state: auth -> init (0x200)[0m
+[0;32mI (40306) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (40306) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (42716) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (42766) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (42766) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (43776) wifi:state: auth -> init (0x200)[0m
+[0;32mI (43786) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (43786) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (46196) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (46246) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (46246) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (47256) wifi:state: auth -> init (0x200)[0m
+[0;32mI (47266) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (47266) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (49676) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (49726) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (49726) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (50736) wifi:state: auth -> init (0x200)[0m
+[0;32mI (50746) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (50746) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (53156) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (53206) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (53206) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (54216) wifi:state: auth -> init (0x200)[0m
+[0;32mI (54226) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (54226) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (56636) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (56686) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (56686) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (57696) wifi:state: auth -> init (0x200)[0m
+[0;32mI (57706) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (57706) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (60116) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (60166) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (60166) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (61186) wifi:state: auth -> init (0x200)[0m
+[0;32mI (61196) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (61196) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (63606) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (63656) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (63656) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (64666) wifi:state: auth -> init (0x200)[0m
+[0;32mI (64676) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (64676) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (67086) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (67136) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (67136) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (68146) wifi:state: auth -> init (0x200)[0m
+[0;32mI (68156) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (68156) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (70566) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (70616) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (70616) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (71626) wifi:state: auth -> init (0x200)[0m
+[0;32mI (71636) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (71636) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (74046) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (74096) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (74096) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (75106) wifi:state: auth -> init (0x200)[0m
+[0;32mI (75116) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (75116) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (77526) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (77576) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (77576) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (78356) BroilerGuard: Starting Gemini Analysis Cycle. Waiting 12s to safely pause sensors...[0m
+[0;32mI (78586) wifi:state: auth -> init (0x200)[0m
+[0;32mI (78596) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (78596) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (79556) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (79556) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (79556) cam_hal: cam init ok[0m
+[0;32mI (79556) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (79556) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (79576) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (79576) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (79576) camera: Detected OV5640 camera[0m
+[0;32mI (79576) camera: Detected camera at address=0x3c[0m
+[0;32mI (80266) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (80266) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (80266) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (80276) cam_hal: cam config ok[0m
+[0;32mI (80296) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (80296) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (80326) BroilerGuard: Camera Ready![0m
+[0;33mW (81006) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (81056) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (81056) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (81976) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (82076) wifi:state: auth -> init (0x200)[0m
+[0;32mI (82086) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (82086) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (84496) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;32mI (84546) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (84546) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (85556) wifi:state: auth -> init (0x200)[0m
+[0;32mI (85566) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (85566) BroilerGuard: WiFi disconnected — retrying...[0m

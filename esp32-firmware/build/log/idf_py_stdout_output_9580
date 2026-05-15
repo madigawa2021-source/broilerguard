@@ -1,0 +1,243 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM18 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\broilerguard.elf C:\Users\Abdullahi Uba Aliyu\BroilerGuard\broilerguard_firebase (2)\broilerguard\esp32-firmware\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py'
+[0;32mI (125) esp_image: segment 1: paddr=00044dfc vaddr=3fc9b000 sizeESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037a1ee
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x158c
+load:0x403c8700,len:0xd24
+load:0x403cb700,len:0x2f34
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time May 14 2026 07:32:01[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00177000[0m
+[0;32mI (76) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3c0c0020 size=34dd4h (216532) map[0m
+[0;32mI (125) esp_image: segment 1: paddr=00044dfc vaddr=3fc9b000 size=07168h ( 29032) load[0m
+[0;32mI (131) esp_image: segment 2: paddr=0004bf6c vaddr=40374000 size=040ach ( 16556) load[0m
+[0;32mI (135) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=b36a0h (734880) map[0m
+[0;32mI (266) esp_image: segment 4: paddr=001036c8 vaddr=403780ac size=12f40h ( 77632) load[0m
+[0;32mI (283) esp_image: segment 5: paddr=00116610 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (293) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (293) boot: Disabling RNG early entropy source...[0m
+[0;32mI (303) cpu_start: Multicore app[0m
+[0;32mI (312) cpu_start: Pro cpu start user code[0m
+[0;32mI (312) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (313) app_init: Application information:[0m
+[0;32mI (313) app_init: Project name:     broilerguard[0m
+[0;32mI (317) app_init: App version:      34e16c8-dirty[0m
+[0;32mI (321) app_init: Compile time:     May 14 2026 07:31:17[0m
+[0;32mI (326) app_init: ELF file SHA256:  08a2f833b...[0m
+[0;32mI (331) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (335) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (339) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (343) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (347) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (353) heap_init: At 3FCA7CF8 len 00041A18 (262 KiB): RAM[0m
+[0;32mI (358) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (363) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (368) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (375) spi_flash: detected chip: boya[0m
+[0;32mI (377) spi_flash: flash io: dio[0m
+[0;33mW (380) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (393) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (399) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (406) main_task: Started on CPU0[0m
+[0;32mI (416) main_task: Calling app_main()[0m
+[0;32mI (416) BroilerGuard: ==============================[0m
+[0;32mI (416) BroilerGuard:   BroilerGuard v1.0 Starting [0m
+[0;32mI (426) BroilerGuard: ==============================[0m
+[0;32mI (446) pp: pp rom version: e7ae62f[0m
+[0;32mI (446) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (456) wifi:wifi driver task: 3fced4c4, prio:23, stack:6656, core=0[0m
+[0;32mI (466) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (466) wifi:wifi certification version: v7.0[0m
+[0;32mI (466) wifi:config NVS flash: enabled[0m
+[0;32mI (466) wifi:config nano formatting: disabled[0m
+[0;32mI (466) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (476) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (476) wifi:Init management short buffer num: 32[0m
+[0;32mI (486) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (486) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (486) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (496) wifi:Init static rx buffer num: 10[0m
+[0;32mI (496) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (506) wifi_init: rx ba win: 6[0m
+[0;32mI (506) wifi_init: accept mbox: 6[0m
+[0;32mI (506) wifi_init: tcpip mbox: 32[0m
+[0;32mI (506) wifi_init: udp mbox: 6[0m
+[0;32mI (516) wifi_init: tcp mbox: 6[0m
+[0;32mI (516) wifi_init: tcp tx win: 5760[0m
+[0;32mI (516) wifi_init: tcp rx win: 5760[0m
+[0;32mI (526) wifi_init: tcp mss: 1440[0m
+[0;32mI (526) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (526) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (536) phy_init: phy_version 701,f4f1da3a,Mar  3 2025,15:50:10[0m
+[0;32mI (576) wifi:mode : sta (e0:72:a1:d5:5f:9c)[0m
+[0;32mI (576) wifi:enable tsf[0m
+[0;32mI (576) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (576) BroilerGuard: wifi_init finished.[0m
+[0;32mI (586) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (586) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (596) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (606) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (626) wifi:connected with Redmi 9C, aid = 2, channel 1, BW20, bssid = 36:c4:6a:2a:9d:1e[0m
+[0;32mI (626) wifi:security: WPA2-PSK, phy: bg, rssi: -48[0m
+[0;32mI (626) wifi:pm start, type: 1[0m
+
+[0;32mI (626) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (636) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (646) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (656) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (1686) esp_netif_handlers: sta ip: 192.168.43.195, mask: 255.255.255.0, gw: 192.168.43.1[0m
+[0;32mI (1686) BroilerGuard: WiFi connected. IP: 192.168.43.195[0m
+[0;32mI (1686) BroilerGuard: Forced DNS to 8.8.8.8 to bypass Hotspot proxy[0m
+[0;32mI (1686) main_task: Returned from app_main()[0m
+[0;32mI (1686) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (3706) BroilerGuard: Starting Gemini Analysis Cycle. Waiting 12s to safely pause sensors...[0m
+[0;32mI (4906) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (4906) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (4906) cam_hal: cam init ok[0m
+[0;32mI (4906) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (4906) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (4926) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (4926) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (4926) camera: Detected OV5640 camera[0m
+[0;32mI (4926) camera: Detected camera at address=0x3c[0m
+[0;32mI (5616) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (5616) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (5616) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (5626) cam_hal: cam config ok[0m
+[0;32mI (5636) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (5646) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (5676) BroilerGuard: Camera Ready![0m
+[0;32mI (7326) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (11326) BroilerGuard: Free heap before HTTP init: 223768 bytes[0m
+[0;32mI (11326) BroilerGuard: Sending request to Gemini... (Payload size: 7121 bytes)[0m
+[0;32mI (11656) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (14156) wifi:ap_probe_send over, reset wifi status to disassoc[0m
+[0;32mI (14156) wifi:state: run -> init (0xc800)[0m
+[0;32mI (14176) wifi:pm stop, total sleep time: 4702550 us / 13544175 us[0m
+
+[0;32mI (14176) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (14176) BroilerGuard: WiFi disconnected — retrying...[0m
+[0;33mW (16586) BroilerGuard: WiFi disconnected — retrying...[0m
+[1;31mE (18326) esp-tls: couldn't get hostname for :generativelanguage.googleapis.com: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (18326) esp-tls: Failed to open new connection[0m
+[1;31mE (18326) transport_base: Failed to open a new connection[0m
+[1;31mE (18326) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (18336) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (18346) BroilerGuard: Forcing Wi-Fi reconnect to clear wedged network stack...[0m
+[0;32mI (78346) BroilerGuard: Starting Gemini Analysis Cycle. Waiting 12s to safely pause sensors...[0m
+[0;32mI (79546) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (79546) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (79546) cam_hal: cam init ok[0m
+[0;32mI (79546) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (79546) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (79566) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (79566) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (79566) camera: Detected OV5640 camera[0m
+[0;32mI (79566) camera: Detected camera at address=0x3c[0m
+[0;32mI (80256) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (80256) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (80256) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (80266) cam_hal: cam config ok[0m
+[0;32mI (80276) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (80286) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (80316) BroilerGuard: Camera Ready![0m
+[0;32mI (81966) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (85966) BroilerGuard: Free heap before HTTP init: 225148 bytes[0m
+[0;32mI (85966) BroilerGuard: Sending request to Gemini... (Payload size: 6529 bytes)[0m
+[1;31mE (92966) esp-tls: couldn't get hostname for :generativelanguage.googleapis.com: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (92966) esp-tls: Failed to open new connection[0m
+[1;31mE (92966) transport_base: Failed to open a new connection[0m
+[1;31mE (92966) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (92976) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (92986) BroilerGuard: Forcing Wi-Fi reconnect to clear wedged network stack...[0m
+[0;32mI (152986) BroilerGuard: Starting Gemini Analysis Cycle. Waiting 12s to safely pause sensors...[0m
+[0;32mI (154186) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (154186) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (154186) cam_hal: cam init ok[0m
+[0;32mI (154186) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (154186) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (154206) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (154206) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (154206) camera: Detected OV5640 camera[0m
+[0;32mI (154206) camera: Detected camera at address=0x3c[0m
+[0;32mI (154896) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (154896) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (154896) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (154906) cam_hal: cam config ok[0m
+[0;32mI (154926) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (154926) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (154956) BroilerGuard: Camera Ready![0m
+[0;32mI (156606) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (160606) BroilerGuard: Free heap before HTTP init: 225936 bytes[0m
+[0;32mI (160606) BroilerGuard: Sending request to Gemini... (Payload size: 6169 bytes)[0m
+[1;31mE (167606) esp-tls: couldn't get hostname for :generativelanguage.googleapis.com: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (167606) esp-tls: Failed to open new connection[0m
+[1;31mE (167606) transport_base: Failed to open a new connection[0m
+[1;31mE (167606) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (167616) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (167626) BroilerGuard: Forcing Wi-Fi reconnect to clear wedged network stack...[0m
+[0;32mI (227626) BroilerGuard: Starting Gemini Analysis Cycle. Waiting 12s to safely pause sensors...[0m
+[0;32mI (228826) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (228826) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (228826) cam_hal: cam init ok[0m
+[0;32mI (228826) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (228826) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (228846) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (228846) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (228846) camera: Detected OV5640 camera[0m
+[0;32mI (228846) camera: Detected camera at address=0x3c[0m
+[0;32mI (229536) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (229536) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (229536) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (229546) cam_hal: cam config ok[0m
+[0;32mI (229566) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (229566) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (229596) BroilerGuard: Camera Ready![0m
+[0;32mI (231246) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (235246) BroilerGuard: Free heap before HTTP init: 226448 bytes[0m
+[0;32mI (235246) BroilerGuard: Sending request to Gemini... (Payload size: 5957 bytes)[0m
+[1;31mE (242246) esp-tls: couldn't get hostname for :generativelanguage.googleapis.com: getaddrinfo() returns 202, addrinfo=0x0[0m
+[1;31mE (242246) esp-tls: Failed to open new connection[0m
+[1;31mE (242246) transport_base: Failed to open a new connection[0m
+[1;31mE (242246) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (242256) BroilerGuard: Gemini Request Failed: ESP_ERR_HTTP_CONNECT[0m
+[0;33mW (242266) BroilerGuard: Forcing Wi-Fi reconnect to clear wedged network stack...[0m
+[0;32mI (302266) BroilerGuard: Starting Gemini Analysis Cycle. Waiting 12s to safely pause sensors...[0m
+[0;32mI (303466) BroilerGuard: Camera initialization starting...[0m
+[0;32mI (303466) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (303466) cam_hal: cam init ok[0m
+[0;32mI (303466) sccb-ng: pin_sda 4 pin_scl 5[0m
+[0;32mI (303466) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (303486) ov3660: Mismatch PID=0x5640[0m
+[0;32mI (303486) camera: Camera PID=0x5640 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (303486) camera: Detected OV5640 camera[0m
+[0;32mI (303486) camera: Detected camera at address=0x3c[0m
+[0;32mI (304176) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (304176) cam_hal: buffer_size: 16384, half_buffer_size: 1024, node_buffer_size: 1024, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (304176) cam_hal: Allocating 15360 Byte frame buffer in OnBoard RAM[0m
+[0;32mI (304186) cam_hal: cam config ok[0m
+[0;32mI (304196) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
+[0;32mI (304206) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
+[0;32mI (304236) BroilerGuard: Camera Ready![0m
+[0;32mI (305886) BroilerGuard: Camera De-initialized (Power/EMI saved!)[0m
+[0;32mI (309886) BroilerGuard: Free heap before HTTP init: 226192 bytes[0m
+[0;32mI (309886) BroilerGuard: Sending request to Gemini... (Payload size: 6105 bytes)[0m
+E BOD: Brownout detector was triggered
+

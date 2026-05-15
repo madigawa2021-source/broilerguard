@@ -396,10 +396,10 @@ static esp_err_t camera_init(void)
     config.xclk_freq_hz = 10000000; // REDUCED FROM 20MHz TO PREVENT 2.4GHz WiFi JAMMING!
     config.frame_size = FRAMESIZE_QVGA;
     config.pixel_format = PIXFORMAT_JPEG;
-    config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
-    config.fb_location = CAMERA_FB_IN_DRAM;
-    config.jpeg_quality = 20;
-    config.fb_count = 1;
+    config.grab_mode = CAMERA_GRAB_LATEST; // Changed to LATEST for more recent frames
+    config.fb_location = CAMERA_FB_IN_PSRAM; // CRITICAL: Use PSRAM to free up internal heap
+    config.jpeg_quality = 12; // Slightly higher quality
+    config.fb_count = 2; // Use 2 buffers for smoother capture with PSRAM
 
     esp_err_t err = esp_camera_init(&config);
     if (err != ESP_OK) {

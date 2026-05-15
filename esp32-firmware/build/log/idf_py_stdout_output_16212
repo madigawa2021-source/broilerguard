@@ -120,4 +120,139 @@ entry 0x403c8924
 [0;32mI (7401) cam_hal: cam config ok[0m
 [0;32mI (7421) ov5640: Set PLL: bypass: 0, multiplier: 180, sys_div: 4, pre_div: 2, root_2x: 0, pclk_root_div: 2, pclk_manual: 1, pclk_div: 4[0m
 [0;32mI (7421) ov5640: Calculated XVCLK: 10000000 Hz, REFIN: 5000000 Hz, VCO: 900000000 Hz, PLL_CLK: 90000000 Hz, SYSCLK: 22500000 Hz, PCLK: 5625000 Hz[0m
-[0;32mI
+[0;32mI (7451) BroilerGuard: Camera Ready![0m
+[0;32mI (7451) BroilerGuard: Camera System Online.[0m
+[0;32mI (7451) BroilerGuard: sensor_task: starting hardware init on safe pins...[0m
+[0;32mI (7451) BroilerGuard: Gemini Analysis Task Started. Waiting 15s before first capture...[0m
+[0;32mI (7451) main_task: Returned from app_main()[0m
+[0;32mI (7471) BroilerGuard: Servo initialized at 90 degrees[0m
+[0;32mI (7471) BroilerGuard: Servo → 90 degrees (duty=1228)[0m
+[0;32mI (8181) BroilerGuard: BroilerGuard ESP32-S3: Hardware ready. Monitoring...[0m
+[0;33mW (11201) DHT: Timeout waiting for response low[0m
+[0;33mW (11201) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (16221) DHT: Timeout waiting for response low[0m
+[0;33mW (16221) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (21241) DHT: Timeout waiting for response low[0m
+[0;33mW (21241) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (22461) BroilerGuard: Starting Gemini Analysis Cycle (Relays Locked)...[0m
+[0;32mI (22461) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (25461) BroilerGuard: Gemini Cycle: Capturing Image...[0m
+[0;32mI (25591) BroilerGuard: Image captured and encoded. Settling power...[0m
+[0;32mI (31701) BroilerGuard: Sending request to Gemini... (Payload size: 7149 bytes)[0m
+[0;32mI (33361) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (41421) BroilerGuard: Gemini HTTP Status: 200[0m
+[0;32mI (41431) BroilerGuard: Gemini Analysis:[0m
+{"totalCount": 0, "activePercentage": 0, "feedingPercentage": 0, "restingPercentage": 0, "healthScore": 0, "alerts": [{"type": "error", "message": "No poultry detected in the image; the view is obstructed by a hand and lacks a clear view of the pen."}]}
+[0;32mI (43271) esp-x509-crt-bundle: Certificate validated[0m
+[0;33mW (43291) DHT: Timeout waiting for response low[0m
+[0;33mW (43291) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (48311) DHT: Timeout waiting for response low[0m
+[0;33mW (48311) BroilerGuard: DHT11 read failed.[0m
+[0;32mI (48371) BroilerGuard: Firebase [/camera_analysis] → HTTP 200[0m
+[0;32mI (48371) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;33mW (53331) DHT: Timeout waiting for response low[0m
+[0;33mW (53331) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (58351) DHT: Timeout waiting for response low[0m
+[0;33mW (58351) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (63371) DHT: Timeout waiting for response low[0m
+[0;33mW (63371) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (68391) DHT: Timeout waiting for response low[0m
+[0;33mW (68391) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (73411) DHT: Timeout waiting for response low[0m
+[0;33mW (73411) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (78431) DHT: Timeout waiting for response low[0m
+[0;33mW (78431) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (83451) DHT: Timeout waiting for response low[0m
+[0;33mW (83451) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (88471) DHT: Timeout waiting for response low[0m
+[0;33mW (88471) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (93491) DHT: Timeout waiting for response low[0m
+[0;33mW (93491) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (98511) DHT: Timeout waiting for response low[0m
+[0;33mW (98511) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (103531) DHT: Timeout waiting for response low[0m
+[0;33mW (103531) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (108551) DHT: Timeout waiting for response low[0m
+[0;33mW (108551) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (113571) DHT: Timeout waiting for response low[0m
+[0;33mW (113571) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (118591) DHT: Timeout waiting for response low[0m
+[0;33mW (118591) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (123611) DHT: Timeout waiting for response low[0m
+[0;33mW (123611) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (128631) DHT: Timeout waiting for response low[0m
+[0;33mW (128631) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (133651) DHT: Timeout waiting for response low[0m
+[0;33mW (133651) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (138671) DHT: Timeout waiting for response low[0m
+[0;33mW (138671) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (143691) DHT: Timeout waiting for response low[0m
+[0;33mW (143691) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (148711) DHT: Timeout waiting for response low[0m
+[0;33mW (148711) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (153731) DHT: Timeout waiting for response low[0m
+[0;33mW (153731) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (158751) DHT: Timeout waiting for response low[0m
+[0;33mW (158751) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (163771) DHT: Timeout waiting for response low[0m
+[0;33mW (163771) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (168791) DHT: Timeout waiting for response low[0m
+[0;33mW (168791) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (173811) DHT: Timeout waiting for response low[0m
+[0;33mW (173811) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (178831) DHT: Timeout waiting for response low[0m
+[0;33mW (178831) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (183851) DHT: Timeout waiting for response low[0m
+[0;33mW (183851) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (188871) DHT: Timeout waiting for response low[0m
+[0;33mW (188871) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (193891) DHT: Timeout waiting for response low[0m
+[0;33mW (193891) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (198911) DHT: Timeout waiting for response low[0m
+[0;33mW (198911) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (203931) DHT: Timeout waiting for response low[0m
+[0;33mW (203931) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (208951) DHT: Timeout waiting for response low[0m
+[0;33mW (208951) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (213971) DHT: Timeout waiting for response low[0m
+[0;33mW (213971) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (218991) DHT: Timeout waiting for response low[0m
+[0;33mW (218991) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (224011) DHT: Timeout waiting for response low[0m
+[0;33mW (224011) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (229031) DHT: Timeout waiting for response low[0m
+[0;33mW (229031) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (234051) DHT: Timeout waiting for response low[0m
+[0;33mW (234051) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (239071) DHT: Timeout waiting for response low[0m
+[0;33mW (239071) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (244091) DHT: Timeout waiting for response low[0m
+[0;33mW (244091) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (249111) DHT: Timeout waiting for response low[0m
+[0;33mW (249111) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (254131) DHT: Timeout waiting for response low[0m
+[0;33mW (254131) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (259151) DHT: Timeout waiting for response low[0m
+[0;33mW (259151) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (264171) DHT: Timeout waiting for response low[0m
+[0;33mW (264171) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (269191) DHT: Timeout waiting for response low[0m
+[0;33mW (269191) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (274211) DHT: Timeout waiting for response low[0m
+[0;33mW (274211) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (279231) DHT: Timeout waiting for response low[0m
+[0;33mW (279231) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (284251) DHT: Timeout waiting for response low[0m
+[0;33mW (284251) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (289271) DHT: Timeout waiting for response low[0m
+[0;33mW (289271) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (294291) DHT: Timeout waiting for response low[0m
+[0;33mW (294291) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (299311) DHT: Timeout waiting for response low[0m
+[0;33mW (299311) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (304331) DHT: Timeout waiting for response low[0m
+[0;33mW (304331) BroilerGuard: DHT11 read failed.[0m
+[0;33mW (309351) DHT: Timeout waiting for response low[0m
+[0;33mW (309351) BroilerGu

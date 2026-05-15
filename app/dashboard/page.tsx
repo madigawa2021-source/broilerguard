@@ -77,11 +77,10 @@ export default function DashboardPage() {
           </div>
 
           {/* Firebase connection status indicator */}
-          <div className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium border ${
-            connected
+          <div className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium border ${connected
               ? "bg-green-500/10 text-green-600 border-green-500/30"
               : "bg-yellow-500/10 text-yellow-600 border-yellow-500/30"
-          }`}>
+            }`}>
             {connected ? (
               <>
                 <Wifi className="h-3 w-3" />

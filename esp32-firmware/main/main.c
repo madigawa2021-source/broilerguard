@@ -67,7 +67,7 @@ static const char *TAG = "BroilerGuard";
 #define GEMINI_PATH      "/v1beta/models/" GEMINI_MODEL ":generateContent?key=" GEMINI_API_KEY
 
 // ─── PIN DEFINITIONS ─────────────────────────────────────────────────────────
-#define DHT11_GPIO          GPIO_NUM_41
+#define DHT11_GPIO          GPIO_NUM_35
 #define VIBRATION_GPIO      GPIO_NUM_39
 #define LDR_ADC_CHANNEL     ADC_CHANNEL_2 // GPIO 3
 #define FAN_RELAY_GPIO      GPIO_NUM_48
@@ -251,8 +251,9 @@ static esp_err_t firebase_request(const char *path, const char *json_body,
     .transport_type             = HTTP_TRANSPORT_OVER_SSL,
     .skip_cert_common_name_check = true,
     .crt_bundle_attach          = esp_crt_bundle_attach,
-    .buffer_size                = 1024,
-    .timeout_ms                 = 10000,
+    .buffer_size                = 4096,
+    .buffer_size_tx             = 4096, // Added to handle large image payloads
+    .timeout_ms                 = 15000,
     };
 
     esp_http_client_handle_t client = esp_http_client_init(&config);
@@ -719,11 +720,20 @@ static void gemini_analysis_task(void *pvParameters)
 
                                 g_gemini_active = false;
                                 
-                                char fb_payload[512];
-                                snprintf(fb_payload, sizeof(fb_payload),
-                                    "{\"analysis\":%s,\"lastUpdated\":{\".sv\":\"timestamp\"}}",
-                                    clean_json);
-                                firebase_request("/camera_analysis", fb_payload, HTTP_METHOD_PUT);
+                                // Construct larger payload including the base64 image
+                                size_t fb_payload_size = strlen(clean_json) + strlen(base64_buf) + 200;
+                                char *fb_payload = malloc(fb_payload_size);
+                                if (fb_payload) {
+                                    snprintf(fb_payload, fb_payload_size,
+                                        "{\"analysis\":%s,\"image\":\"data:image/jpeg;base64,%s\",\"lastUpdated\":{\".sv\":\"timestamp\"}}",
+                                        clean_json, base64_buf);
+                                    
+                                    ESP_LOGI(TAG, "Pushing analysis + image to Firebase...");
+                                    firebase_request("/camera_analysis", fb_payload, HTTP_METHOD_PUT);
+                                    free(fb_payload);
+                                } else {
+                                    ESP_LOGE(TAG, "Failed to allocate memory for Firebase payload");
+                                }
                             }
                         }
                     }

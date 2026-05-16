@@ -14,6 +14,7 @@ import {
 } from "lucide-react"
 
 import { useState } from "react"
+import type { CameraAnalysisData } from "@/lib/useSensorData"
 
 interface AICameraAnalysisProps {
   cameraData: Record<string, CameraAnalysisData>

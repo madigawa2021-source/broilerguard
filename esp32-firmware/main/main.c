@@ -50,20 +50,16 @@
 #include "lwip/dns.h"
 #include "lwip/netdb.h"
 #include "lwip/ip_addr.h"
+#include "secrets.h"
 
 static const char *TAG = "BroilerGuard";
 
 // ─── USER CONFIGURATION — CHANGE THESE ───────────────────────────────────────
-#define WIFI_SSID           "Redmi 9C"
-#define WIFI_PASSWORD       "10987654321"
-#define FIREBASE_HOST       "https://broilerguard-default-rtdb.europe-west1.firebasedatabase.app"
-#define FIREBASE_AUTH       "iauTh0i8FbK9evb2azrzvMPzdFgt3WiYHo13faiJ"
-
-// ─── GEMINI CONFIGURATION ─────────────────────────────────────────────────────
-#define GEMINI_API_KEY   "AIzaSyBFIZ5-eYzMLawp3UepYoKM4YJM0BoOS-o"
+// Credentials are now pulled from secrets.h
+// GEMINI CONFIGURATION
 #define GEMINI_HOST      "generativelanguage.googleapis.com"
 #define GEMINI_PORT      443
-#define GEMINI_MODEL     "gemini-3.1-flash-lite-preview"
+#define GEMINI_MODEL     "gemini-1.5-flash"
 #define GEMINI_PATH      "/v1beta/models/" GEMINI_MODEL ":generateContent?key=" GEMINI_API_KEY
 
 // ─── PIN DEFINITIONS ─────────────────────────────────────────────────────────
@@ -237,35 +233,38 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
 static esp_err_t firebase_request(const char *path, const char *json_body,
                                    esp_http_client_method_t method)
 {
-    if (g_gemini_active) {
-        ESP_LOGW(TAG, "Firebase skipped — Gemini active");
-        return ESP_ERR_INVALID_STATE;
-    }
     char url[300];
     snprintf(url, sizeof(url), "%s%s.json?auth=%s",
              FIREBASE_HOST, path, FIREBASE_AUTH);
 
     esp_http_client_config_t config = {
-    .url                        = url,
-    .event_handler              = http_event_handler,
-    .transport_type             = HTTP_TRANSPORT_OVER_SSL,
-    .skip_cert_common_name_check = true,
-    .crt_bundle_attach          = esp_crt_bundle_attach,
-    .buffer_size                = 4096,
-    .buffer_size_tx             = 4096, // Added to handle large image payloads
-    .timeout_ms                 = 15000,
+        .url                        = url,
+        .event_handler              = http_event_handler,
+        .transport_type             = HTTP_TRANSPORT_OVER_SSL,
+        .skip_cert_common_name_check = true,
+        .crt_bundle_attach          = esp_crt_bundle_attach,
+        .buffer_size                = 4096,
+        .buffer_size_tx             = 10240, // Increased for Base64 image payloads
+        .timeout_ms                 = 20000,
     };
 
+    http_response_len = 0; // Clear buffer
     esp_http_client_handle_t client = esp_http_client_init(&config);
     esp_http_client_set_method(client, method);
     esp_http_client_set_header(client, "Content-Type", "application/json");
-    esp_http_client_set_post_field(client, json_body, strlen(json_body));
+    
+    if (json_body) {
+        esp_http_client_set_post_field(client, json_body, strlen(json_body));
+    }
 
     esp_err_t err = esp_http_client_perform(client);
     if (err == ESP_OK) {
         int status = esp_http_client_get_status_code(client);
         ESP_LOGI(TAG, "Firebase [%s] → HTTP %d", path, status);
+    } else {
+        ESP_LOGE(TAG, "Firebase [%s] Failed: %s", path, esp_err_to_name(err));
     }
+
     esp_http_client_cleanup(client);
     return err;
 }

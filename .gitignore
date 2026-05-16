@@ -1,23 +1,22 @@
-# Node/Next.js
-node_modules/
-.next/
-out/
-build/
-.env*
-.env.local
-.env.production
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+.vercel/
+next.user-config.*
 
-# ESP-IDF specific
+# Environment variables
+.env*.local
+.env
+
+# Common ignores
+node_modules
+.next/
+.DS_Store
+
+# ESP32 Build artifacts
 esp32-firmware/build/
-esp32-firmware/sdkconfig
 esp32-firmware/sdkconfig.old
 esp32-firmware/managed_components/
-esp32-firmware/dependencies.lock
-
-# BroilerGuard Secrets
-esp32-firmware/main/secrets.h
-
-# OS specific
-.DS_Store
-Thumbs.db
-*.log

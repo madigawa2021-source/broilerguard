@@ -194,16 +194,27 @@ export function useAlerts() {
   return alerts
 }
 
+// ─── Camera Analysis hook (reads /camera_analysis node) ──────────────────────
+// ESP32 writes { analysis: {...}, image: "base64...", lastUpdated: 123... }
+
 export function useCameraAnalysis() {
-  const [cameraData, setCameraData] = useState<Record<string, CameraAnalysisData>>({})
+  const [cameraData, setCameraData] = useState<CameraAnalysisData>({
+    analysis: null,
+    image: null,
+    lastUpdated: 0,
+  })
 
   useEffect(() => {
-    const anglesRef = ref(database, "camera_analysis/angles")
+    const cameraRef = ref(database, "camera_analysis")
 
-    const unsubscribe = onValue(anglesRef, (snapshot) => {
+    const unsubscribe = onValue(cameraRef, (snapshot) => {
       const raw = snapshot.val()
       if (raw) {
-        setCameraData(raw)
+        setCameraData({
+          analysis: raw.analysis || null,
+          image: raw.image || null,
+          lastUpdated: raw.lastUpdated || 0,
+        })
       }
     })
 

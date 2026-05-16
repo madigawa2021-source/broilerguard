@@ -13,11 +13,10 @@ import {
   RefreshCw,
 } from "lucide-react"
 
-import { useState } from "react"
 import type { CameraAnalysisData } from "@/lib/useSensorData"
 
 interface AICameraAnalysisProps {
-  cameraData: Record<string, CameraAnalysisData>
+  cameraData: CameraAnalysisData
   onRefresh: () => void
   isRefreshing?: boolean
 }
@@ -27,15 +26,8 @@ export function AICameraAnalysis({
   onRefresh,
   isRefreshing = false,
 }: AICameraAnalysisProps) {
-  const [selectedAngle, setSelectedAngle] = useState("90")
-
-  const currentData = cameraData[selectedAngle] || {
-    analysis: null,
-    image: null,
-    lastUpdated: 0,
-  }
   
-  const analysis = currentData.analysis || {
+  const analysis = cameraData.analysis || {
     totalCount: 0,
     activePercentage: 0,
     feedingPercentage: 0,
@@ -44,15 +36,9 @@ export function AICameraAnalysis({
     alerts: [],
   }
 
-  const lastUpdatedFormatted = currentData.lastUpdated
-    ? new Date(currentData.lastUpdated).toLocaleTimeString()
+  const lastUpdatedFormatted = cameraData.lastUpdated
+    ? new Date(cameraData.lastUpdated).toLocaleTimeString()
     : "Waiting for AI..."
-
-  const angles = [
-    { id: "0", label: "Left (0°)" },
-    { id: "90", label: "Center (90°)" },
-    { id: "180", label: "Right (180°)" },
-  ]
 
   const getHealthColor = (score: number) => {
     if (score >= 90) return "text-primary"
@@ -92,55 +78,32 @@ export function AICameraAnalysis({
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
-        {/* Angle Selection Tabs */}
-        <div className="flex gap-2 p-1 bg-secondary/30 rounded-lg w-fit">
-          {angles.map((angle) => (
-            <button
-              key={angle.id}
-              onClick={() => setSelectedAngle(angle.id)}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
-                selectedAngle === angle.id
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-muted-foreground hover:bg-secondary/50"
-              }`}
-            >
-              {angle.label}
-              {cameraData[angle.id] && (
-                <span className="ml-1.5 h-1.5 w-1.5 rounded-full bg-green-500 inline-block animate-pulse" />
-              )}
-            </button>
-          ))}
-        </div>
-
         {/* Camera Feed */}
         <div className="relative aspect-video overflow-hidden rounded-lg bg-secondary">
           <div className="absolute inset-0 flex items-center justify-center">
-            {currentData.image ? (
+            {cameraData.image ? (
               <img 
-                src={currentData.image} 
-                alt={`Live Pen View - ${selectedAngle}°`} 
+                src={cameraData.image} 
+                alt="Live Pen View" 
                 className="h-full w-full object-cover"
               />
             ) : (
               <div className="text-center">
                 <Eye className="mx-auto h-12 w-12 text-muted-foreground/50" />
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Waiting for angle {selectedAngle}° feed...
+                  Waiting for camera feed...
                 </p>
               </div>
             )}
           </div>
-          <div className="absolute left-3 top-3 flex gap-2">
+          <div className="absolute left-3 top-3">
             <Badge variant="default" className="gap-1">
               <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
               LIVE
             </Badge>
-            <Badge variant="secondary" className="bg-background/60 backdrop-blur-sm">
-              Angle {selectedAngle}°
-            </Badge>
           </div>
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-lg bg-background/80 px-3 py-2 backdrop-blur-sm">
-            <span className="text-sm font-medium">Pen A - Panoramic Scan</span>
+            <span className="text-sm font-medium">Pen A - Camera 1</span>
             <span className="text-xs text-muted-foreground">
               {lastUpdatedFormatted}
             </span>

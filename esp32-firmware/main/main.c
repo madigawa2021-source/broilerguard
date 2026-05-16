@@ -47,17 +47,15 @@
 #include "cJSON.h"
 #include "mbedtls/base64.h"
 #include "esp_camera.h"
-#include "lwip/dns.h"
-#include "lwip/netdb.h"
 #include "lwip/ip_addr.h"
 #include "secrets.h"
 
 static const char *TAG = "BroilerGuard";
 
-// Credentials are now stored in secrets.h to prevent GitHub alerts
+// Credentials are now stored in secrets.h
 #define GEMINI_HOST      "generativelanguage.googleapis.com"
 #define GEMINI_PORT      443
-#define GEMINI_MODEL     "gemini-1.5-flash"
+#define GEMINI_MODEL     "gemini-3.1-flash-lite-preview"
 #define GEMINI_PATH      "/v1beta/models/" GEMINI_MODEL ":generateContent?key=" GEMINI_API_KEY
 
 // ─── PIN DEFINITIONS ─────────────────────────────────────────────────────────
@@ -181,7 +179,9 @@ static void wifi_init(void)
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     ESP_ERROR_CHECK(esp_wifi_start());
-    ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_MIN_MODEM)); // Restore normal power save (fixes ESP32 overheating)
+    
+    // PERMANENTLY DISABLE POWER SAVE FOR HOTSPOT STABILITY
+    ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
     
     // REDUCE WIFI TX POWER TO PREVENT HARDWARE BROWNOUT!
     // Set to 56 (14dBm) for better stability during high-current tasks (TLS/Camera)
@@ -190,18 +190,8 @@ static void wifi_init(void)
     ESP_LOGI(TAG, "Connecting to WiFi: %s ...", WIFI_SSID);
     xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT,
                         pdFALSE, pdTRUE, portMAX_DELAY);
-
-    // Force Static DNS (Google 8.8.8.8) to bypass hotspot DNS issues
-    esp_netif_dns_info_t dns;
-    ip4addr_aton("8.8.8.8", (ip4_addr_t *)&dns.ip.u_addr.ip4);
-    dns.ip.type = IPADDR_TYPE_V4;
-    esp_netif_set_dns_info(sta_netif, ESP_NETIF_DNS_MAIN, &dns);
-
-    // Backup DNS → Cloudflare
-    IP4_ADDR(&dns.ip.u_addr.ip4, 1, 1, 1, 1);
-    ESP_ERROR_CHECK(esp_netif_set_dns_info(sta_netif, ESP_NETIF_DNS_BACKUP, &dns));
-
-    ESP_LOGI(TAG, "DNS Server forced to 8.8.8.8 / 1.1.1.1");
+    
+    ESP_LOGI(TAG, "WiFi connected. IP: Ready");
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -235,20 +225,22 @@ static esp_err_t firebase_request(const char *path, const char *json_body,
         ESP_LOGW(TAG, "Firebase skipped — Gemini active");
         return ESP_ERR_INVALID_STATE;
     }
-    char url[300];
-    snprintf(url, sizeof(url), "%s%s.json?auth=%s",
-             FIREBASE_HOST, path, FIREBASE_AUTH);
+
+    char url[512];
+    snprintf(url, sizeof(url), "%s%s.json?auth=%s", FIREBASE_HOST, path, FIREBASE_AUTH);
 
     esp_http_client_config_t config = {
-    .url                        = url,
-    .event_handler              = http_event_handler,
-    .transport_type             = HTTP_TRANSPORT_OVER_SSL,
-    .skip_cert_common_name_check = true,
-    .crt_bundle_attach          = esp_crt_bundle_attach,
-    .buffer_size                = 4096,
-    .buffer_size_tx             = 4096, // Added to handle large image payloads
-    .timeout_ms                 = 15000,
+        .url = url,
+        .event_handler = http_event_handler,
+        .transport_type = HTTP_TRANSPORT_OVER_SSL,
+        .skip_cert_common_name_check = true,
+        .crt_bundle_attach = esp_crt_bundle_attach,
+        .buffer_size = 2048,
+        .buffer_size_tx = 2048,
+        .timeout_ms = 20000, // 20s for mobile hotspots
     };
+
+    ESP_LOGI(TAG, "Firebase Heap: %u bytes free", (unsigned int)esp_get_free_heap_size());
 
     esp_http_client_handle_t client = esp_http_client_init(&config);
     esp_http_client_set_method(client, method);
@@ -259,6 +251,8 @@ static esp_err_t firebase_request(const char *path, const char *json_body,
     if (err == ESP_OK) {
         int status = esp_http_client_get_status_code(client);
         ESP_LOGI(TAG, "Firebase [%s] → HTTP %d", path, status);
+    } else {
+        ESP_LOGE(TAG, "Firebase Request Failed: %s", esp_err_to_name(err));
     }
     esp_http_client_cleanup(client);
     return err;
@@ -391,9 +385,9 @@ static esp_err_t camera_init(void)
     config.frame_size = FRAMESIZE_QVGA;
     config.pixel_format = PIXFORMAT_JPEG;
     config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
-    config.fb_location = CAMERA_FB_IN_DRAM; // Back to DRAM for compatibility
-    config.jpeg_quality = 15; 
-    config.fb_count = 1; // ONLY 1 buffer to save internal RAM
+    config.fb_location = CAMERA_FB_IN_PSRAM; // Use PSRAM to free internal DRAM
+    config.jpeg_quality = 12; 
+    config.fb_count = 1; 
 
     esp_err_t err = esp_camera_init(&config);
     if (err != ESP_OK) {
@@ -664,9 +658,11 @@ static void gemini_analysis_task(void *pvParameters)
             .crt_bundle_attach = esp_crt_bundle_attach,
             .event_handler     = http_event_handler,
             .timeout_ms        = 60000,
-            .buffer_size       = 4096,
-            .buffer_size_tx    = 4096,
+            .buffer_size       = 2048,
+            .buffer_size_tx    = 2048,
         };
+
+        ESP_LOGI(TAG, "Gemini Heap: %u bytes free", (unsigned int)esp_get_free_heap_size());
 
         http_response_len = 0; // Reset global response buffer
         memset(http_response_buf, 0, HTTP_BUF_SIZE);
@@ -741,8 +737,7 @@ static void gemini_analysis_task(void *pvParameters)
         if (base64_buf) free(base64_buf);
         g_gemini_active = false;
         
-        // RESTORE WIFI POWER SAVE TO PREVENT OVERHEATING DURING IDLE
-        ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_MIN_MODEM));
+        // NO POWER SAVE RESTORE - Keep WiFi awake for hotspot stability
 
         // Run every 15 minutes
         vTaskDelay(pdMS_TO_TICKS(15 * 60 * 1000));

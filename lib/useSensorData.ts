@@ -47,6 +47,9 @@ export interface CameraAnalysisData {
     alerts: { type: "warning" | "critical" | "info"; message: string }[]
   } | null
   image: string | null
+  imageL: string | null
+  imageC: string | null
+  imageR: string | null
   lastUpdated: number
 }
 
@@ -201,6 +204,9 @@ export function useCameraAnalysis() {
   const [cameraData, setCameraData] = useState<CameraAnalysisData>({
     analysis: null,
     image: null,
+    imageL: null,
+    imageC: null,
+    imageR: null,
     lastUpdated: 0,
   })
 
@@ -213,6 +219,9 @@ export function useCameraAnalysis() {
         setCameraData({
           analysis: raw.analysis || null,
           image: raw.image || null,
+          imageL: raw.imageL || null,
+          imageC: raw.imageC || null,
+          imageR: raw.imageR || null,
           lastUpdated: raw.lastUpdated || 0,
         })
       }

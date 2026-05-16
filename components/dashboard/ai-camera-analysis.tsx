@@ -78,35 +78,46 @@ export function AICameraAnalysis({
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
-        {/* Camera Feed */}
-        <div className="relative aspect-video overflow-hidden rounded-lg bg-secondary">
-          <div className="absolute inset-0 flex items-center justify-center">
-            {cameraData.image ? (
-              <img 
-                src={cameraData.image} 
-                alt="Live Pen View" 
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <div className="text-center">
-                <Eye className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Waiting for camera feed...
-                </p>
-              </div>
-            )}
+        {/* Camera Feed — Panoramic View */}
+        <div className="space-y-2">
+          <div className="grid grid-cols-3 gap-2 overflow-hidden rounded-lg">
+            {/* Left Image */}
+            <div className="relative aspect-square bg-secondary">
+              {cameraData.imageL ? (
+                <img src={cameraData.imageL} alt="Left view" className="h-full w-full object-cover" />
+              ) : (
+                <div className="flex h-full items-center justify-center text-muted-foreground/30 text-xs">Left</div>
+              )}
+            </div>
+            {/* Center Image */}
+            <div className="relative aspect-square bg-secondary border-x-2 border-background">
+              {cameraData.imageC ? (
+                <img src={cameraData.imageC} alt="Center view" className="h-full w-full object-cover" />
+              ) : (
+                <div className="flex h-full items-center justify-center text-muted-foreground/30 text-xs">Center</div>
+              )}
+            </div>
+            {/* Right Image */}
+            <div className="relative aspect-square bg-secondary">
+              {cameraData.imageR ? (
+                <img src={cameraData.imageR} alt="Right view" className="h-full w-full object-cover" />
+              ) : (
+                <div className="flex h-full items-center justify-center text-muted-foreground/30 text-xs">Right</div>
+              )}
+            </div>
           </div>
-          <div className="absolute left-3 top-3">
-            <Badge variant="default" className="gap-1">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
-              LIVE
-            </Badge>
-          </div>
-          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-lg bg-background/80 px-3 py-2 backdrop-blur-sm">
-            <span className="text-sm font-medium">Pen A - Camera 1</span>
-            <span className="text-xs text-muted-foreground">
-              {lastUpdatedFormatted}
-            </span>
+          
+          <div className="flex items-center justify-between rounded-lg bg-secondary/30 px-3 py-2">
+             <div className="flex items-center gap-2">
+               <Badge variant="default" className="gap-1 px-1.5 h-5 text-[10px]">
+                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
+                 PANORAMIC LIVE
+               </Badge>
+               <span className="text-xs font-medium">Pen A - 3-Angle View</span>
+             </div>
+             <span className="text-[10px] text-muted-foreground">
+               {lastUpdatedFormatted}
+             </span>
           </div>
         </div>
 

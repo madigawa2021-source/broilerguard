@@ -48,6 +48,7 @@
 #include "mbedtls/base64.h"
 #include "esp_camera.h"
 #include "lwip/ip_addr.h"
+#include "lwip/netdb.h"
 #include "secrets.h"
 
 static const char *TAG = "BroilerGuard";
@@ -55,7 +56,7 @@ static const char *TAG = "BroilerGuard";
 // Credentials are now stored in secrets.h
 #define GEMINI_HOST      "generativelanguage.googleapis.com"
 #define GEMINI_PORT      443
-#define GEMINI_MODEL     "gemini-3.1-flash-lite-preview"
+#define GEMINI_MODEL     "gemini-3.1-flash-lite"
 #define GEMINI_PATH      "/v1beta/models/" GEMINI_MODEL ":generateContent?key=" GEMINI_API_KEY
 
 // ─── PIN DEFINITIONS ─────────────────────────────────────────────────────────
@@ -149,6 +150,30 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
     }
 }
 
+static bool test_dns(void)
+{
+    struct addrinfo hints = {
+        .ai_family = AF_INET,
+        .ai_socktype = SOCK_STREAM
+    };
+
+    struct addrinfo *res;
+
+    int err = getaddrinfo(
+        "google.com",
+        NULL,
+        &hints,
+        &res
+    );
+
+    if (err == 0) {
+        freeaddrinfo(res);
+        return true;
+    }
+
+    return false;
+}
+
 static void wifi_init(void)
 {
     wifi_event_group = xEventGroupCreate();
@@ -180,16 +205,38 @@ static void wifi_init(void)
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     ESP_ERROR_CHECK(esp_wifi_start());
     
+    ESP_LOGI(TAG, "Connecting to WiFi: %s ...", WIFI_SSID);
+    xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT,
+                        pdFALSE, pdTRUE, portMAX_DELAY);
+    
     // PERMANENTLY DISABLE POWER SAVE FOR HOTSPOT STABILITY
     ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
     
     // REDUCE WIFI TX POWER TO PREVENT HARDWARE BROWNOUT!
-    // Set to 56 (14dBm) for better stability during high-current tasks (TLS/Camera)
     ESP_ERROR_CHECK(esp_wifi_set_max_tx_power(56)); 
-    
-    ESP_LOGI(TAG, "Connecting to WiFi: %s ...", WIFI_SSID);
-    xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT,
-                        pdFALSE, pdTRUE, portMAX_DELAY);
+
+    // Force Google DNS to bypass hotspot DNS issues
+    esp_netif_dns_info_t dns;
+    IP4_ADDR(&dns.ip.u_addr.ip4, 8, 8, 8, 8);
+    dns.ip.type = IPADDR_TYPE_V4;
+
+    esp_netif_t *netif = esp_netif_get_handle_from_ifkey("WIFI_STA_DEF");
+    esp_netif_set_dns_info(netif, ESP_NETIF_DNS_MAIN, &dns);
+
+    IP4_ADDR(&dns.ip.u_addr.ip4, 8, 8, 4, 4);
+    esp_netif_set_dns_info(netif, ESP_NETIF_DNS_BACKUP, &dns);
+
+    ESP_LOGI(TAG, "Google DNS configured");
+
+    ESP_LOGI(TAG, "Testing internet...");
+    for (int i = 0; i < 10; i++) {
+        if (test_dns()) {
+            ESP_LOGI(TAG, "Internet OK");
+            break;
+        }
+        ESP_LOGW(TAG, "DNS not ready... retrying");
+        vTaskDelay(pdMS_TO_TICKS(2000));
+    }
     
     ESP_LOGI(TAG, "WiFi connected. IP: Ready");
 }
@@ -211,7 +258,6 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
                 http_response_buf[http_response_len] = '\0';
             }
             break;
-            break;
         default:
             break;
     }
@@ -226,19 +272,26 @@ static esp_err_t firebase_request(const char *path, const char *json_body,
         return ESP_ERR_INVALID_STATE;
     }
 
-    char url[512];
-    snprintf(url, sizeof(url), "%s%s.json?auth=%s", FIREBASE_HOST, path, FIREBASE_AUTH);
+    char full_path[128];
+    snprintf(full_path, sizeof(full_path), "%s.json", path);
+    
+    char query[128];
+    snprintf(query, sizeof(query), "auth=%s", FIREBASE_AUTH);
 
     esp_http_client_config_t config = {
-        .url = url,
+        .host = "broilerguard-default-rtdb.europe-west1.firebasedatabase.app",
+        .path = full_path,
+        .query = query,
         .event_handler = http_event_handler,
         .transport_type = HTTP_TRANSPORT_OVER_SSL,
         .skip_cert_common_name_check = true,
         .crt_bundle_attach = esp_crt_bundle_attach,
         .buffer_size = 2048,
         .buffer_size_tx = 2048,
-        .timeout_ms = 20000, // 20s for mobile hotspots
+        .timeout_ms = 20000, 
     };
+
+    ESP_LOGI(TAG, "Firebase Connection: Host=%s Path=%s", config.host, config.path);
 
     ESP_LOGI(TAG, "Firebase Heap: %u bytes free", (unsigned int)esp_get_free_heap_size());
 
@@ -381,13 +434,13 @@ static esp_err_t camera_init(void)
     config.pin_sccb_scl = CAM_PIN_SIOC;
     config.pin_pwdn = CAM_PIN_PWDN;
     config.pin_reset = CAM_PIN_RESET;
-    config.xclk_freq_hz = 10000000;
-    config.frame_size = FRAMESIZE_QVGA;
+    config.xclk_freq_hz = 8000000; // Lowered to 8MHz for stability
+    config.frame_size = FRAMESIZE_HQVGA; // Smaller size to fit in Internal RAM
     config.pixel_format = PIXFORMAT_JPEG;
     config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
-    config.fb_location = CAMERA_FB_IN_PSRAM; // Use PSRAM to free internal DRAM
-    config.jpeg_quality = 12; 
-    config.fb_count = 1; 
+    config.fb_location = CAMERA_FB_IN_DRAM; 
+    config.jpeg_quality = 14; 
+    config.fb_count = 2; // Cushion for CPU/WiFi spikes
 
     esp_err_t err = esp_camera_init(&config);
     if (err != ESP_OK) {
@@ -562,68 +615,86 @@ static void gemini_analysis_task(void *pvParameters)
         
         vTaskDelay(pdMS_TO_TICKS(3000)); // Let any in-flight Firebase TLS session finish before starting Gemini
         
-        // Capturing Image (Camera is already initialized at boot)
-        ESP_LOGI(TAG, "Gemini Cycle: Capturing Image...");
+        // 1. Capture 3 Images at different angles
+        int angles[] = {45, 90, 135};
+        char *base64_images[3] = {NULL, NULL, NULL};
+        char *base64_buf = NULL; // Main image for Firebase dashboard (90 deg)
         
-        // Grab a dummy frame to discard dark/under-exposed frames
-        camera_fb_t *fb = esp_camera_fb_get();
-        if (fb) esp_camera_fb_return(fb);
-
-        // 1. Capture Real Image
-        fb = esp_camera_fb_get();
-        if (!fb) {
-            ESP_LOGE(TAG, "Camera capture failed");
-            g_gemini_active = false;
-            vTaskDelay(pdMS_TO_TICKS(60000));
-            continue;
-        }
-
-        // 2. Base64 Encode
-        size_t base64_len = 0;
-        mbedtls_base64_encode(NULL, 0, &base64_len, fb->buf, fb->len);
-        char *base64_buf = malloc(base64_len + 1);
-        if (!base64_buf) {
-            ESP_LOGE(TAG, "Failed to allocate memory for Base64");
+        for (int i = 0; i < 3; i++) {
+            ESP_LOGI(TAG, "Panning to %d degrees...", angles[i]);
+            servo_set_angle(angles[i]);
+            vTaskDelay(pdMS_TO_TICKS(1500)); // Give servo time to settle
+            
+            // Warm up sensor
+            camera_fb_t *fb_dummy = esp_camera_fb_get();
+            if (fb_dummy) esp_camera_fb_return(fb_dummy);
+            
+            camera_fb_t *fb = esp_camera_fb_get();
+            if (!fb) {
+                ESP_LOGE(TAG, "Camera capture failed at %d", angles[i]);
+                continue;
+            }
+            
+            size_t b64_len = 0;
+            mbedtls_base64_encode(NULL, 0, &b64_len, fb->buf, fb->len);
+            base64_images[i] = malloc(b64_len + 1);
+            if (base64_images[i]) {
+                size_t written = 0;
+                mbedtls_base64_encode((unsigned char*)base64_images[i], b64_len, &written, fb->buf, fb->len);
+                base64_images[i][written] = '\0';
+                
+                // Keep the center image (90 deg) for the Firebase dashboard
+                if (angles[i] == 90) {
+                    base64_buf = base64_images[i];
+                }
+            }
             esp_camera_fb_return(fb);
-            g_gemini_active = false;
-            vTaskDelay(pdMS_TO_TICKS(60000));
-            continue;
         }
-        
-        size_t written_len = 0;
-        mbedtls_base64_encode((unsigned char*)base64_buf, base64_len, &written_len, fb->buf, fb->len);
-        base64_buf[written_len] = '\0';
-        
-        esp_camera_fb_return(fb);
-        ESP_LOGI(TAG, "Image captured and encoded. Settling power...");
 
-        // Wait for power rail to recover after camera burst
-        vTaskDelay(pdMS_TO_TICKS(4000)); 
+        ESP_LOGI(TAG, "Images captured. Constructing multi-view payload...");
 
-        // 3. Construct Gemini JSON Payload
-        const char *prompt = "You are an expert poultry veterinarian. Analyze this image of a broiler chicken pen. "
-                             "Check the chickens' physical appearance (ruffled feathers, pale wattles) and any visible droppings "
-                             "(bloody/red = Coccidiosis, watery/green = Newcastle, normal = brown/firm). "
-                             "Return ONLY a JSON object exactly like this, no markdown or code blocks: "
+        // 3. Construct Gemini JSON Payload (Multi-Image)
+        const char *prompt = "You are an expert poultry veterinarian. Here are 3 different views of the same broiler chicken pen. "
+                             "Analyze them together to get a full pen overview. "
+                             "Check physical appearance and droppings (red=Coccidiosis, green=Newcastle, brown=firm). "
+                             "Return ONLY a JSON object: "
                              "{\\\"totalCount\\\": 150, \\\"activePercentage\\\": 40, \\\"feedingPercentage\\\": 30, \\\"restingPercentage\\\": 30, "
-                             "\\\"healthScore\\\": 85, \\\"alerts\\\": [{\\\"type\\\": \\\"warning\\\", \\\"message\\\": \\\"Possible watery dropping detected.\\\"}]}";
+                             "\\\"healthScore\\\": 85, \\\"alerts\\\": [{\\\"type\\\": \\\"warning\\\", \\\"message\\\": \\\"...\\\"}]}";
 
-        // Manual construction to avoid cJSON memory overhead for huge strings
-        const char *json_part1 = "{\"contents\":[{\"parts\":[{\"text\":\"";
-        const char *json_part2 = "\"},{\"inline_data\":{\"mime_type\":\"image/jpeg\",\"data\":\"";
-        const char *json_part3 = "\"}}]}]}";
+        const char *json_start = "{\"contents\":[{\"parts\":[{\"text\":\"";
+        const char *json_mid   = "\"},";
+        const char *img_part   = "{\"inline_data\":{\"mime_type\":\"image/jpeg\",\"data\":\"";
+        const char *img_end    = "\"}}";
+        const char *json_end   = "]}]}";
         
-        size_t payload_size = strlen(json_part1) + strlen(prompt) + strlen(json_part2) + written_len + strlen(json_part3) + 1;
-        char *payload = malloc(payload_size);
+        // Calculate size for 3 images
+        size_t total_size = strlen(json_start) + strlen(prompt) + strlen(json_mid) + 50; 
+        for(int i=0; i<3; i++) {
+            if(base64_images[i]) total_size += strlen(img_part) + strlen(base64_images[i]) + strlen(img_end) + 2;
+        }
+        total_size += strlen(json_end) + 10;
+
+        char *payload = malloc(total_size);
         if (!payload) {
-            ESP_LOGE(TAG, "Failed to allocate memory for Gemini Payload");
-            if (base64_buf) free(base64_buf);
+            ESP_LOGE(TAG, "Failed to allocate Multi-Image Payload");
+            for(int i=0; i<3; i++) if(base64_images[i]) free(base64_images[i]);
             g_gemini_active = false;
             vTaskDelay(pdMS_TO_TICKS(10000));
             continue;
         }
         
-        snprintf(payload, payload_size, "%s%s%s%s%s", json_part1, prompt, json_part2, base64_buf, json_part3);
+        // Assemble JSON
+        char *ptr = payload;
+        ptr += sprintf(ptr, "%s%s%s", json_start, prompt, json_mid);
+        for(int i=0; i<3; i++) {
+            if(base64_images[i]) {
+                ptr += sprintf(ptr, "%s%s%s", img_part, base64_images[i], img_end);
+                if(i < 2) ptr += sprintf(ptr, ",");
+            }
+        }
+        sprintf(ptr, "%s", json_end);
+        
+        // DO NOT free base64_images yet! We need them for Firebase.
 
 
         // 4. DNS Resolve & Send to Gemini
@@ -642,17 +713,20 @@ static void gemini_analysis_task(void *pvParameters)
 
         if (!dns_ok) {
             ESP_LOGE(TAG, "Could not resolve Gemini host. Skipping cycle.");
+            if (payload) free(payload);
             if (base64_buf) free(base64_buf);
             g_gemini_active = false;
             vTaskDelay(pdMS_TO_TICKS(60000));
             continue;
         }
 
-        char gemini_url[400];
-        snprintf(gemini_url, sizeof(gemini_url), "https://%s%s", GEMINI_HOST, GEMINI_PATH);
-
+        char gemini_path_only[128];
+        snprintf(gemini_path_only, sizeof(gemini_path_only), "/v1beta/models/%s:generateContent", GEMINI_MODEL);
+        
         esp_http_client_config_t config = {
-            .url               = gemini_url,
+            .host              = GEMINI_HOST,
+            .path              = gemini_path_only,
+            .query             = NULL, // Header-only auth to avoid 403 conflict
             .method            = HTTP_METHOD_POST,
             .transport_type    = HTTP_TRANSPORT_OVER_SSL,
             .crt_bundle_attach = esp_crt_bundle_attach,
@@ -670,9 +744,10 @@ static void gemini_analysis_task(void *pvParameters)
         esp_http_client_handle_t client = esp_http_client_init(&config);
         esp_http_client_set_method(client, HTTP_METHOD_POST);
         esp_http_client_set_header(client, "Content-Type", "application/json");
+        esp_http_client_set_header(client, "x-goog-api-key", GEMINI_API_KEY);
         esp_http_client_set_post_field(client, payload, strlen(payload));
         
-        ESP_LOGI(TAG, "Sending request to Gemini... (Payload size: %u bytes)", strlen(payload));
+        ESP_LOGI(TAG, "Sending request to Gemini... (Payload size: %u bytes)", (unsigned int)strlen(payload));
         
         esp_err_t err = esp_http_client_perform(client);
         free(payload); // Free ~10KB of heap before mbedTLS handshake allocations
@@ -718,28 +793,39 @@ static void gemini_analysis_task(void *pvParameters)
         g_gemini_active = false; // Release lock for Firebase
 
         // --- STEP 7: PUSH TO FIREBASE (ONLY IF WE HAVE RESULTS) ---
-        if (analysis_result && base64_buf) {
+        if (analysis_result) {
             ESP_LOGI(TAG, "Preparing Firebase payload...");
-            size_t fb_size = strlen(analysis_result) + strlen(base64_buf) + 256;
+            
+            // Calculate size for analysis + 3 images
+            size_t fb_size = strlen(analysis_result) + 1024;
+            if (base64_images[0]) fb_size += strlen(base64_images[0]);
+            if (base64_images[1]) fb_size += strlen(base64_images[1]);
+            if (base64_images[2]) fb_size += strlen(base64_images[2]);
+
             char *fb_payload = malloc(fb_size);
             if (fb_payload) {
                 snprintf(fb_payload, fb_size,
-                    "{\"analysis\":%s,\"image\":\"data:image/jpeg;base64,%s\",\"lastUpdated\":{\".sv\":\"timestamp\"}}",
-                    analysis_result, base64_buf);
+                    "{\"analysis\":%s,\"imageL\":\"data:image/jpeg;base64,%s\",\"imageC\":\"data:image/jpeg;base64,%s\",\"imageR\":\"data:image/jpeg;base64,%s\",\"lastUpdated\":{\".sv\":\"timestamp\"}}",
+                    analysis_result, 
+                    base64_images[0] ? base64_images[0] : "",
+                    base64_images[1] ? base64_images[1] : "",
+                    base64_images[2] ? base64_images[2] : "");
                 
-                ESP_LOGI(TAG, "Pushing analysis + image to Firebase...");
+                ESP_LOGI(TAG, "Pushing analysis + 3 images to Firebase...");
                 firebase_request("/camera_analysis", fb_payload, HTTP_METHOD_PUT);
                 free(fb_payload);
             }
             free(analysis_result);
         }
 
-        if (base64_buf) free(base64_buf);
+        // Clean up all images
+        for(int i=0; i<3; i++) { if(base64_images[i]) free(base64_images[i]); }
         g_gemini_active = false;
         
         // NO POWER SAVE RESTORE - Keep WiFi awake for hotspot stability
 
-        // Run every 15 minutes
+        // Wait before next cycle
+        ESP_LOGI(TAG, "Gemini Cycle Complete. Waiting 15 minutes...");
         vTaskDelay(pdMS_TO_TICKS(15 * 60 * 1000));
     }
 }

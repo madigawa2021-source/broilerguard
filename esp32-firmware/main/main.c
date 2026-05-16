@@ -50,20 +50,14 @@
 #include "lwip/dns.h"
 #include "lwip/netdb.h"
 #include "lwip/ip_addr.h"
+#include "secrets.h"
 
 static const char *TAG = "BroilerGuard";
 
-// ─── USER CONFIGURATION — CHANGE THESE ───────────────────────────────────────
-#define WIFI_SSID           "Redmi 9C"
-#define WIFI_PASSWORD       "10987654321"
-#define FIREBASE_HOST       "https://broilerguard-default-rtdb.europe-west1.firebasedatabase.app"
-#define FIREBASE_AUTH       "iauTh0i8FbK9evb2azrzvMPzdFgt3WiYHo13faiJ"
-
-// ─── GEMINI CONFIGURATION ─────────────────────────────────────────────────────
-#define GEMINI_API_KEY   "AIzaSyBN6Fms35wo3I4ed2bp571inJw-6VGvCUg"
+// Credentials are now stored in secrets.h to prevent GitHub alerts
 #define GEMINI_HOST      "generativelanguage.googleapis.com"
 #define GEMINI_PORT      443
-#define GEMINI_MODEL     "gemini-3.1-flash-lite-preview"
+#define GEMINI_MODEL     "gemini-1.5-flash"
 #define GEMINI_PATH      "/v1beta/models/" GEMINI_MODEL ":generateContent?key=" GEMINI_API_KEY
 
 // ─── PIN DEFINITIONS ─────────────────────────────────────────────────────────

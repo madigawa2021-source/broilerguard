@@ -6,7 +6,7 @@ import {
   Smartphone, 
   Shield,
   Wind,
-  Scale,
+  SunMoon,
   Users
 } from "lucide-react"
 
@@ -31,7 +31,7 @@ export function FeaturesSection() {
     {
       icon: Bell,
       title: "Instant Cloud Alerts",
-      description: "Critical events are pushed to Firebase in real-time and appear on the dashboard immediately — temperature spikes, power outages, and intrusion."
+      description: "Critical events are pushed to Firebase in real-time and appear on the dashboard immediately — temperature spikes, lighting changes, and intrusion."
     },
     {
       icon: Shield,
@@ -54,9 +54,9 @@ export function FeaturesSection() {
       description: "Servo motor rotates the camera for a wider field of view across the pen, ensuring full coverage without multiple cameras."
     },
     {
-      icon: Scale,
-      title: "Power Outage Detection",
-      description: "LDR light sensor detects power failures instantly. Triggers immediate alert and logs the outage event to the cloud dashboard."
+      icon: SunMoon,
+      title: "Ambient Light Detection",
+      description: "LDR light sensor detects ambient light levels. Triggers immediate alert when entering night mode and logs the lighting state to the cloud dashboard."
     }
   ]
 

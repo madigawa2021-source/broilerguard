@@ -9,6 +9,7 @@ import {
   Zap,
   TrendingUp,
   TrendingDown,
+  SunMoon,
 } from "lucide-react"
 
 interface StatusCardProps {
@@ -112,7 +113,7 @@ interface StatusCardsProps {
     temperature: number
     humidity: number
     waterLevel: number
-    powerStatus: "grid" | "solar" | "generator" | "battery" | "outage"
+    ambientLight: "day" | "night"
     fan: boolean
     waterMister: boolean
     light: boolean
@@ -141,15 +142,12 @@ export function StatusCards({ data }: StatusCardsProps) {
     return "critical"
   }
 
-  const powerStatusLabels: Record<string, { label: string; status: "normal" | "warning" | "critical" }> = {
-    grid:      { label: "Grid Power",     status: "normal"   },
-    solar:     { label: "Solar Power",    status: "normal"   },
-    generator: { label: "Generator",      status: "warning"  },
-    battery:   { label: "Battery Backup", status: "critical" },
-    outage:    { label: "Power Outage",   status: "critical" },
+  const lightStatusLabels: Record<string, { label: string; status: "normal" | "warning" | "critical" }> = {
+    day:   { label: "Daylight",   status: "normal" },
+    night: { label: "Night Time", status: "warning" },
   }
 
-  const ps = powerStatusLabels[data.powerStatus] ?? powerStatusLabels["grid"]
+  const ps = lightStatusLabels[data.ambientLight] ?? lightStatusLabels["day"]
 
   return (
     <div className="space-y-4">
@@ -182,12 +180,12 @@ export function StatusCards({ data }: StatusCardsProps) {
           subtitle="Tank capacity"
         />
         <StatusCard
-          title="Power Status"
+          title="Ambient Light"
           value={ps.label}
           unit=""
-          icon={<Zap className="h-5 w-5" />}
+          icon={<SunMoon className="h-5 w-5" />}
           status={ps.status}
-          subtitle="Active source"
+          subtitle="Pen lighting status"
         />
       </div>
 

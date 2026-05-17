@@ -5,7 +5,7 @@
  * Hardware:
  *   - DHT11          → Temperature + Humidity         (GPIO4)
  *   - Vibration      → Intrusion detection            (GPIO13)
- *   - LDR            → Light/power outage detection   (GPIO34 ADC)
+ *   - LDR            → Ambient light/night time detection   (GPIO34 ADC)
  *   - Fan relay      → Auto cooling                   (GPIO26)
  *   - Water mister   → Auto humidity control          (GPIO25)
  *   - Light relay    → Pen lighting                   (GPIO27)
@@ -119,7 +119,7 @@ static char http_response_buf[HTTP_BUF_SIZE];
 static int  http_response_len = 0;
 
 // ─── GLOBAL STATE ─────────────────────────────────────────────────────────────
-static bool g_power_ok      = true;
+static bool g_daylight_ok   = true;
 static bool g_fan_on        = false;
 static bool g_mister_on     = false;
 static bool g_light_on      = false;
@@ -346,7 +346,7 @@ static void push_alert(const char *type, const char *category,
     firebase_request("/alerts", json, HTTP_METHOD_POST);
 }
 
-static void check_and_alert(float temp, float hum, bool power_ok)
+static void check_and_alert(float temp, float hum, bool daylight_ok)
 {
     // Critical temperature
     if (temp >= TEMP_CRITICAL_HIGH) {
@@ -382,11 +382,11 @@ static void check_and_alert(float temp, float hum, bool power_ok)
         buzzer_alert(1);
     }
 
-    // Power outage — alert only on transition
-    if (!power_ok && g_power_ok) {
-        push_alert("critical", "power",
-                   "Power Outage Detected",
-                   "Light/power loss in pen. Check power supply.");
+    // Night mode detected — alert only on transition
+    if (!daylight_ok && g_daylight_ok) {
+        push_alert("warning", "lighting",
+                   "Night Time / Lights Off",
+                   "Ambient light levels dropped. Entering night mode.");
         buzzer_beep(BUZZER_LONG_MS);
         vTaskDelay(pdMS_TO_TICKS(200));
         buzzer_beep(BUZZER_LONG_MS);
@@ -921,8 +921,8 @@ static void sensor_task(void *pvParameters)
         adc_oneshot_read(adc1_handle, LDR_ADC_CHANNEL, &ldr_raw);
         update_lighting(ldr_raw);
         
-        // Update power status global based on LDR
-        g_power_ok = (ldr_raw > LDR_DARK_THRESHOLD); // Assuming LDR sees pen lights
+        // Update ambient light status global based on LDR
+        g_daylight_ok = (ldr_raw > LDR_DARK_THRESHOLD); // Assuming LDR sees ambient light
 
         // ── 2. PERIODIC POLLING (Every 1 Minute) ──────────────────────────────
         int64_t now_ms = esp_timer_get_time() / 1000;
@@ -941,18 +941,18 @@ static void sensor_task(void *pvParameters)
                          g_heater_on ? "ON" : "off");
 
                 climate_agent(temp, hum);
-                check_and_alert(temp, hum, g_power_ok);
+                check_and_alert(temp, hum, g_daylight_ok);
 
                 // Push status to Firebase
                 char sensors_json[512];
                 snprintf(sensors_json, sizeof(sensors_json),
                          "{\"temperature\":%.1f,\"humidity\":%.0f,"
-                         "\"power_status\":\"%s\",\"fan\":%s,"
+                         "\"ambient_light\":\"%s\",\"fan\":%s,"
                          "\"water_mister\":%s,\"light\":%s,\"heater\":%s,"
                          "\"vibration\":%s,\"servo_angle\":%d,"
                          "\"last_updated\":{\".sv\":\"timestamp\"}}",
                          temp, hum,
-                         g_power_ok  ? "grid"  : "outage",
+                         g_daylight_ok ? "day" : "night",
                          g_fan_on    ? "true"  : "false",
                          g_mister_on ? "true"  : "false",
                          g_light_on  ? "true"  : "false",

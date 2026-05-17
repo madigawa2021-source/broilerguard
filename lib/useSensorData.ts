@@ -11,7 +11,7 @@ export interface SensorData {
   temperature: number
   humidity: number
   waterLevel: number
-  powerStatus: "grid" | "solar" | "generator" | "battery" | "outage"
+  ambientLight: "day" | "night"
   fan: boolean
   waterMister: boolean
   light: boolean
@@ -30,7 +30,7 @@ export interface ChartPoint {
 export interface AlertItem {
   id: string
   type: "critical" | "warning" | "info" | "resolved"
-  category: "temperature" | "humidity" | "power" | "camera" | "water" | "system"
+  category: "temperature" | "humidity" | "lighting" | "camera" | "water" | "system"
   title: string
   message: string
   timestamp: string
@@ -57,14 +57,14 @@ export interface CameraAnalysisData {
 //   /sensors/temperature  → 31.5
 //   /sensors/humidity     → 62
 //   /sensors/water_level  → 75
-//   /sensors/power_status → "grid"
+//   /sensors/ambient_light → "day"
 
 export function useLiveSensorData() {
   const [data, setData] = useState<SensorData>({
     temperature: 31.5,
     humidity: 62,
     waterLevel: 75,
-    powerStatus: "grid",
+    ambientLight: "day",
     fan: false,
     waterMister: false,
     light: false,
@@ -88,7 +88,7 @@ export function useLiveSensorData() {
             temperature: Number(raw.temperature ?? 31.5),
             humidity: Number(raw.humidity ?? 62),
             waterLevel: Number(raw.water_level ?? 75),
-            powerStatus: (raw.power_status ?? "grid") as SensorData["powerStatus"],
+            ambientLight: (raw.ambient_light ?? "day") as SensorData["ambientLight"],
             fan: Boolean(raw.fan),
             waterMister: Boolean(raw.water_mister),
             light: Boolean(raw.light),

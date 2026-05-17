@@ -146,6 +146,7 @@ export function AlertHistory({ alerts }: AlertHistoryProps) {
                           </>
                         )}
                       </div>
+                    </div>
                   </div>
                 </div>
               )

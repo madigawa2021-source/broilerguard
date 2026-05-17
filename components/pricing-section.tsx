@@ -1,64 +1,26 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Check, ArrowRight } from "lucide-react"
+import { Cpu, Wallet, TrendingUp } from "lucide-react"
 
 export function PricingSection() {
-  const plans = [
+  const pillars = [
     {
-      name: "Starter",
-      description: "Perfect for small-scale farmers just getting started",
-      price: "45,000",
-      period: "/month",
-      capacity: "Up to 2,000 birds",
-      features: [
-        "1 Smart Camera",
-        "Temperature & Humidity Sensors",
-        "SMS & WhatsApp Alerts",
-        "Mobile App Access",
-        "Basic Analytics Dashboard",
-        "Email Support"
-      ],
-      cta: "Start Free Trial",
-      popular: false
+      title: "How It Works",
+      icon: <Cpu className="w-8 h-8 text-primary" />,
+      description: "Our IoT ESP32-S3 hardware monitors temperature and humidity while capturing multi-angle visuals of the pen. Google's Gemini AI analyzes the flock in real-time, detecting early signs of diseases like Newcastle or Coccidiosis from dropping colors and bird behavior. Automated relays manage climate control instantly.",
+      highlight: true
     },
     {
-      name: "Professional",
-      description: "For established farms seeking to maximize efficiency",
-      price: "95,000",
-      period: "/month",
-      capacity: "Up to 10,000 birds",
-      features: [
-        "3 Smart Cameras",
-        "Full Environmental Sensors",
-        "AI Health Detection",
-        "Automated Ventilation Control",
-        "Advanced Analytics & Reports",
-        "Feed Optimization AI",
-        "Priority Phone Support",
-        "Staff Access Accounts"
-      ],
-      cta: "Start Free Trial",
-      popular: true
+      title: "Value to Farmers",
+      icon: <TrendingUp className="w-8 h-8 text-primary" />,
+      description: "Nigerian poultry farmers lose millions to sudden disease outbreaks and heat stress. BroilerGuard provides 24/7 AI vigilance, catching illnesses days before human detection. This dramatically lowers mortality rates, optimizes feed conversion, and directly increases the farmer's profit margins per cycle.",
+      highlight: false
     },
     {
-      name: "Enterprise",
-      description: "For large-scale operations and multi-farm management",
-      price: "Custom",
-      period: "",
-      capacity: "Unlimited birds",
-      features: [
-        "Unlimited Cameras",
-        "Multi-Farm Dashboard",
-        "Custom Integrations",
-        "Dedicated Account Manager",
-        "On-Site Installation",
-        "24/7 Premium Support",
-        "Custom AI Training",
-        "API Access"
-      ],
-      cta: "Contact Sales",
-      popular: false
+      title: "Revenue Model",
+      icon: <Wallet className="w-8 h-8 text-primary" />,
+      description: "We utilize a Hardware-as-a-Service (HaaS) strategy. The core IoT hub is subsidized to eliminate high setup barriers. Farmers then pay an affordable recurring SaaS subscription for AI monitoring, continuous SMS alerts, and complete dashboard access. This ensures scalable, predictable recurring revenue for investors.",
+      highlight: false
     }
   ]
 
@@ -68,70 +30,36 @@ export function PricingSection() {
         {/* Section header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
-            <span className="text-sm text-primary font-medium">Pre-Launch Pricing</span>
+            <span className="text-sm text-primary font-medium">The BroilerGuard Advantage</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-            Choose the Plan That Fits Your Farm
+            Smarter Poultry Farming. Proven Results.
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            BroilerGuard is currently in prototype phase. These plans represent our planned pricing. Interested farmers can register for early access below.
+            A comprehensive solution designed from the ground up to protect flocks, empower farmers, and deliver sustainable ROI.
           </p>
         </div>
 
-        {/* Pricing grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {plans.map((plan) => (
+        {/* Pillars grid */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {pillars.map((pillar) => (
             <div 
-              key={plan.name}
+              key={pillar.title}
               className={`
                 relative rounded-2xl p-8 transition-all duration-300
-                ${plan.popular 
-                  ? 'bg-primary/10 border-2 border-primary scale-105 shadow-xl shadow-primary/10' 
-                  : 'bg-secondary/50 border border-border hover:border-primary/30'
+                ${pillar.highlight 
+                  ? 'bg-primary/5 border border-primary/30 shadow-lg' 
+                  : 'bg-secondary/30 border border-border hover:border-primary/30'
                 }
               `}
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-primary text-primary-foreground text-sm font-semibold px-4 py-1.5 rounded-full">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
-                <p className="text-muted-foreground text-sm">{plan.description}</p>
+              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-background border border-border shadow-sm">
+                {pillar.icon}
               </div>
-
-              <div className="mb-6">
-                <div className="flex items-baseline gap-1">
-                  {plan.price !== "Custom" && <span className="text-muted-foreground text-lg">₦</span>}
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-muted-foreground">{plan.period}</span>
-                </div>
-                <p className="text-sm text-primary mt-2">{plan.capacity}</p>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Button 
-                className={`w-full py-6 text-base ${
-                  plan.popular 
-                    ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
-                    : 'bg-secondary hover:bg-secondary/80 text-foreground border border-border'
-                }`}
-              >
-                {plan.cta}
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              <h3 className="text-2xl font-bold text-foreground mb-4">{pillar.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {pillar.description}
+              </p>
             </div>
           ))}
         </div>

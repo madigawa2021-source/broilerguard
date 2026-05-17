@@ -654,12 +654,25 @@ static void gemini_analysis_task(void *pvParameters)
         ESP_LOGI(TAG, "Images captured. Constructing multi-view payload...");
 
         // 3. Construct Gemini JSON Payload (Multi-Image)
-        const char *prompt = "You are an expert poultry veterinarian. Here are 3 different views of the same broiler chicken pen. "
-                             "Analyze them together to get a full pen overview. "
-                             "Check physical appearance and droppings (red=Coccidiosis, green=Newcastle, brown=firm). "
-                             "Return ONLY a JSON object: "
-                             "{\\\"totalCount\\\": 150, \\\"activePercentage\\\": 40, \\\"feedingPercentage\\\": 30, \\\"restingPercentage\\\": 30, "
-                             "\\\"healthScore\\\": 85, \\\"alerts\\\": [{\\\"type\\\": \\\"warning\\\", \\\"message\\\": \\\"...\\\"}]}";
+        const char *prompt = 
+            "You are an expert poultry veterinarian specializing in Nigerian broiler production. "
+            "You are analyzing 3 camera angles of the same broiler chicken pen. "
+            "The birds are Arbor Acres or Marshall broilers aged 1-6 weeks. "
+            "Optimal conditions: temperature 28-33C, humidity 50-70%, density 10 birds per sqm. "
+            "ANALYZE THE FOLLOWING IN ORDER: "
+            "1. FLOCK BEHAVIOR: Are birds evenly spread (healthy) or clustering in corners (too cold) or near walls/panting (too hot)? "
+            "2. ACTIVITY: Count approximate percentage that are actively moving, feeding at feeders, or resting. "
+            "3. DROPPINGS: Look at litter/floor. Normal=brown firm. Red/bloody=Coccidiosis (CRITICAL). Watery green=Newcastle Disease (CRITICAL). Yellow=Infectious Bursal. "
+            "4. PHYSICAL SIGNS: Ruffled feathers, drooping wings, pale combs, closed eyes = sick birds. "
+            "5. PEN CONDITIONS: Is litter dry or wet? Are feeders/drinkers visible and accessible? "
+            "IMPORTANT RULES: "
+            "- If image is too dark or blurry to analyze, set healthScore to 0 and add an alert saying so. "
+            "- Do not guess. Only report what you can clearly see. "
+            "- totalCount should be your best estimate of visible birds across all 3 views. "
+            "- healthScore: 90-100=Excellent, 70-89=Good, 50-69=Fair, below 50=Poor needs immediate attention. "
+            "Return ONLY a valid JSON object with double quotes, no markdown, no explanation: "
+            "{\\\"totalCount\\\": 150, \\\"activePercentage\\\": 45, \\\"feedingPercentage\\\": 30, \\\"restingPercentage\\\": 25, "
+            "\\\"healthScore\\\": 88, \\\"alerts\\\": [{\\\"type\\\": \\\"warning\\\", \\\"message\\\": \\\"Slight clustering in northeast corner\\\"}]}";
 
         const char *json_start = "{\"contents\":[{\"parts\":[{\"text\":\"";
         const char *json_mid   = "\"},";

@@ -28,7 +28,7 @@ export function ProblemSolutionSection() {
     {
       icon: Zap,
       title: "Instant Alerts",
-      description: "Receive real-time SMS and WhatsApp alerts the moment something needs your attention."
+      description: "Receive real-time alerts on the cloud dashboard the moment something needs your attention — no delays, no manual checks."
     },
     {
       icon: BarChart3,

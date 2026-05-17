@@ -72,7 +72,7 @@ export function FeaturesSection() {
             Everything You Need to Run a Modern Poultry Farm
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive tools designed specifically for Nigerian poultry farmers, with local support and Naira pricing.
+            Comprehensive tools designed specifically for Nigerian poultry farmers, built for local farming conditions and climate.
           </p>
         </div>
 

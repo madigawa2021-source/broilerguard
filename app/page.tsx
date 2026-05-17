@@ -14,7 +14,7 @@ export default function Home() {
       <section id="features">
         <FeaturesSection />
       </section>
-      <section id="pricing">
+      <section id="advantage">
         <PricingSection />
       </section>
       <Footer />

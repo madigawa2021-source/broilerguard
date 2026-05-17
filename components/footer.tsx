@@ -34,39 +34,43 @@ export function Footer() {
 
           {/* Product */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Product</h4>
+            <h4 className="font-semibold text-foreground mb-4">Navigate</h4>
             <ul className="space-y-3">
-              {["Features", "Advantage", "Case Studies", "API Docs", "Integrations"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-muted-foreground hover:text-foreground text-sm transition-colors">
-                    {item}
+              {[
+                { label: "Features", href: "#features" },
+                { label: "Advantage", href: "#advantage" },
+                { label: "Live Dashboard", href: "/dashboard" },
+                { label: "Contact Us", href: "#contact" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="text-muted-foreground hover:text-foreground text-sm transition-colors">
+                    {item.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company */}
+          {/* About */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Company</h4>
+            <h4 className="font-semibold text-foreground mb-4">About</h4>
             <ul className="space-y-3">
-              {["About Us", "Careers", "Blog", "Press", "Partners"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-muted-foreground hover:text-foreground text-sm transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  BroilerGuard is a prototype developed for the Startup Abuja Innovation Challenge 2026.
+                  Built by a passionate team of Nigerian engineers.
+                </p>
+              </li>
             </ul>
           </div>
 
-          {/* Support */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Support</h4>
+          {/* Contact anchor */}
+          <div id="contact">
+            <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <ul className="space-y-3">
-              {["Help Center", "Contact Us", "Installation Guide", "Training Videos", "Community Forum"].map((item) => (
+              {["Help & Support", "Installation Guide", "Report an Issue"].map((item) => (
                 <li key={item}>
-                  <a href="#" className="text-muted-foreground hover:text-foreground text-sm transition-colors">
+                  <a href="mailto:madigawa2021@gmail.com" className="text-muted-foreground hover:text-foreground text-sm transition-colors">
                     {item}
                   </a>
                 </li>

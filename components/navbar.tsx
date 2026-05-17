@@ -41,12 +41,12 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" className="text-foreground">
-              Log In
-            </Button>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Start Free Trial
-            </Button>
+            <a href="#contact">
+              <Button variant="ghost" className="text-foreground">Contact Us</Button>
+            </a>
+            <a href="/dashboard">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Live Dashboard</Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -74,12 +74,12 @@ export function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button variant="ghost" className="justify-start text-foreground">
-                  Log In
-                </Button>
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Start Free Trial
-                </Button>
+                <a href="#contact" onClick={() => setIsOpen(false)}>
+                  <Button variant="ghost" className="justify-start w-full text-foreground">Contact Us</Button>
+                </a>
+                <a href="/dashboard" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Live Dashboard</Button>
+                </a>
               </div>
             </div>
           </div>

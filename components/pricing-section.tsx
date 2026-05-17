@@ -140,7 +140,7 @@ export function PricingSection() {
         <div className="mt-16 text-center">
           <div className="inline-flex flex-col items-center gap-3 max-w-xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2">
-              <span className="text-sm text-accent font-medium">🛠️ Prototype — Built in Kano</span>
+              <span className="text-sm text-accent font-medium">🛠️ BroilerGuard — Built for Nigerian Poultry Farmers</span>
             </div>
             <p className="text-muted-foreground text-sm">
               BroilerGuard is an early-stage prototype developed for the Startup Kano Innovation Challenge 2026.

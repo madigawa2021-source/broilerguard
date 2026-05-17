@@ -131,7 +131,14 @@ export function AlertHistory({ alerts }: AlertHistoryProps) {
                         </div>
                       </div>
                       <div className="mt-2 flex items-center gap-3 text-xs text-muted-foreground">
-                        <span>{alert.timestamp}</span>
+                        <span>
+                          {!isNaN(Number(alert.timestamp)) 
+                            ? new Date(Number(alert.timestamp)).toLocaleString('en-US', { 
+                                month: 'short', day: 'numeric', year: 'numeric', 
+                                hour: 'numeric', minute: '2-digit' 
+                              }).replace(',', ' —') 
+                            : alert.timestamp}
+                        </span>
                         {alert.penId && (
                           <>
                             <span className="text-border">|</span>
@@ -139,7 +146,6 @@ export function AlertHistory({ alerts }: AlertHistoryProps) {
                           </>
                         )}
                       </div>
-                    </div>
                   </div>
                 </div>
               )

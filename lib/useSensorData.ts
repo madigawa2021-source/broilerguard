@@ -46,7 +46,6 @@ export interface CameraAnalysisData {
     healthScore: number
     alerts: { type: "warning" | "critical" | "info"; message: string }[]
   } | null
-  image: string | null
   imageL: string | null
   imageC: string | null
   imageR: string | null
@@ -203,7 +202,6 @@ export function useAlerts() {
 export function useCameraAnalysis() {
   const [cameraData, setCameraData] = useState<CameraAnalysisData>({
     analysis: null,
-    image: null,
     imageL: null,
     imageC: null,
     imageR: null,
@@ -217,12 +215,11 @@ export function useCameraAnalysis() {
       const raw = snapshot.val()
       if (raw) {
         setCameraData({
-          analysis: raw.analysis || null,
-          image: raw.image || null,
-          imageL: raw.imageL || null,
-          imageC: raw.imageC || null,
-          imageR: raw.imageR || null,
-          lastUpdated: raw.lastUpdated || 0,
+          analysis: raw?.analysis || null,
+          imageL: raw?.imageL || null,
+          imageC: raw?.imageC || null,
+          imageR: raw?.imageR || null,
+          lastUpdated: raw?.lastUpdated || 0,
         })
       }
     })

@@ -17,17 +17,17 @@ export function Footer() {
               AI-powered poultry monitoring built for Nigerian farmers. Protect your flock, maximize your profits.
             </p>
             <div className="space-y-2">
-              <a href="tel:+2348012345678" className="flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm">
+              <a href="tel:+2349037358626" className="flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm">
                 <Phone className="w-4 h-4" />
-                +234 801 234 5678
+                +2349037358626
               </a>
-              <a href="mailto:hello@broilerguard.ng" className="flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm">
+              <a href="mailto:madigawa2021@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm">
                 <Mail className="w-4 h-4" />
-                hello@broilerguard.ng
+                madigawa2021@gmail.com
               </a>
               <div className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                <span>14 Adeola Odeku Street, Victoria Island, Lagos</span>
+                <span>Kano, Kano State, Nigeria</span>
               </div>
             </div>
           </div>

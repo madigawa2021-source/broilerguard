@@ -16,7 +16,7 @@ export function HeroSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8">
             <Shield className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">🏆 Startup Abuja Innovation Challenge 2026 — Working Prototype</span>
+            <span className="text-sm text-primary font-medium">🏆 Startup Kano Innovation Challenge 2026 — Working Prototype</span>
           </div>
 
           {/* Main heading */}

@@ -143,7 +143,7 @@ export function PricingSection() {
               <span className="text-sm text-accent font-medium">🛠️ Prototype — Built in Kano</span>
             </div>
             <p className="text-muted-foreground text-sm">
-              BroilerGuard is an early-stage prototype developed for the Startup Abuja Innovation Challenge 2026.
+              BroilerGuard is an early-stage prototype developed for the Startup Kano Innovation Challenge 2026.
               We are actively testing with hardware in the field. If you&apos;re a poultry farmer interested in piloting
               the system, reach out to us.
             </p>

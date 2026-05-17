@@ -20,3 +20,4 @@ node_modules
 esp32-firmware/build/
 esp32-firmware/sdkconfig.old
 esp32-firmware/managed_components/
+esp32-firmware/main/secrets.h
